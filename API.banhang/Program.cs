@@ -24,6 +24,8 @@ builder.Services.AddTransient<iCategoryBUL, CategoryBUL>();
 builder.Services.AddTransient<IcategoryDAL, CategoryDAL>();
 builder.Services.AddTransient<IproductBUL, productBUL>();
 builder.Services.AddTransient<iProductDAL, ProductDAL>();
+builder.Services.AddTransient<IHoaDonBul, HoaDonBUL>();
+builder.Services.AddTransient<iHoadonDAL, HoadonDAL>();
 
 
 
