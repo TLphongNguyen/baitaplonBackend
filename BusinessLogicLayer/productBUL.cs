@@ -39,6 +39,7 @@ namespace BusinessLogicLayer
         {
             return _res.GetAllProduct();
         }
+        
         //public List<dynamic> GetAllJoin()
         //{
 

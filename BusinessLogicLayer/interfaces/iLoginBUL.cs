@@ -12,5 +12,6 @@ namespace BusinessLogicLayer.interfaces
         public Login GetLoginbyId(string id);
         bool Create(Login model);
         bool Update(Login model);
+        public Login login(string taikhoan, string matkhau);
     }
 }

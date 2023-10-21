@@ -14,13 +14,30 @@ namespace DataAccessLayer
         {
             _dbHelper = dbHelper;
         }
+        public Login login(string taikhoan, string matkhau) {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_login",
+                     "@Username", taikhoan,
+                     "@Password", matkhau
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<Login>().FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Login GetLoginbyId(string id)
         {
             string msgError = "";
             try
             {
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "selectLoginbyId",
-                     "@id", id);
+                     "@IDlogin", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<Login>().FirstOrDefault();
@@ -36,9 +53,10 @@ namespace DataAccessLayer
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "login_insert",
-                "@username", model.Username,
-                "@password", model.Password,
-                "@IDmember", model.IDmember
+                "@Username", model.Username,
+                "@Password", model.Password,
+                "@MaLoai", model.MaLoai,
+                "@Email",model.Email
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -58,9 +76,10 @@ namespace DataAccessLayer
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "tbl_login_Upd",
                 "@IdLogin", model.IDlogin,
-                "@manv", model.IDmember,
-                "@taikhoan", model.Username,
-                "@matkhau", model.Password
+                "@Username", model.Username,
+                "@Password", model.Password,
+                "@MaLoai", model.MaLoai,
+                "@Email", model.Email
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
