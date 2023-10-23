@@ -1,0 +1,17 @@
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\BUL.deps.json
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\BUL.dll
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\BUL.pdb
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\DAL.dll
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\DataModel.dll
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\DAL.pdb
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\bin\Debug\net6.0\DataModel.pdb
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.csproj.AssemblyReference.cache
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.GeneratedMSBuildEditorConfig.editorconfig
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.AssemblyInfoInputs.cache
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.AssemblyInfo.cs
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.csproj.CoreCompileInputs.cache
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.csproj.CopyComplete
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.dll
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\refint\BUL.dll
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\BUL.pdb
+E:\hoctap\be\BaiTapLon1\Apinguoidung\Solution1\BUl\obj\Debug\net6.0\ref\BUL.dll
