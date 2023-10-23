@@ -1,4 +1,5 @@
-﻿using DataModel;
+﻿using DataAccessLayer.interfaces;
+using DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DataAccessLayer
             _dbHelper = dbHelper;
         }
 
-        public HoadonModel GetDatabyID(int id)
+        public HoadonModel GetDatabyID(string id)
         {
             string msgError = "";
             try

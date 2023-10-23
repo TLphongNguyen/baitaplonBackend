@@ -16,7 +16,7 @@ namespace API.banhang.Controllers
         }
         [Route("get-by-id/{id}")]
         [HttpGet]
-        public HoadonModel GetDatabyID(int id)
+        public HoadonModel GetDatabyID(string id)
         {
             return _hoadonBusiness.GetDatabyID(id);
         }

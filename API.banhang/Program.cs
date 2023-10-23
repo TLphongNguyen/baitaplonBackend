@@ -33,6 +33,8 @@ builder.Services.AddTransient<IHoaDonBul, HoaDonBUL>();
 builder.Services.AddTransient<iHoadonDAL, HoadonDAL>();
 builder.Services.AddTransient<iNhaCCDAL, NhaCungCapDAL>();
 builder.Services.AddTransient<iNhaCungCapBUL, NhaCungCapBUL>();
+builder.Services.AddTransient<InhapHangBUL, NhapHangBUL>();
+builder.Services.AddTransient<iHdNhapDAL, HDNhapDAL>();
 // configure strongly typed settings objects
 IConfiguration configuration = builder.Configuration;
 var appSettingsSection = configuration.GetSection("AppSettings");

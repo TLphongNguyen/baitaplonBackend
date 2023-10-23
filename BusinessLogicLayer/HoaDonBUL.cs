@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer.interfaces;
 using DataAccessLayer;
+using DataAccessLayer.interfaces;
 using DataModel;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace BusinessLogicLayer
             _res = res;
         }
 
-        public HoadonModel GetDatabyID(int id)
+        public HoadonModel GetDatabyID(string id)
         {
             return _res.GetDatabyID(id);
         }
