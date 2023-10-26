@@ -39,7 +39,14 @@ namespace BusinessLogicLayer
         {
             return _res.GetAllProduct();
         }
-        
+        public List<productModel> GetProductsBY(string ChucNang)
+        {
+            return _res.GetProductsBY(ChucNang);
+        }
+        public List<productModel> GetProductsBYCategory(string IdCategory)
+        {
+            return _res.GetProductsBYCategory(IdCategory);
+        }
         //public List<dynamic> GetAllJoin()
         //{
 

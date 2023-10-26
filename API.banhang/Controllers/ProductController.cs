@@ -115,6 +115,18 @@ namespace API.banhang.Controllers
             return _IproductBUL.GetAllProduct();
 
         }
+        [Route(("get-by-ChucNang-product/{ChucNang}"))]
+        [HttpGet]
+        public List<productModel> getDataBy(string ChucNang)
+        {
+            return _IproductBUL.GetProductsBY(ChucNang);
+        }
+        [Route(("get-by-Category/{IdCategory}"))]
+        [HttpGet]
+        public List<productModel> getDataByIDCategory(string IdCategory)
+        {
+            return _IproductBUL.GetProductsBYCategory(IdCategory);
+        }
         //[Route("search")]
         //[HttpPost]
         //public IActionResult Search([FromBody] Dictionary<string, object> formData)

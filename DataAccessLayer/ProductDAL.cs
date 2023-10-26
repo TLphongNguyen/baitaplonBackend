@@ -118,6 +118,38 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+        public List<productModel> GetProductsBY(string ChucNang)
+        {
+            string msgError = "loi";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_LaySanPhamTheoChucNang",
+                     "@ChucNang", ChucNang);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<productModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<productModel> GetProductsBYCategory(string IdCategory)
+        {
+            string msgError = "loi";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "GetPrdByCategoryID",
+                     "@MaLoai", IdCategory);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<productModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product, string dia_chi)
         //{
         //    string msgError = "";

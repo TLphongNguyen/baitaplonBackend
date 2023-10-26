@@ -14,6 +14,9 @@ namespace DataAccessLayer.interfaces
         bool Update(productModel product);
         bool Delete(productModel product);
         List<productModel> GetAllProduct();
+        List<productModel> GetProductsBY(string ChucNang);
+        List<productModel> GetProductsBYCategory(string IdCategory);
+
         //public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product, string dia_chi);
     }
 }
