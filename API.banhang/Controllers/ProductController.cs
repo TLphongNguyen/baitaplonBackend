@@ -115,7 +115,7 @@ namespace API.banhang.Controllers
             return _IproductBUL.GetAllProduct();
 
         }
-        [Route(("get-by-ChucNang-product/{ChucNang}"))]
+        [Route(("get-by-ChucNang/{ChucNang}"))]
         [HttpGet]
         public List<productModel> getDataBy(string ChucNang)
         {

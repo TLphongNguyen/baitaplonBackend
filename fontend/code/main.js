@@ -1,19 +1,13 @@
 
 const menuLefts = document.querySelectorAll(".category-item");
-menuLefts.forEach((menuLeft)=> {
+menuLefts.forEach((menuLeft,index)=> {
     menuLeft.onclick= () => {
         menuLeft.classList.add("category-item--active")
     }
 })
 
 
-const searchHeaders = document.querySelectorAll(".home-filter__btn.btn");
-searchHeaders.forEach((searchHeader) => {
-    searchHeader.onclick = () => {
-        document.querySelector(".home-filter__btn.btn.btn--primary").classList.remove("btn--primary")
-        searchHeader.classList.add("btn--primary")
-    }
-})
+
 
 
 const modal = document.querySelector(".modal")

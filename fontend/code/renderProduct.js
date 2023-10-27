@@ -1,5 +1,22 @@
 var categoryApi = ' https://localhost:44355/api/Category/get-all'
 var productApi = 'https://localhost:44355/api/Product/getAll-product'
+const searchHeaders = document.querySelectorAll(".home-filter__btn");
+let productMore = "https://localhost:44355/api/Product/get-by-ChucNang/1"
+searchHeaders.forEach((searchHeader,index) => {
+    searchHeader.onclick = () => {
+        productMore = `https://localhost:44355/api/Product/get-by-ChucNang/${index + 1}`
+        
+        document.querySelector(".home-filter__btn.btn.btn--primary").classList.remove("btn--primary")
+        searchHeader.classList.add("btn--primary")
+        
+        GetProduct(renderCodeProduct);
+           
+    }
+    
+        
+    
+    
+})   
 
 function start() {
     GetProduct(renderCodeProduct)
@@ -9,8 +26,9 @@ function start() {
 start();
 
 
+
 function GetProduct(callback) {
-    fetch(productApi)
+    fetch(productMore)
         .then(function (response) {
             return response.json();
         })
@@ -27,7 +45,7 @@ function GetCategory(callback) {
 function rendercodeCategory(category) {
     const listCategory = document.querySelector(".category-list")
     const htmlsCategory = category.map((item)=> {
-        console.log(item)
+        
         return `
         <li class="category-item">
              <a href="#" class="category-item__link">${item.namecategory}</a>
@@ -40,7 +58,7 @@ function rendercodeCategory(category) {
 function renderCodeProduct(product) {
     const listproduct = document.querySelector(".list-product")
     const htmls = product.map((item)=> {
-        console.log(item)
+        
         return `
         <div  class="col l-2-4 m-4 c-6">
         <a class="home-product-item">
