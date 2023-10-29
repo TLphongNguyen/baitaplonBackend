@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logoCPT.png">
+    <link rel="stylesheet" href="../css/style_mainQT.css">
+    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/click.js"></script>
+    <title>Quản lý cửa hàng bán máy tính NCC</title>
+</head>
+
+<body>
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="ten_nv">Admin</span> <i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-1 col-s-12 category">
+                <button onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</button>
+                <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
+                <button onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
+                <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
+                <button onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
+                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
+                <button class="active" onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
+                <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
+                <button onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
+                <button onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</button>
+            </div>
+            <div class="bx-left" id="button-left">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeBTN()"><i
+                        class="far fa-window-close"></i></a>
+                <ul>
+                    <li onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</li>
+                    <li onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</li>
+                    <li onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</li>
+                    <li onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</li>
+                    <li onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</li>
+                    <li onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</li>
+                    <li onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</li>
+                    <li onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</li>
+                    <li onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</li>
+                    <li onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</li>
+                </ul>
+            </div>
+            <div class="col-11 col-s-12 content">
+                <div class="col-6 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-file-import"></i> Nhập thông tin hóa đơn nhập
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Mã hóa đơn nhập:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="mahd"
+                                        placeholder="Nhập mã hóa đơn...Tự động sinh nếu không nhập...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Nhân viên:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <select name="nhanvien" id="nhanviennhap">
+                                        <option value="choose">--Chọn nhân viên--</option>
+                                        <option value="Bùi Mạnh Hùng">Bùi Mạnh Hùng</option>
+                                        <option value="Trương Văn Khánh">Trương Văn Khánh</option>
+                                        <option value="Phạm Văn Giang">Phạm Văn Giang</option>
+                                        <option value="Nguyễn Việt Hưng">Nguyễn Việt Hưng</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Nhà cung cấp:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <select name="nhacungcap" id="nhacungcap">
+                                        <option value="choose">--Chọn nhà cung cấp--</option>
+                                        <option value="Trần Anh">Trần Anh</option>
+                                        <option value="Tiên Tiến">Tiên Tiến</option>
+                                        <option value="Phúc Anh">Phúc Anh</option>
+                                        <option value="An Phát">An Phát</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Tổng sản phẩm:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="number" id="tongsanpham" value="0" readonly>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Tổng tiền:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="number" id="tongtien" value="0" readonly>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Ghi chú:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <textarea id="ghichu" cols="197" rows="4"
+                                        placeholder="Nhập ghi chú (không bắt buộc)..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <table class="table_chitiet">
+                                <tbody id="DSSanPham">
+                                    <tr>
+                                        <th>Mã sản phẩm</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Đơn giá</th>
+                                        <th>Thao tác</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn-form" id="AddSanPham"
+                                style="background-color: rgba(44, 140, 15, 0.8);">Thêm sản phẩm</button>
+                        </div>
+                        <hr>
+                        <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
+                            onclick="ThemHoaDon()">Thêm hóa đơn nhập</button>
+                        <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
+                            onclick="NhapMoi()">Nhập mới</button>
+                    </div>
+                </div>
+                <div class="col-6 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-file-import"></i> Danh sách hóa đơn nhập
+                            <button onclick="XoaChon()" style="margin-right: 3px;"><i class="far fa-trash-alt"></i> Xóa
+                                chọn</button>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 col-s-12 padding-box">
+                                <input type="text" id="search-import" placeholder="Nhập mã hóa đơn nhập...">
+                            </div>
+                            <div class="col-2 col-s-12 padding-box">
+                                <button><i class="fas fas fa-search"></i> Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-s-12 padding-box">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="padding-top: 10px;"><input type="checkbox"
+                                                    onclick="CheckAll(this)"></th>
+                                            <th>Mã HDN</th>
+                                            <th>Nhân viên</th>
+                                            <th>Nhà cung cấp</th>
+                                            <th>Tổng sản phẩm</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listImport"></tbody>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
+                                                    value="" id=""></td>
+                                            <td>111111</td>
+                                            <td>Nguyễn Văn Anh</td>
+                                            <td>Trần Anh</td>
+                                            <td style="text-align: center;">20</td>
+                                            <td style="text-align: right;">48900000</td>
+                                            <td style="text-align: center;">03/06/2021 08:40:05</td>
+                                            <td style="text-align: center;">
+                                                <i class="fas fa-edit" title="Sửa"></i>
+                                                <i class="fas fa-trash-alt" title="Xóa"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody> -->
+                                </table>
+                            </div>
+                            <div class="col-12 col-s-12 padding-box">
+                                <div class="box-sum">
+                                    <div class="box-left">
+                                        Số lượng hóa đơn: <span id="soluong">0</span>
+                                        <br>
+                                        Tổng tiền: <span id="tongtienhd">0</span><span>đ</span>
+                                    </div>
+                                    <div class="box-right">
+                                        <button><i class="fas fa-angle-left"></i></button>
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><i class="fas fa-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = "../admin/login.html";
+            }
+
+            LoadUser();
+
+            // var sanpham = '<tr>\
+            //             <td>\<input type="text" class="" placeholder="Mã sản phẩm...">\</td>\
+            //             <td>\
+            //                 <input type="text" class="" placeholder="Tên sản phẩm...">\
+            //             </td>\
+            //             <td>\
+            //                 <input type="number" class="" placeholder="Số lượng...">\
+            //             </td>\
+            //             <td>\
+            //                 <input type="number" class="" placeholder="Đơn giá...">\
+            //             </td>\
+            //             <td>\
+            //                 <button class="" onclick="XoaSanPham(this)"><i class="fas fa-trash"></i></button>\
+            //             </td>\
+            //         </tr>';
+            // $("#AddSanPham").click(function (e) {
+            //     $("#DSSanPham").append(sanpham);
+            // });
+
+            var list = JSON.parse(localStorage.getItem('Import')) || [];
+
+            function ThemHoaDon() {
+                var mahd = document.getElementById("mahd").value;
+                var nhanviennhap = document.getElementById("nhanviennhap").value;
+                var nhacungcap = document.getElementById("nhacungcap").value;
+                var tongsanpham = document.getElementById("tongsanpham").value;
+                var tongtien = document.getElementById("tongtien").value;
+                var ghichu = document.getElementById("ghichu").value;
+                var ngaytao;
+                var number = /^[0-9]+$/;
+
+                if (mahd == null || mahd == "") {
+                    var d = new Date();
+                    mahd = Number(d);
+                }
+                else if (!mahd.match(number) || mahd.length != 13) {
+                    alert("Mã hóa đơn phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                if (nhanviennhap == "choose") {
+                    alert("Vui lòng chọn nhân viên!");
+                    return false;
+                }
+                else if (nhacungcap == "choose") {
+                    alert("Vui lòng chọn nhà cung cấp!");
+                    return false;
+                }
+                else {
+                    for (var x of list) {
+                        if (x.mahd == mahd) {
+                            alert("Mã hóa đơn đã tồn tại! Vui lòng nhập lại!")
+                            return false;
+                        }
+                    }
+                }
+
+                var date = new Date().toLocaleDateString();
+                var time = new Date().toLocaleTimeString();
+                ngaytao = date + " " + time;
+
+                console.log("AddImport");
+                if (list == null) list = [];
+                var imports = {
+                    "mahd": mahd,
+                    "nhanviennhap": nhanviennhap,
+                    "nhacungcap": nhacungcap,
+                    "tongsanpham": tongsanpham,
+                    "tongtien": tongtien,
+                    "ghichu": ghichu,
+                    "ngaytao": ngaytao
+                };
+                list.push(imports);
+                localStorage.setItem("Import", JSON.stringify(list));
+                alert("Đã thêm thành công!");
+                location.reload();
+            }
+
+            function NhapMoi() {
+                document.getElementById('mahd').value = '';
+                document.getElementById('nhanviennhap').value = 'choose';
+                document.getElementById('nhacungcap').value = 'choose';
+                document.getElementById('tongsanpham').value = '';
+                document.getElementById('tongtien').value = '';
+                document.getElementById('ghichu').value = '';
+                document.getElementById('ngaytao').value = '';
+            }
+
+            function LoadData() {
+                var str = "";
+                var sl = 0;
+                var ttien = 0;
+                list.sort();
+                for (x of list) {
+                    sl++;
+                    ttien += Number(x.tongtien);
+                    str += `<tr>
+                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
+                            <td>`+ x.mahd + `</td>
+                            <td>`+ x.nhanviennhap + `</td>
+                            <td>`+ x.nhacungcap + `</td>
+                            <td style="text-align: center;">`+ x.tongsanpham + `</td>
+                            <td style="text-align: right;">`+ x.tongtien + `</td>
+                            <td style="text-align: center;">`+ x.ngaytao + `</td>
+                            <td style="text-align: center;">
+                                <i class="fas fa-edit" title="Sửa" onclick="SuaHoaDon(`+ x.mahd + `)"></i>
+                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaHoaDon(`+ x.mahd + `)"></i>
+                            </td>
+                        </tr>
+                    `;
+                }
+                document.getElementById("listImport").innerHTML = str;
+                $('#soluong').html(sl);
+                $('#tongtienhd').html(ttien);
+            }
+            LoadData();
+
+            function XoaHoaDon(mahd) {
+                if (confirm("Bạn chắc chắn muốn xóa!")) {
+                    var index = list.findIndex(x => x.mahd == mahd);
+                    if (index >= 0) {
+                        list.splice(index, 1);
+                    }
+                    LoadData();
+                    localStorage.setItem('Import', JSON.stringify(list));
+                }
+            }
+
+            function CheckAll(parent) {
+                var ids = document.getElementsByTagName('input');
+                for (var i = 0; i < ids.length; i++) {
+                    if (ids[i].name == "check_all") {
+                        ids[i].checked = parent.checked;
+                    }
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

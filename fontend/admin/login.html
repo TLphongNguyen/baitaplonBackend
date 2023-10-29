@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logoCPT.png">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/grid.css">
+    <link rel="stylesheet" href="/responsive.css">
+    <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
+    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+    <script src="/code/jquery-3.6.0.min.js"></script>
+    <title>Quản lý cửa hàng bán máy tính NCC</title>
+</head>
+
+<body>
+    <div class="modal">
+        <div class="modal__overlay">
+
+        </div>
+        <div class="modal__body">
+            <!-- form dang ki  -->
+             <!-- <div class="auth-form sub">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn sub">Đăng Nhập</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
+                        </div>
+Đăng ký
+
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="nhập lại mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đã đồng ý với shoppe về
+                            <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__policy-link">chính sách bảo mật</a>
+
+
+                        </p>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
+                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                    </div>
+                </div>
+                <div class="auth-form__socials">
+                    <a href="" class="btn auth-form__socials-facebook btn--size-s btn--with-icon">
+                        <i class="fa-brands  fa-square-facebook auth-form__socials-icon"></i>
+                        <span class="auth-form__socials-title">
+
+                            Kết nối với facebook
+                        </span>
+                    </a>
+                    <a href="" class="btn auth-form__socials-google btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fa-brands fa-google "></i>
+                        <span class="auth-form__socials-title">
+
+                            
+                            Kết nối với google
+                        </span>
+                    </a>
+                </div>
+
+            </div>  -->
+             <!-- form dang nhap -->
+            <div class="auth-form login">
+                <form class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn login">Đăng ký</span>
+                    </div>
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" id ="tk"  placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id ="mk" placeholder="mật khẩu của bạn">
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link auth-form__help-forgot">Quên Mật Khẩu</a>
+                            <span class="auth-form__help-separate">
+
+                            </span>
+                            <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__controls">
+                        <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
+                        <button type="submit" class="btn btn--primary">ĐĂNG NHẬP</button>
+                    </div>
+                </form>
+                <div class="auth-form__socials">
+                    <a href="" class="btn auth-form__socials-facebook btn--size-s btn--with-icon">
+                        <i class="fa-brands  fa-square-facebook auth-form__socials-icon"></i>
+                        <span class="auth-form__socials-title">
+
+                            Kết nối với facebook
+                        </span>
+                    </a>
+                    <a href="" class="btn auth-form__socials-google btn--size-s btn--with-icon">
+                        <i class="auth-form__socials-icon fa-brands fa-google "></i>
+                        <span class="auth-form__socials-title">
+
+                            
+                            Kết nối với google
+                        </span>
+                    </a>
+                </div>
+
+            </div> 
+
+        
+         </div> 
+    </div> 
+    <script>
+        // login
+        
+        const modal = document.querySelector(".modal")
+        const formSub = document.querySelector(".auth-form.sub")
+        const formLogin = document.querySelector(".auth-form.login");
+        const spanSub = document.querySelector(".auth-form__switch-btn.sub")
+        const spanLogin = document.querySelector(".auth-form__switch-btn.login");
+        const btnBacks = document.querySelectorAll(".auth-form__controls-back")
+
+
+        //dang nhap 
+        
+        
+       
+        //login
+          
+
+
+
+        var list = JSON.parse(localStorage.getItem('Staff')) || 
+        [
+        //     {
+        //     anhnv: "",
+        //     emailnv: "",
+        //     manv: 'admin',
+        //     mknv: "123",
+        //     quyen: "Quản lý",
+        //     sdtnv: "",
+        //     tennv: "",
+        //    }
+        ];
+
+        $(".auth-form__container").submit(function (event) {
+            var taikhoan = $('#tk').val();
+            var matkhau = $('#mk').val();
+            debugger;
+            for (x of list) {
+                if ((taikhoan == x.manv && matkhau == x.mknv && x.quyen == "Quản lý")) {
+                    var user = {
+                        manv: x.manv,
+                        tennv: x.tennv,
+                        emailnv: x.emailnv,
+                        sdtnv: x.sdtnv,
+                        mknv: x.mknv
+                    };
+                    localStorage.setItem('user', JSON.stringify(user));
+                    window.location.href = "../admin/TongQuan.html";
+                    break;
+                }
+                else if (taikhoan == x.manv && matkhau == x.mknv && x.quyen == "Nhân viên" && x.trangthai == "Hoạt động") {
+                    var user = {
+                        manv: x.manv,
+                        tennv: x.tennv,
+                        emailnv: x.emailnv,
+                        sdtnv: x.sdtnv,
+                        quyen: x.quyen,
+                        mknv: x.mknv
+                    };
+                    localStorage.setItem('user', JSON.stringify(user));
+                    window.location.href = "../admin/TongQuanNV.html";
+                    break;
+                }
+               
+                else if (taikhoan != x.manv && matkhau != x.mknv) {
+                    alert("Tên đăng nhập hoặc mật khẩu sai! Vui lòng nhập lại!");
+                    break;
+                }
+            }
+            event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

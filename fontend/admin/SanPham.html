@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logoCPT.png">
+    <link rel="stylesheet" href="../css/style_mainQT.css">
+    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/click.js"></script>
+    <title>Quản lý cửa hàng bán máy tính NCC</title>
+</head>
+
+<body>
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="ten_nv">Admin</span> <i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-1 col-s-12 category">
+                <button onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</button>
+                <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
+                <button class="active" onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
+                <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
+                <button onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
+                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
+                <button onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
+                <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
+                <button onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
+                <button onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</button>
+            </div>
+            <div class="bx-left" id="button-left">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeBTN()"><i
+                        class="far fa-window-close"></i></a>
+                <ul>
+                    <li onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</li>
+                    <li onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</li>
+                    <li onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</li>
+                    <li onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</li>
+                    <li onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</li>
+                    <li onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</li>
+                    <li onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</li>
+                    <li onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</li>
+                    <li onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</li>
+                    <li onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</li>
+                </ul>
+            </div>
+            <div class="col-11 col-s-12 content">
+                <div class="col-4 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-barcode"></i> Nhập thông tin sản phẩm
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Loại sản phẩm:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <select name="loaisp" id="loaisp">
+                                        <option value="choose">--Chọn loại sản phẩm--</option>
+                                        <option value="PC Đồ Họa - WORKSTATION">PC Đồ Họa - WORKSTATION</option>
+                                        <option value="PC Gaming, Streaming">PC Gaming, Streaming</option>
+                                        <option value="PC Văn Phòng, AIO, Mini PC">PC Văn Phòng, AIO, Mini PC</option>
+                                        <option value="Laptop, Máy Tính Xách Tay">Laptop, Máy Tính Xách Tay</option>
+                                        <option value="Màn Hình">Màn Hình</option>
+                                        <option value="Linh Kiện Máy Tính">Linh Kiện Máy Tính</option>
+                                        <option value="CPU - Bộ Vi Xử Lý">CPU - Bộ Vi Xử Lý</option>
+                                        <option value="Mainboard - Bo Mạch Chủ">Mainboard - Bo Mạch Chủ</option>
+                                        <option value="RAM - Bộ Nhớ Trong">RAM - Bộ Nhớ Trong</option>
+                                        <option value="Ổ Cứng HDD">Ổ Cứng HDD</option>
+                                        <option value="Ổ Cứng SSD">Ổ Cứng SSD</option>
+                                        <option value="ODD - Ổ đĩa quang">ODD - Ổ đĩa quang</option>
+                                        <option value="VGA - Card Màn Hình">VGA - Card Màn Hình</option>
+                                        <option value="Case - Vỏ Máy Tính">Case - Vỏ Máy Tính</option>
+                                        <option value="PSU - Nguồn Máy Tính">PSU - Nguồn Máy Tính</option>
+                                        <option value="Tản Nhiệt PC, Cooling">Tản Nhiệt PC, Cooling</option>
+                                        <option value="Gaming Gear">Gaming Gear</option>
+                                        <option value="Bàn Phím, Chuột">Bàn Phím, Chuột</option>
+                                        <option value="Bộ Bàn Phím Chuột">Bộ Bàn Phím Chuột</option>
+                                        <option value="Lót Chuột, Bàn Di Chuột">Lót Chuột, Bàn Di Chuột</option>
+                                        <option value="Tai Nghe">Tai Nghe</option>
+                                        <option value="Phụ Kiện Gaming">Phụ Kiện Gaming</option>
+                                        <option value="Phụ Kiện Laptop, PC, Khác">Phụ Kiện Laptop, PC, Khác</option>
+                                        <option value="Dây Cáp Các Loại">Dây Cáp Các Loại</option>
+                                        <option value="Thiết Bị Chuyển Đổi">Thiết Bị Chuyển Đổi</option>
+                                        <option value="Bộ Chia Tín Hiệu">Bộ Chia Tín Hiệu</option>
+                                        <option value="Linh Kiện Laptop">Linh Kiện Laptop</option>
+                                        <option value="Phụ Kiện Khác">Phụ Kiện Khác</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Nhà cung cấp:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <select name="nhacungcap" id="nhacungcap">
+                                        <option value="choose">--Chọn nhà cung cấp--</option>
+                                        <option value="Trần Anh">Trần Anh</option>
+                                        <option value="Tiên Tiến">Tiên Tiến</option>
+                                        <option value="Phúc Anh">Phúc Anh</option>
+                                        <option value="An Phát">An Phát</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Mã sản phẩm:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="masanpham"
+                                        placeholder="Nhập mã sản phẩm...Tự động sinh nếu không nhập...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Tên sản phẩm:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="tensanpham" placeholder="Nhập tên sản phẩm...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Hình ảnh:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="file" id="imgproduct" onchange="loadFile(event)">
+                                    <center>
+                                        <span style="float: left;">View:</span>
+                                        <img id="viewimg" style="max-width:180px;max-height:180px;margin-top: 10px;">
+                                    </center>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Số lượng:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="number" id="slsp" placeholder="Nhập số lượng...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Giá bán:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="number" id="giaban" placeholder="Nhập giá bán...">
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
+                            onclick="ThemSanPham()">Thêm sản phẩm</button>
+                        <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
+                            onclick="NhapMoi()">Nhập mới</button>
+                        <button class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
+                            onclick="CapNhat()">Cập nhật thông tin</button>
+                    </div>
+                </div>
+                <div class="col-8 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-barcode"></i> Danh sách sản phẩm
+                            <button onclick="XoaChon()" style="margin-right: 3px;"><i class="far fa-trash-alt"></i> Xóa
+                                chọn</button>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 col-s-12 padding-box">
+                                <input type="text" id="search-product"
+                                    placeholder="Nhập mã sản phẩm hoặc tên sản phẩm...">
+                            </div>
+                            <div class="col-3 col-s-12 padding-box">
+                                <select name="nhacungcap" id="nhacungcap1">
+                                    <option value="choose">--Chọn nhà cung cấp--</option>
+                                    <option value="Trần Anh">Trần Anh</option>
+                                    <option value="Tiên Tiến">Tiên Tiến</option>
+                                    <option value="Phúc Anh">Phúc Anh</option>
+                                    <option value="An Phát">An Phát</option>
+                                </select>
+                            </div>
+                            <div class="col-3 col-s-12 padding-box">
+                                <select name="loaisp" id="loaisp1">
+                                    <option value="choose">--Chọn loại sản phẩm--</option>
+                                    <option value="PC Đồ Họa - WORKSTATION">PC Đồ Họa - WORKSTATION</option>
+                                    <option value="PC Gaming, Streaming">PC Gaming, Streaming</option>
+                                    <option value="PC Văn Phòng, AIO, Mini PC">PC Văn Phòng, AIO, Mini PC</option>
+                                    <option value="Laptop, Máy Tính Xách Tay">Laptop, Máy Tính Xách Tay</option>
+                                    <option value="Màn Hình">Màn Hình</option>
+                                    <option value="Linh Kiện Máy Tính">Linh Kiện Máy Tính</option>
+                                    <option value="CPU - Bộ Vi Xử Lý">CPU - Bộ Vi Xử Lý</option>
+                                    <option value="Mainboard - Bo Mạch Chủ">Mainboard - Bo Mạch Chủ</option>
+                                    <option value="RAM - Bộ Nhớ Trong">RAM - Bộ Nhớ Trong</option>
+                                    <option value="Ổ Cứng HDD">Ổ Cứng HDD</option>
+                                    <option value="Ổ Cứng SSD">Ổ Cứng SSD</option>
+                                    <option value="ODD - Ổ đĩa quang">ODD - Ổ đĩa quang</option>
+                                    <option value="VGA - Card Màn Hình">VGA - Card Màn Hình</option>
+                                    <option value="Case - Vỏ Máy Tính">Case - Vỏ Máy Tính</option>
+                                    <option value="PSU - Nguồn Máy Tính">PSU - Nguồn Máy Tính</option>
+                                    <option value="Tản Nhiệt PC, Cooling">Tản Nhiệt PC, Cooling</option>
+                                    <option value="Gaming Gear">Gaming Gear</option>
+                                    <option value="Bàn Phím, Chuột">Bàn Phím, Chuột</option>
+                                    <option value="Bộ Bàn Phím Chuột">Bộ Bàn Phím Chuột</option>
+                                    <option value="Lót Chuột, Bàn Di Chuột">Lót Chuột, Bàn Di Chuột</option>
+                                    <option value="Tai Nghe">Tai Nghe</option>
+                                    <option value="Phụ Kiện Gaming">Phụ Kiện Gaming</option>
+                                    <option value="Phụ Kiện Laptop, PC, Khác">Phụ Kiện Laptop, PC, Khác</option>
+                                    <option value="Dây Cáp Các Loại">Dây Cáp Các Loại</option>
+                                    <option value="Thiết Bị Chuyển Đổi">Thiết Bị Chuyển Đổi</option>
+                                    <option value="Bộ Chia Tín Hiệu">Bộ Chia Tín Hiệu</option>
+                                    <option value="Linh Kiện Laptop">Linh Kiện Laptop</option>
+                                    <option value="Phụ Kiện Khác">Phụ Kiện Khác</option>
+                                </select>
+                            </div>
+                            <div class="col-2 col-s-12 padding-box">
+                                <button><i class="fas fas fa-search"></i> Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-s-12 padding-box">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="padding-top: 10px;"><input type="checkbox"
+                                                    onclick="CheckAll(this)"></th>
+                                            <th>Mã sản phẩm</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Hình ảnh</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá bán</th>
+                                            <th>Loại sản phẩm</th>
+                                            <th>Nhà cung cấp</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listProduct"></tbody>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
+                                                    value="" id=""></td>
+                                            <td>111111</td>
+                                            <td>Máy trạm Workstation Dell Precision T582042PT58DW27 Mini Tower</td>
+                                            <td>
+                                                <img src="/Project_2/img/DH_WORKSTATION/Dell_Precision_T5820.jpg">
+                                            </td>
+                                            <td style="text-align: center;">20</td>
+                                            <td style="text-align: right;">48900000</td>
+                                            <td>PC ĐỒ HOẠ – WORKSTATION</td>
+                                            <td>Trần Anh</td>
+                                            <td style="text-align: center;">
+                                                <i class="fas fa-edit" title="Sửa" onclick="SuaSanPham()"></i>
+                                                <i class="fas fa-trash-alt" title="Xóa"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody> -->
+                                </table>
+                            </div>
+                            <div class="col-12 col-s-12 padding-box">
+                                <div class="box-sum">
+                                    <div class="box-left">Số lượng sản phẩm: <span id="soluong">0</span></div>
+                                    <div class="box-right">
+                                        <button><i class="fas fa-angle-left"></i></button>
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><i class="fas fa-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = "../admin/login.html";
+            }
+
+            LoadUser();
+
+            var list = JSON.parse(localStorage.getItem('Product')) || [];
+
+            function ThemSanPham() {
+                var masanpham = document.getElementById("masanpham").value;
+                var tensanpham = document.getElementById("tensanpham").value;
+                var anhsp = document.getElementById("imgproduct").value;
+                var slsp = document.getElementById("slsp").value;
+                var giaban = document.getElementById("giaban").value;
+                var loaisp = document.getElementById("loaisp").value;
+                var nhacungcap = document.getElementById("nhacungcap").value;
+                var number = /^[0-9]+$/;
+
+                if (masanpham == null || masanpham == "") {
+                    var d = new Date();
+                    masanpham = Number(d);
+                }
+                else if (!masanpham.match(number) || masanpham.length != 13) {
+                    alert("Mã sản phẩm phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                if (loaisp == "choose") {
+                    alert("Vui lòng chọn loại sản phẩm!");
+                    return false;
+                }
+                else if (nhacungcap == "choose") {
+                    alert("Vui lòng chọn nhà cung cấp!");
+                    return false;
+                }
+                else if (tensanpham == null || tensanpham == "") {
+                    alert("Tên sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (slsp == null || slsp == "") {
+                    alert("Số lượng sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                } else if (slsp < 0) {
+                    alert("Số lượng sản phẩm phải lớn hơn hoặc bằng 0! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (giaban == null || giaban == "") {
+                    alert("Giá bán sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                } else if (giaban <= 0) {
+                    alert("Giá bán sản phẩm phải lớn hơn 0! Vui lòng nhập lại!");
+                    return false;
+                }
+                else {
+                    for (var x of list) {
+                        if (x.masanpham == masanpham) {
+                            alert("Mã sản phẩm đã tồn tại! Vui lòng nhập lại!")
+                            return false;
+                        }
+                    }
+                }
+
+                console.log("AddProduct");
+                if (list == null) list = [];
+                var product = {
+                    "loaisp": loaisp,
+                    "nhacungcap": nhacungcap,
+                    "masanpham": masanpham,
+                    "tensanpham": tensanpham,
+                    "anhsp": anhsp,
+                    "slsp": slsp,
+                    "giaban": giaban
+                };
+                list.push(product);
+                localStorage.setItem("Product", JSON.stringify(list));
+                alert("Đã thêm thành công!");
+                location.reload();
+            }
+
+            function NhapMoi() {
+                document.getElementById('loaisp').value = 'choose';
+                document.getElementById('nhacungcap').value = 'choose';
+                document.getElementById('masanpham').value = '';
+                document.getElementById('tensanpham').value = '';
+                document.getElementById('imgproduct').value = '';
+                document.getElementById('slsp').value = '';
+                document.getElementById('giaban').value = '';
+            }
+
+            function LoadData() {
+                var str = "";
+                var sl = 0;
+                list.sort();
+                for (x of list) {
+                    sl++;
+                    str += `<tr>
+                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
+                            <td>`+ x.masanpham + `</td>
+                            <td>`+ x.tensanpham + `</td>
+                            <td style="text-align: center;"><img src="`+ x.anhsp + `" ></td>
+                            <td style="text-align: center;">`+ x.slsp + `</td>
+                            <td style="text-align: right;">`+ x.giaban + `</td>
+                            <td>`+ x.loaisp + `</td>
+                            <td>`+ x.nhacungcap + `</td>
+                            <td style="text-align: center;">
+                                <i class="fas fa-edit" title="Sửa" onclick="SuaSanPham(`+ x.masanpham + `)"></i>
+                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaSanPham(`+ x.masanpham + `)"></i>
+                            </td>
+                        </tr>
+                    `;
+                }
+                document.getElementById("listProduct").innerHTML = str;
+                $('#soluong').html(sl);
+            }
+            LoadData();
+
+            function XoaSanPham(masanpham) {
+                if (confirm("Bạn chắc chắn muốn xóa!")) {
+                    var index = list.findIndex(x => x.masanpham == masanpham);
+                    if (index >= 0) {
+                        list.splice(index, 1);
+                    }
+                    LoadData();
+                    localStorage.setItem('Product', JSON.stringify(list));
+                }
+            }
+
+            function CheckAll(parent) {
+                var ids = document.getElementsByTagName('input');
+                for (var i = 0; i < ids.length; i++) {
+                    if (ids[i].name == "check_all") {
+                        ids[i].checked = parent.checked;
+                    }
+                }
+            }
+
+            function loadFile(event) {
+                var image = document.getElementById('viewimg');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            }
+
+            function SuaSanPham(masanpham) {
+                for (x of list) {
+                    if (x.masanpham == masanpham) {
+                        document.getElementById('masanpham').value = x.masanpham;
+                        document.getElementById('tensanpham').value = x.tensanpham;
+                        document.getElementById('imgproduct').value = x.anhsp;
+                        document.getElementById('slsp').value = x.slsp;
+                        document.getElementById('giaban').value = x.giaban;
+                        document.getElementById('loaisp').value = x.loaisp;
+                        document.getElementById('nhacungcap').value = x.nhacungcap;
+                    }
+                }
+            }
+
+            function CapNhat() {
+                var masanpham = document.getElementById("masanpham").value;
+                var tensanpham = document.getElementById("tensanpham").value;
+                var anhsp = document.getElementById("imgproduct").value;
+                var slsp = document.getElementById("slsp").value;
+                var giaban = document.getElementById("giaban").value;
+                var loaisp = document.getElementById("loaisp").value;
+                var nhacungcap = document.getElementById("nhacungcap").value;
+                var number = /^[0-9]+$/;
+                var ok = true;
+
+                if (loaisp == "choose") {
+                    alert("Vui lòng chọn loại sản phẩm!");
+                    return false;
+                }
+                else if (nhacungcap == "choose") {
+                    alert("Vui lòng chọn nhà cung cấp!");
+                    return false;
+                }
+                else if (tensanpham == null || tensanpham == "") {
+                    alert("Tên sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (slsp == null || slsp == "") {
+                    alert("Số lượng sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                } else if (slsp < 0) {
+                    alert("Số lượng sản phẩm phải lớn hơn hoặc bằng 0! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (giaban == null || giaban == "") {
+                    alert("Giá bán sản phẩm không được để trống! Vui lòng nhập lại!");
+                    return false;
+                } else if (giaban <= 0) {
+                    alert("Giá bán sản phẩm phải lớn hơn 0! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                for (x of list) {
+                    if (x.masanpham == masanpham) {
+                        x.loaisp = loaisp;
+                        x.nhacungcap = nhacungcap;
+                        x.masanpham = masanpham;
+                        x.tensanpham = tensanpham;
+                        x.anhsp = anhsp;
+                        x.slsp = slsp;
+                        x.giaban = giaban;
+                        ok = false;
+                        break;
+                    }
+                }
+
+                if (ok == false) {
+                    alert("Cập nhật thông tin thành công!");
+                    localStorage.setItem("Product", JSON.stringify(list));
+                    location.reload();
+                }
+                else {
+                    alert("Cập nhật thông tin thất bại!");
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

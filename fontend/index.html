@@ -17,7 +17,7 @@
 
 
 </head>
-<body >
+<body ng-app="AppBanHang"  ng-controller="HomeCtrl">
     <div class="app">
         <header class="header">
             <div class="grid wide ">  
@@ -425,7 +425,53 @@
                         </nav>
                         <div class="home-product">
                             <div class="row sm-gutter list-product">
-                                
+                                <div  ng-repeat="x in listProduct" class="col l-2-4 m-4 c-6">
+                                    <a href = "#" class="home-product-item">
+                                        <div class="home-product-item__img" style="background-image: url(/img/aogio1.png)" >
+                                        </div>
+                                        <h4 class="home-product-item__name">{{x.Nameproduct}}</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">
+                                            {{x.Priceproduct}}đ
+                                            </span>
+                                            <span class="home-product-item__price-current">
+                                                {{x.Priceproduct}} đ
+                                            </span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like-liked">
+                                                <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                            </span>
+                            
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <span class="home-product-item__sold">{{x.SoLuong}} đã bán</span>
+                                        </div>
+                                        <div class="home-product-item__orign">
+                                            <span class="home-product-item__brand">
+                                            {{x.Namecategory}}
+                                            </span>
+                                            <span class="home-product-item__origin-name">
+                                                Konoha
+                                            </span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fa-solid fa-check"></i>
+                                            <span>yêu thích</span> 
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-precent">{{x.sale}}%</span>
+                                            <div class="home-product-item__sale-off-label">GIẢM</div>
+                                        </div>
+                                    </a>
+                                    
+                                </div>
                    
                                 
                             </div>
@@ -587,123 +633,15 @@
 
     </div>
      
-    <div class="modal">
-        <div class="modal__overlay">
-
-        </div>
-        <div class="modal__body">
-            <!-- form dang ki  -->
-             <div class="auth-form sub">
-                <div class="auth-form__container">
-                    <div class="auth-form__header">
-                        <h3 class="auth-form__heading">Đăng ký</h3>
-                        <span class="auth-form__switch-btn sub">Đăng Nhập</span>
-                    </div>
-                    <div class="auth-form__form">
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
-                        </div>
-
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="nhập lại mật khẩu">
-                        </div>
-                    </div>
-
-                    <div class="auth-form__aside">
-                        <p class="auth-form__policy-text">
-                            Bằng việc đăng kí, bạn đã đồng ý với shoppe về
-                            <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
-                            <a href="" class="auth-form__policy-link">chính sách bảo mật</a>
+   
+    <script  src="/code/main.js"></script>
+    <script type="module" src = "/code/renderProduct.js"></script>
+    <!-- <script src = "/code/angular.min.js"></script>
+    <script src = "/code/global.js"></script>
+    <script src = "/code/home.js"></script> -->
+    <script src = "/code/renderCategory.js"></script>
 
 
-                        </p>
-                    </div>
 
-                    <div class="auth-form__controls">
-                        <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
-                        <button class="btn btn--primary">ĐĂNG KÝ</button>
-                    </div>
-                </div>
-                <div class="auth-form__socials">
-                    <a href="" class="btn auth-form__socials-facebook btn--size-s btn--with-icon">
-                        <i class="fa-brands  fa-square-facebook auth-form__socials-icon"></i>
-                        <span class="auth-form__socials-title">
-
-                            Kết nối với facebook
-                        </span>
-                    </a>
-                    <a href="" class="btn auth-form__socials-google btn--size-s btn--with-icon">
-                        <i class="auth-form__socials-icon fa-brands fa-google "></i>
-                        <span class="auth-form__socials-title">
-
-                            
-                            Kết nối với google
-                        </span>
-                    </a>
-                </div>
-
-            </div> 
-             <!-- form dang nhap -->
-            <div class="auth-form login">
-                <div class="auth-form__container">
-                    <div class="auth-form__header">
-                        <h3 class="auth-form__heading">Đăng nhập</h3>
-                        <span class="auth-form__switch-btn login">Đăng ký</span>
-                    </div>
-                    <div class="auth-form__form">
-                        <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                        </div>
-                        <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
-                        </div>
-
-                        
-                    </div>
-
-                    <div class="auth-form__aside">
-                        <div class="auth-form__help">
-                            <a href="" class="auth-form__help-link auth-form__help-forgot">Quên Mật Khẩu</a>
-                            <span class="auth-form__help-separate">
-
-                            </span>
-                            <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
-                        </div>
-                    </div>
-
-                    <div class="auth-form__controls">
-                        <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
-                        <button class="btn btn--primary">ĐĂNG NHẬP</button>
-                    </div>
-                </div>
-                <div class="auth-form__socials">
-                    <a href="" class="btn auth-form__socials-facebook btn--size-s btn--with-icon">
-                        <i class="fa-brands  fa-square-facebook auth-form__socials-icon"></i>
-                        <span class="auth-form__socials-title">
-
-                            Kết nối với facebook
-                        </span>
-                    </a>
-                    <a href="" class="btn auth-form__socials-google btn--size-s btn--with-icon">
-                        <i class="auth-form__socials-icon fa-brands fa-google "></i>
-                        <span class="auth-form__socials-title">
-
-                            
-                            Kết nối với google
-                        </span>
-                    </a>
-                </div>
-
-            </div> 
-
-        
-         </div> 
-    </div> 
-    <script src="/code/main.js"></script>
-    
-    <script src = "/code/renderProduct.js"></script>
 </body>
 </html>

@@ -47,14 +47,11 @@ namespace BusinessLogicLayer
         {
             return _res.GetProductsBYCategory(IdCategory);
         }
-        //public List<dynamic> GetAllJoin()
-        //{
 
-        //}
 
-        //public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product, string dia_chi)
-        //{
-        //    return _res.Search(pageIndex, pageSize, out total, Name_product, dia_chi);
-        //}
+        public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product)
+        {
+            return _res.Search(pageIndex, pageSize, out total, Name_product);
+        }
     }
 }

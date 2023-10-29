@@ -4,6 +4,9 @@ using DAL.interfaces;
 using DAL;
 using DataModel;
 using DataAccessLayer;
+using BusinessLogicLayer.interfaces;
+using BusinessLogicLayer;
+using DataAccessLayer.interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -20,6 +23,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
 builder.Services.AddTransient<ICustomerBUL,CustomerBUL>();
 builder.Services.AddTransient<iCustomerDAL, CustomerDAL>();
+builder.Services.AddTransient<IproductBUL, productBUL>();
+builder.Services.AddTransient<iProductDAL, ProductDAL>();
 
 // Configure the HTTP request pipeline.
 builder.Services.AddControllers();

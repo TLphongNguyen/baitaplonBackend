@@ -1,0 +1,312 @@
+.link-out {
+    width: 100%;
+    height: auto;
+}
+
+.link-out .link {
+    max-width: 1220px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.link-out .link a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #00a2ff;
+}
+
+.content-in .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.content-in .row1::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    width: 100%;
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .content-in .box-right {
+        display: none;
+    }
+}
+
+.content-in {
+    max-width: 1220px;
+}
+
+.content-in .row1 {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 8px 0px;
+}
+
+.content-in .row1:first-child {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0px 0px 8px 0px;
+}
+
+.content-in .box-right .title {
+    font-weight: bold;
+    text-align: center;
+    background-color: #00a2ff;
+    color: white;
+    padding: 8px;
+}
+
+.content-in .content {
+    padding: 8px 8px;
+    position: relative;
+    height: auto;
+}
+
+.content-in .content1 {
+    padding: 0px 8px;
+    position: relative;
+    height: auto;
+}
+
+.content-in .box-right {
+    padding-left: 18px;
+}
+
+.content-in .content .img-new-left {
+    width: 100%;
+    height: 150px;
+}
+
+.content-in .content .img-new-left:hover {
+    opacity: 0.7;
+}
+
+.content-in .title-new {
+    padding: 0px 0px 0px 10px;
+}
+
+.content-in .title-new a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+}
+
+.content-in .title-new a:hover {
+    color: #00a2ff;
+}
+
+.content-in .title-new p {
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 8px;
+    color: black;
+}
+
+.content-in .title-new span {
+    font-size: 12px;
+    color: #aaa8a8;
+}
+
+.content-in .seemore {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.content-in .seemore button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #00a2ff;
+    cursor: pointer;
+}
+
+.content-in .seemore button:hover {
+    opacity: 0.7;
+}
+
+.content-in .box-right-small {
+    height: 80px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.content-in .box-right-small .img-small {
+    float: left;
+    width: 40%;
+    height: 80px;
+}
+
+.content-in .box-right-small img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-in .box-right-small img:hover {
+    opacity: 0.7;
+}
+
+.content-in .box-right-small .txt-small a {
+    float: left;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 1px 5px 5px 10px;
+    width: 60%;
+    text-decoration: none;
+    color: black;
+}
+
+.content-in .box-right-small .txt-small a:hover {
+    color: #00a2ff;
+}
+
+.content-in .box-right-small .txt-small span {
+    font-size: 12px;
+    color: #aaa8a8;
+    padding-left: 10px;
+}
+
+.content-in .row .content .title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #00a2ff;
+}
+
+.content-in .row .content .title1 {
+    font-weight: bold;
+    text-align: justify;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 24px;
+}
+
+.content-in .row .content .suggestions {
+    margin: 12px 0px 12px 15px;
+}
+
+.content-in .row .content .suggestions a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.content-in .row .content .suggestions a:hover {
+    text-decoration: underline;
+}
+
+.content-in .row .content .content-small {
+    font-size: 14px;
+    text-align: justify;
+    line-height: 24px;
+}
+
+.content-in .row .content .title-small {
+    font-weight: bold;
+    font-size: 20px;
+    color: #00a2ff;
+    margin: 8px 0px;
+}
+
+.content-in .row .content .img-tt {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.content-in .row .content .source {
+    font-size: 14px;
+    margin: 20px 0px;
+    text-align: right;
+    font-style: italic;
+}
+
+.content-in .row .content hr {
+    border: 1px solid #dbdbdb;
+    width: 100%;
+}

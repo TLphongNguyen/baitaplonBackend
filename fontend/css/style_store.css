@@ -1,0 +1,389 @@
+.link-out {
+    width: 100%;
+    height: auto;
+}
+
+.link-out .link {
+    max-width: 1220px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.link-out .link a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #00a2ff;
+}
+
+[class*="col-"] {
+    width: 50%;
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+[class*="colo-"] {
+    width: 100%;
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .colo-s-1 {
+        width: 8.33%;
+    }
+    .colo-s-2 {
+        width: 16.66%;
+    }
+    .colo-s-3 {
+        width: 25%;
+    }
+    .colo-s-4 {
+        width: 33.33%;
+    }
+    .colo-s-5 {
+        width: 41.66%;
+    }
+    .colo-s-6 {
+        width: 50%;
+    }
+    .colo-s-7 {
+        width: 58.33%;
+    }
+    .colo-s-8 {
+        width: 66.66%;
+    }
+    .colo-s-9 {
+        width: 75%;
+    }
+    .colo-s-10 {
+        width: 83.33%;
+    }
+    .colo-s-11 {
+        width: 91.66%;
+    }
+    .colo-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .colo-1 {
+        width: 8.33%;
+    }
+    .colo-2 {
+        width: 16.66%;
+    }
+    .colo-3 {
+        width: 25%;
+    }
+    .colo-4 {
+        width: 33.33%;
+    }
+    .colo-5 {
+        width: 41.66%;
+    }
+    .colo-6 {
+        width: 50%;
+    }
+    .colo-7 {
+        width: 58.33%;
+    }
+    .colo-8 {
+        width: 66.66%;
+    }
+    .colo-9 {
+        width: 75%;
+    }
+    .colo-10 {
+        width: 83.33%;
+    }
+    .colo-11 {
+        width: 91.66%;
+    }
+    .colo-12 {
+        width: 100%;
+    }
+}
+
+.content-in {
+    max-width: 1220px;
+    padding: 10px;
+}
+
+.content-in .title-box {
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid #00a2ff;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.content-in .title-box .title {
+    font-weight: bold;
+    color: white;
+    background: #00a2ff;
+    height: 100%;
+    width: 120px;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.content-in .title-box .sp1 {
+    content: '';
+    display: block;
+    line-height: 40px;
+    background: #6ac5fa;
+    width: 15px;
+    height: 31px;
+    position: absolute;
+    top: 8px;
+    left: 122px;
+    margin-right: -13px;
+    transform: skewX(13deg);
+    border-radius: 0 5px 0 0;
+}
+
+.content-in .title-box .sp2 {
+    content: '';
+    display: block;
+    line-height: 40px;
+    background: #00a2ff;
+    width: 18px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 112px;
+    margin-right: -7px;
+    transform: skewX(21deg);
+    border-radius: 0 5px 0 0;
+}
+
+.content-in .title-box .sort-box {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+
+.content-in .title-box .sort-box select {
+    border: 1px solid #dbdbdb;
+    padding: 5px;
+}
+
+.content-in .row .page {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.content-in .row .page button {
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px 10px;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    font-size: 14px;
+}
+
+.content-in .row .page button:hover {
+    background-color: #00a2ff;
+    color: white;
+}
+
+.content-in .box {
+    padding-left: 15px;
+}
+
+.content-in .box p {
+    font-weight: bold;
+    text-align: center;
+    background-color: #00a2ff;
+    color: white;
+    padding: 8px;
+}
+
+.content-in .box ul {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.content-in .box ul li {
+    list-style: none;
+    position: relative;
+    border-bottom: none;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.content-in .box a {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    padding-left: 10px;
+}
+
+.content-in .box a:hover {
+    color: white;
+    background-color: #00a2ff;
+}
+
+.content-in .box ul li ul {
+    display: none;
+}
+
+.content-in .box ul li:hover ul {
+    display: contents;
+}
+
+.content-in .box span {
+    position: absolute;
+    right: 5px;
+}
+
+.content-in .content {
+    padding: 8px 8px;
+    position: relative;
+    border: 1px solid #dbdbdb;
+    margin-top: 10px;
+    height: 310px;
+}
+
+.content-in .content1 {
+    padding: 0px 8px;
+    position: relative;
+    margin-top: 10px;
+    height: auto;
+}
+
+.content-in .content img {
+    width: 100%;
+    height: 200px;
+}
+
+.content-in .content img:hover {
+    transform: scale(1.07);
+}
+
+.content-in .text_product_1 {
+    line-height: 0.6cm;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.content-in .text_product_1 a {
+    text-decoration: none;
+    color: black;
+}
+
+.content-in .span_price_up {
+    text-decoration: line-through;
+    color: gray;
+    position: absolute;
+    bottom: 0px;
+    left: 6px;
+}
+
+.content-in .span_price_down {
+    color: red;
+    margin-left: 15px;
+    position: absolute;
+    bottom: 0px;
+    right: 6px;
+}
+
+.content-in .text_product_1 a:hover {
+    color: #00a2ff;
+}
+
+@media screen and (max-width: 1023px) {
+    .content-in .box {
+        display: none;
+    }
+}

@@ -1,0 +1,291 @@
+.filter-out {
+    padding: 0px 10px;
+}
+
+.filter {
+    max-width: 1220px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    margin-top: 20px;
+    height: auto;
+}
+
+.filter .title {
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 10px 15px 10px;
+}
+
+.filter .box {
+    width: 100%;
+}
+
+.filter .box .box-left {
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+    width: 19%;
+}
+
+.filter .box .box-right {
+    width: 81%;
+    height: auto;
+    display: inline-block;
+}
+
+.filter .box .box-right .name {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.filter .box .box-right .name:hover {
+    background-color: #00a2ff;
+    color: white;
+}
+
+.main-out {
+    padding: 0px 10px;
+}
+
+.main {
+    max-width: 1220px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    margin-top: 20px;
+    height: auto;
+}
+
+.main .box-inner {
+    width: 100%;
+    margin-top: 15px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.main .box-inner .box-left {
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+    width: 19%;
+    padding-left: 10px;
+}
+
+.main .box-inner .box-right {
+    width: 81%;
+    height: auto;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.main .box-inner .box-right .name {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.main .box-inner .box-right .name:hover {
+    background-color: #00a2ff;
+    color: white;
+}
+
+.main .box-inner .box-right .price {
+    font-size: 14px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.main .box-inner .box-right .price input {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    width: 120px;
+}
+
+.main .box-inner .box-right .price button {
+    border: none;
+    font-size: 14px;
+    padding: 6px 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #00a2ff;
+    color: white;
+    margin-left: 3px;
+}
+
+.main .box-inner .box-right .price button:hover {
+    opacity: 0.7;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* For mobile phones: */
+
+[class*="col-"] {
+    width: 50%;
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+.main-out .main .box-bottom .row .content {
+    padding: 8px;
+    position: relative;
+    margin-top: 10px;
+    height: 330px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.main-out .main .box-bottom .row .content img {
+    width: 100%;
+    height: 200px;
+}
+
+.main-out .main .box-bottom .row .content img:hover {
+    transform: scale(1.07);
+}
+
+.main-out .main .box-bottom .row .span_price_up {
+    text-decoration: line-through;
+    color: gray;
+    position: absolute;
+    bottom: 0px;
+    left: 12px;
+}
+
+.main-out .main .box-bottom .row .span_price_down {
+    color: red;
+    margin-left: 15px;
+    position: absolute;
+    bottom: 0px;
+    right: 12px;
+}
+
+.main-out .main .box-bottom .row .text_product_1 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.main-out .main .box-bottom .row .text_product_1 a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-out .main .box-bottom .row .text_product_1 a:hover {
+    color: #00a2ff;
+}
+.page {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page button {
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px 10px;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    font-size: 14px;
+}
+
+.page button:hover {
+    background-color: #00a2ff;
+    color: white;
+}

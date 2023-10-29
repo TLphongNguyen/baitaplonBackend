@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Project_2/img/logoCPT.png">
+    <link rel="stylesheet" href="/Project_2/css/style_mainQT.css">
+    <link rel="stylesheet" href="../css/style_mainQT.css">
+    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+    <script src="/Project_2/js/jquery-3.6.0.min.js"></script>
+    <script src="/Project_2/js/click.js"></script>
+    <title>Quản lý cửa hàng bán máy tính NCC</title>
+</head>
+
+<body>
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="ten_nv">Admin</span> <i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-1 col-s-12 category">
+                <button onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</button>
+                <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
+                <button onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
+                <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
+                <button onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
+                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
+                <button onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
+                <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
+                <button class="active" onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
+                <button onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</button>
+            </div>
+            <div class="bx-left" id="button-left">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeBTN()"><i
+                        class="far fa-window-close"></i></a>
+                <ul>
+                    <li onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</li>
+                    <li onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</li>
+                    <li onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</li>
+                    <li onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</li>
+                    <li onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</li>
+                    <li onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</li>
+                    <li onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</li>
+                    <li onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</li>
+                    <li onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</li>
+                    <li onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</li>
+                </ul>
+            </div>
+            <div class="col-11 col-s-12 content">
+                <div class="col-6 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-newspaper"></i> Nhập thông tin tin tức
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Mã tin tức:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="matintuc"
+                                        placeholder="Nhập mã tin tức...Tự động sinh nếu không nhập...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Tiêu đề:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="tieude" placeholder="Nhập tiêu đề tin tức...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Nhân viên đăng:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <select name="nhanvien" id="nhanviendang">
+                                        <option value="choose">--Chọn nhân viên--</option>
+                                        <option value="Bùi Mạnh Hùng">Bùi Mạnh Hùng</option>
+                                        <option value="Trương Văn Khánh">Trương Văn Khánh</option>
+                                        <option value="Phạm Văn Giang">Phạm Văn Giang</option>
+                                        <option value="Nguyễn Việt Hưng">Nguyễn Việt Hưng</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Nội dung:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <textarea id="noidungtt" cols="197" rows="8"
+                                        placeholder="Nhập nội dung tin tức..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
+                            onclick="ThemTinTuc()">Thêm tin tức</button>
+                        <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
+                            onclick="NhapMoi()">Nhập mới</button>
+                        <button class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
+                            onclick="CapNhat()">Cập nhật thông tin</button>
+                    </div>
+                </div>
+                <div class="col-6 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-newspaper"></i> Danh sách tin tức
+                            <button onclick="XoaChon()" style="margin-right: 3px;"><i class="far fa-trash-alt"></i> Xóa
+                                chọn</button>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 col-s-12 padding-box">
+                                <input type="text" id="search-product" placeholder="Nhập mã tin tức...">
+                            </div>
+                            <div class="col-2 col-s-12 padding-box">
+                                <button><i class="fas fas fa-search"></i> Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-s-12 padding-box">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="padding-top: 10px;"><input type="checkbox"
+                                                    onclick="CheckAll(this)"></th>
+                                            <th>Mã tin tức</th>
+                                            <th>Tiêu đề</th>
+                                            <th>Nhân viên đăng</th>
+                                            <th>Thời gian đăng</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listNews"></tbody>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
+                                                    value="" id=""></td>
+                                            <td>999991</td>
+                                            <td>Tin tức 1...</td>
+                                            <td>Bùi Mạnh Hùng</td>
+                                            <td>03/06/2021 08:40:05</td>
+                                            <td style="text-align: center;">
+                                                <i class="fas fa-edit" title="Sửa" onclick="SuaTinTuc()"></i>
+                                                <i class="fas fa-trash-alt" title="Xóa"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody> -->
+                                </table>
+                            </div>
+                            <div class="col-12 col-s-12 padding-box">
+                                <div class="box-sum">
+                                    <div class="box-left">Số lượng tin tức: <span id="soluong">0</span></div>
+                                    <div class="box-right">
+                                        <button><i class="fas fa-angle-left"></i></button>
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><i class="fas fa-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = "../admin/login.html";
+            }
+
+            LoadUser();
+
+            var list = JSON.parse(localStorage.getItem('News')) || [];
+
+            function ThemTinTuc() {
+                var matintuc = document.getElementById("matintuc").value;
+                var tieude = document.getElementById("tieude").value;
+                var nhanviendang = document.getElementById("nhanviendang").value;
+                var noidungtt = document.getElementById("noidungtt").value;
+                var thoigiandang;
+                var number = /^[0-9]+$/;
+
+                if (matintuc == null || matintuc == "") {
+                    var d = new Date();
+                    matintuc = Number(d);
+                }
+                else if (!matintuc.match(number) || matintuc.length != 13) {
+                    alert("Mã tin tức phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                if (tieude == null || tieude == "") {
+                    alert("Tiêu đề tin tức không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (nhanviendang == "choose") {
+                    alert("Vui lòng chọn nhân viên đăng!");
+                    return false;
+                }
+                else if (noidungtt == null || noidungtt == "") {
+                    alert("Nội dung tin tức không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else {
+                    for (var x of list) {
+                        if (x.matintuc == matintuc) {
+                            alert("Mã tin tức đã tồn tại! Vui lòng nhập lại!")
+                            return false;
+                        }
+                    }
+                }
+
+                var date = new Date().toLocaleDateString();
+                var time = new Date().toLocaleTimeString();
+                thoigiandang = date + " " + time;
+
+                console.log("AddNews");
+                if (list == null) list = [];
+                var news = {
+                    "matintuc": matintuc,
+                    "tieude": tieude,
+                    "nhanviendang": nhanviendang,
+                    "thoigiandang": thoigiandang,
+                    "noidungtt": noidungtt
+                };
+                list.push(news);
+                localStorage.setItem("News", JSON.stringify(list));
+                alert("Đã thêm thành công!");
+                location.reload();
+            }
+
+            function NhapMoi() {
+                document.getElementById('matintuc').value = '';
+                document.getElementById('tieude').value = '';
+                document.getElementById('nhanviendang').value = 'choose';
+                document.getElementById('noidungtt').value = '';
+            }
+
+            function LoadData() {
+                var str = "";
+                var sl = 0;
+                list.sort();
+                for (x of list) {
+                    sl++;
+                    str += `<tr>
+                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
+                            <td>`+ x.matintuc + `</td>
+                            <td>`+ x.tieude + `</td>
+                            <td>`+ x.nhanviendang + `</td>
+                            <td style="text-align: center;">`+ x.thoigiandang + `</td>
+                            <td style="text-align: center;">
+                                <i class="fas fa-edit" title="Sửa" onclick="SuaTinTuc(`+ x.matintuc + `)"></i>
+                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaTinTuc(`+ x.matintuc + `)"></i>
+                            </td>
+                        </tr>
+                    `;
+                }
+                document.getElementById("listNews").innerHTML = str;
+                $('#soluong').html(sl);
+            }
+            LoadData();
+
+            function XoaTinTuc(matintuc) {
+                if (confirm("Bạn chắc chắn muốn xóa!")) {
+                    var index = list.findIndex(x => x.matintuc == matintuc);
+                    if (index >= 0) {
+                        list.splice(index, 1);
+                    }
+                    LoadData();
+                    localStorage.setItem('News', JSON.stringify(list));
+                }
+            }
+
+            function CheckAll(parent) {
+                var ids = document.getElementsByTagName('input');
+                for (var i = 0; i < ids.length; i++) {
+                    if (ids[i].name == "check_all") {
+                        ids[i].checked = parent.checked;
+                    }
+                }
+            }
+
+            function SuaTinTuc(matintuc) {
+                for (x of list) {
+                    if (x.matintuc == matintuc) {
+                        document.getElementById('matintuc').value = x.matintuc;
+                        document.getElementById('tieude').value = x.tieude;
+                        document.getElementById('nhanviendang').value = x.nhanviendang;
+                        document.getElementById('noidungtt').value = x.noidungtt;
+                    }
+                }
+            }
+
+            function CapNhat() {
+                var matintuc = document.getElementById("matintuc").value;
+                var tieude = document.getElementById("tieude").value;
+                var nhanviendang = document.getElementById("nhanviendang").value;
+                var noidungtt = document.getElementById("noidungtt").value;
+                var thoigiandang;
+                var ok = true;
+
+                if (tieude == null || tieude == "") {
+                    alert("Tiêu đề tin tức không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (nhanviendang == "choose") {
+                    alert("Vui lòng chọn nhân viên đăng!");
+                    return false;
+                }
+                else if (noidungtt == null || noidungtt == "") {
+                    alert("Nội dung tin tức không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                var date = new Date().toLocaleDateString();
+                var time = new Date().toLocaleTimeString();
+                thoigiandang = date + " " + time;
+
+                for (x of list) {
+                    if (x.matintuc == matintuc) {
+                        x.matintuc = matintuc;
+                        x.ten = matintuc;
+                        x.nhanviendang = nhanviendang;
+                        x.thoigiandang = thoigiandang;
+                        x.noidungtt = noidungtt;
+                        ok = false;
+                        break;
+                    }
+                }
+
+                if (ok == false) {
+                    alert("Cập nhật thông tin thành công!");
+                    localStorage.setItem("News", JSON.stringify(list));
+                    location.reload();
+                }
+                else {
+                    alert("Cập nhật thông tin thất bại!");
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    position: 0px;
+    margin: 0px auto;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body, html {
+    height: 100%
+}
+
+.bgimg {
+    background-image: url('../img/background_login.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+form {
+    width: 450px;
+    height: auto;
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.main .inp {
+    border-bottom: 1px solid #dbdbdb;
+    width: 80%;
+    padding: 15px 0px;
+}
+
+.main .title {
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+input[type="text"], [type="password"] {
+    width: 89%;
+    background: url('img/background_login.jpg');
+    border: none;
+    color: white;
+    margin-left: 2%;
+    font-size: 14px;
+    padding-left: 8px;
+}
+
+input[type="submit"] {
+    margin-top: 22px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 80%;
+    color: white;
+    border: none;
+    background-color: #00a2ff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.7;
+}
+
+.main .miss-pass {
+    text-align: right;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.main .miss-pass a {
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.main .miss-pass a:hover {
+    text-decoration: underline;
+}

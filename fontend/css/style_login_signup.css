@@ -1,0 +1,331 @@
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* For mobile phones: */
+
+[class*="col-"] {
+    width: 100%;
+    float: left;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {
+        width: 8.33%;
+    }
+    .col-s-2 {
+        width: 16.66%;
+    }
+    .col-s-3 {
+        width: 25%;
+    }
+    .col-s-4 {
+        width: 33.33%;
+    }
+    .col-s-5 {
+        width: 41.66%;
+    }
+    .col-s-6 {
+        width: 50%;
+    }
+    .col-s-7 {
+        width: 58.33%;
+    }
+    .col-s-8 {
+        width: 66.66%;
+    }
+    .col-s-9 {
+        width: 75%;
+    }
+    .col-s-10 {
+        width: 83.33%;
+    }
+    .col-s-11 {
+        width: 91.66%;
+    }
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+.main-login {
+    max-width: 1220px;
+    padding: 0px 10px;
+}
+
+.main-login .box-title {
+    border-bottom: 2px solid #00a2ff;
+    margin-top: 40px;
+}
+
+.main-login .box-title .title {
+    background-color: #00a2ff;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    color: white;
+    border-radius: 0px 15px 0px 0px;
+    margin-left: 0px;
+}
+
+.main-login .row .padding-le .margin-bot {
+    margin-bottom: 10px;
+}
+
+.main-login .row .padding-le {
+    padding: 10px 25px;
+}
+
+.main-login .row .padding-le .title1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.main-login .row .padding-le label {
+    font-size: 15px;
+}
+
+.main-login .row .padding-le input[type="text"], input[type="password"] {
+    padding: 8px;
+    font-size: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.main-login .row .padding-le button {
+    padding: 9px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+}
+
+.main-login .row .padding-le button:hover {
+    opacity: 0.7;
+}
+
+.main-login .row .padding-le .clearfix a {
+    text-decoration: none;
+    font-size: 15px;
+    font-style: italic;
+    float: right;
+}
+
+.main-login .row .padding-le .clearfix a:hover {
+    text-decoration: underline;
+}
+
+.main-login .row .padding-le .btn-login-as {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main-login .row .padding-le .p1 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.main-login .row .padding-le .p2 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.main-login .row .padding-le .a1 {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #00a2ff;
+}
+
+.main-login .row .padding-le .a1:hover {
+    color: red;
+}
+
+.main-signup {
+    max-width: 1220px;
+    padding: 0px 10px;
+}
+
+.main-signup .box-title {
+    border-bottom: 2px solid #00a2ff;
+    margin-top: 40px;
+}
+
+.main-signup .box-title .title {
+    background-color: #00a2ff;
+    width: 98px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    color: white;
+    border-radius: 0px 15px 0px 0px;
+    margin-left: 0px;
+}
+
+.main-signup .row .padding-le .margin-bot {
+    margin-bottom: 10px;
+}
+
+.main-signup .row .padding-le {
+    padding: 10px 25px;
+}
+
+.main-signup .row .padding-le .title1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.main-signup .row .padding-le .margin-bot label {
+    font-size: 15px;
+}
+
+.main-signup .row .padding-le .margin-bot input[type="text"], input[type="password"], input[type="email"], select {
+    padding: 8px;
+    font-size: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.main-signup .row .padding-le .margin-bot button {
+    padding: 9px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+}
+
+.main-signup .row .padding-le .margin-bot button:hover {
+    opacity: 0.7;
+}
+
+.main-signup .row .padding-le .clearfix {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.main-signup .row .padding-le .clearfix button {
+    padding: 10px 30px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    background-color: #00a2ff;
+}
+
+.main-signup .row .padding-le .clearfix button:hover {
+    opacity: 0.7;
+}
+
+.main-misspass {
+    max-width: 1220px;
+    padding: 0px 10px;
+}
+
+.main-misspass .box-title {
+    border-bottom: 2px solid #00a2ff;
+    margin-top: 40px;
+}
+
+.main-misspass .box-title .title {
+    background-color: #00a2ff;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px;
+    color: white;
+    border-radius: 0px 15px 0px 0px;
+    margin-left: 0px;
+}
+
+.main-misspass .row .padding-le .margin-bot {
+    margin-bottom: 10px;
+}
+
+.main-misspass .row .padding-le {
+    padding: 10px 25px;
+}
+
+.main-misspass .row .padding-le .title1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.main-misspass .row .padding-le .margin-bot label {
+    font-size: 15px;
+}
+
+.main-misspass .row .padding-le .margin-bot input[type="text"] {
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.main-misspass .row .padding-le .clearfix {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.main-misspass .row .padding-le .clearfix button {
+    padding: 10px 30px;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    background-color: #00a2ff;
+}
+
+.main-misspass .row .padding-le .clearfix button:hover {
+    opacity: 0.7;
+}

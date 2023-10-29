@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/logoCPT.png">
+    <link rel="stylesheet" href="../css/style_mainQT.css">
+    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/click.js"></script>
+    <title>Quản lý cửa hàng bán máy tính NCC</title>
+</head>
+
+<body>
+    <section class="header">
+        <a href="javascript:void(0);" class="icon" onclick="openBTN()">
+            <i class="fas fa-bars"></i>
+        </a>
+        <div class="box-login" id="box-t">
+            Xin chào, <span id="ten_nv">Admin</span> <i class="fas fa-sort-down"></i>
+            <div class="box-login-bottom" id="box-b">
+                <button onclick="TTTaiKhoan()"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                <button onclick="LogOut();"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="row">
+            <div class="col-1 col-s-12 category">
+                <button onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</button>
+                <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
+                <button onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
+                <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
+                <button class="active" onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
+                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
+                <button onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
+                <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
+                <button onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
+                <button onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</button>
+            </div>
+            <div class="bx-left" id="button-left">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeBTN()"><i
+                        class="far fa-window-close"></i></a>
+                <ul>
+                    <li onclick="TongQuan()"><i class="fas fa-tachometer-alt"></i> Tổng quan</li>
+                    <li onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</li>
+                    <li onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</li>
+                    <li onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</li>
+                    <li onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</li>
+                    <li onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</li>
+                    <li onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</li>
+                    <li onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</li>
+                    <li onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</li>
+                    <li onclick="ThietLap()"><i class="fas fa-cogs"></i> Thiết lập</li>
+                </ul>
+            </div>
+            <div class="col-11 col-s-12 content">
+                <div class="col-4 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-users"></i> Nhập thông tin khách hàng
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <form>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Mã khách hàng:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="makh"
+                                        placeholder="Nhập mã khách hàng...Tự động sinh nếu không nhập...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Tên khách hàng:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="tenkh" placeholder="Nhập tên khách hàng...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Số điện thoại:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="tel" id="sdtkh" placeholder="Nhập số điện thoại khách hàng...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Email:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="email" id="emailkh" placeholder="Nhập email khách hàng...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Địa chỉ:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="text" id="diachikh" placeholder="Nhập địa chỉ khách hàng...">
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <label for="txtright">Mật khẩu:</label>
+                                </div>
+                                <div class="col-12 col-s-12 padding-box">
+                                    <input type="password" id="mkkh" placeholder="Nhập mật khẩu khách hàng...">
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
+                            onclick="ThemKhachHang()">Thêm khách hàng</button>
+                        <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
+                            onclick="NhapMoi()">Nhập mới</button>
+                    </div>
+                </div>
+                <div class="col-8 col-s-12 content">
+                    <div class="tabcontent">
+                        <div class="title">
+                            <i class="fas fa-users"></i> Danh sách khách hàng
+                            <button onclick="XoaChon()" style="margin-right: 3px;"><i class="far fa-trash-alt"></i> Xóa
+                                chọn</button>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-10 col-s-12 padding-box">
+                                <input type="text" id="search-customer"
+                                    placeholder="Nhập mã, tên hoặc số điện thoại khách hàng...">
+                            </div>
+                            <div class="col-2 col-s-12 padding-box">
+                                <button><i class="fas fas fa-search"></i> Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-s-12 padding-box">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="padding-top: 10px;"><input type="checkbox"
+                                                    onclick="CheckAll(this)">
+                                            </th>
+                                            <th>Mã khách hàng</th>
+                                            <th>Tên khách hàng</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Email</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listCustomer"></tbody>
+                                    <!-- <tbody>
+                                        <tr>
+                                            <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
+                                                    value="" id=""></td>
+                                            <td>222221</td>
+                                            <td>Nguyễn Văn Anh</td>
+                                            <td>0965452458</td>
+                                            <td>nvanh@gmail.com</td>
+                                            <td>Gia Lộc - Hải Dương</td>
+                                            <td style="text-align: center;">
+                                                <i class="fas fa-edit" title="Sửa" onclick="SuaKhachHang()"></i>
+                                                <i class="fas fa-trash-alt" title="Xóa"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody> -->
+                                </table>
+                            </div>
+                            <div class="col-12 col-s-12 padding-box">
+                                <div class="box-sum">
+                                    <div class="box-left">
+                                        Số lượng khách hàng: <span id="soluong">0</span>
+                                    </div>
+                                    <div class="box-right">
+                                        <button><i class="fas fa-angle-left"></i></button>
+                                        <button>1</button>
+                                        <button>2</button>
+                                        <button>3</button>
+                                        <button>4</button>
+                                        <button><i class="fas fa-angle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = "../admin/login.html";
+            }
+
+            LoadUser();
+
+            var list = JSON.parse(localStorage.getItem('Customer')) || [];
+
+            function ThemKhachHang() {
+                var makh = document.getElementById("makh").value;
+                var tenkh = document.getElementById("tenkh").value;
+                var sdtkh = document.getElementById("sdtkh").value;
+                var emailkh = document.getElementById("emailkh").value;
+                var diachikh = document.getElementById("diachikh").value;
+                var mkkh = document.getElementById("mkkh").value;
+                var number = /^[0-9]+$/;
+                var atposition = emailkh.indexOf("@");
+                var dotposition = emailkh.lastIndexOf(".");
+
+                if (makh == null || makh == "") {
+                    var d = new Date();
+                    makh = Number(d);
+                }
+                else if (!makh.match(number) || makh.length != 13) {
+                    alert("Mã khách hàng phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
+                    return false;
+                }
+
+                if (tenkh == null || tenkh == "") {
+                    alert("Tên khách hàng không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (sdtkh == null || sdtkh == "") {
+                    alert("Số điện thoại khách hàng không được để trống! Vui lòng nhập lại!");
+                    return false;
+                } else if (!sdtkh.match(number) || sdtkh.length != 10) {
+                    alert("Số điện thoại khách hàng phải là kiểu số và có độ dài là 10 ký tự! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (emailkh != "" && emailkh != null && (atposition < 1 || dotposition < (atposition + 2) || (dotposition + 2) >= emailkh.length)) {
+                    alert("Email khách hàng không hợp lệ! Vui lòng nhập lại!");
+                    return false;
+                }
+                else if (diachikh == null || diachikh == "") {
+                    alert("Địa chỉ khách hàng không được để trống! Vui lòng nhập lại!");
+                    return false;
+                }
+                else {
+                    for (var x of list) {
+                        if (x.makh == makh) {
+                            alert("Mã khách hàng đã tồn tại! Vui lòng nhập lại!")
+                            return false;
+                        }
+                    }
+                }
+
+                console.log("AddCustomer");
+                if (list == null) list = [];
+                var customer = {
+                    "makh": makh,
+                    "tenkh": tenkh,
+                    "sdtkh": sdtkh,
+                    "emailkh": emailkh,
+                    "diachikh": diachikh,
+                    "mkkh": mkkh
+                };
+                list.push(customer);
+                localStorage.setItem("Customer", JSON.stringify(list));
+                alert("Đã thêm thành công!");
+                location.reload();
+            }
+
+            function NhapMoi() {
+                document.getElementById('makh').value = '';
+                document.getElementById('tenkh').value = '';
+                document.getElementById('sdtkh').value = '';
+                document.getElementById('emailkh').value = '';
+                document.getElementById('diachikh').value = '';
+                document.getElementById('mkkh').value = '';
+            }
+
+            function LoadData() {
+                var str = "";
+                var sl = 0;
+                list.sort();
+                for (x of list) {
+                    sl++;
+                    str += `<tr>
+                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
+                            <td>`+ x.makh + `</td>
+                            <td>`+ x.tenkh + `</td>
+                            <td>`+ x.sdtkh + `</td>
+                            <td>`+ x.emailkh + `</td>
+                            <td>`+ x.diachikh + `</td>
+                            <td style="text-align: center;">
+                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaKhachHang(`+ x.makh + `)"></i>
+                            </td>
+                        </tr>
+                    `;
+                }
+                document.getElementById("listCustomer").innerHTML = str;
+                $('#soluong').html(sl);
+            }
+            LoadData();
+
+            function XoaKhachHang(makh) {
+                if (confirm("Bạn chắc chắn muốn xóa!")) {
+                    var index = list.findIndex(x => x.makh == makh);
+                    if (index >= 0) {
+                        list.splice(index, 1);
+                    }
+                    LoadData();
+                    localStorage.setItem('Customer', JSON.stringify(list));
+                }
+            }
+
+            function CheckAll(parent) {
+                var ids = document.getElementsByTagName('input');
+                for (var i = 0; i < ids.length; i++) {
+                    if (ids[i].name == "check_all") {
+                        ids[i].checked = parent.checked;
+                    }
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

@@ -29,7 +29,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw ex;
+                    throw ex;
             }
         }
         public bool Create(productModel model)
@@ -150,26 +150,25 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
-        //public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product, string dia_chi)
-        //{
-        //    string msgError = "";
-        //    total = 0;
-        //    try
-        //    {
-        //        var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_khach_search",
-        //            "@page_index", pageIndex,
-        //            "@page_size", pageSize,
-        //            "@ten_khach", Name_product,
-        //            "@dia_chi", dia_chi);
-        //        if (!string.IsNullOrEmpty(msgError))
-        //            throw new Exception(msgError);
-        //        if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
-        //        return dt.ConvertTo<productModel>().ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        public List<productModel> Search(int pageIndex, int pageSize, out long total, string Name_product)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "products_search",
+                    "@page_index", pageIndex,
+                    "@page_size", pageSize,
+                    "@Nameproduct", Name_product);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<productModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

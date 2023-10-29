@@ -81,7 +81,7 @@ html{
     left: 0;
     bottom: 0;
     display: flex;
-    display: none;
+    /* display: none; */
 
 }
 
