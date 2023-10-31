@@ -38,11 +38,11 @@ namespace DataAccessLayer
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoadon_create",
-                "@TenKH", model.TenKH,
-                "@Diachi", model.DiaChi,
+                "@tenKH", model.tenKH,
+                "@Diachi", model.Diachi,
                 "@Datehoadon" ,model.Datehoadon,
                 "@SDTKH", model.SDTKH,
-                "@DiaChiNhanHang" , model.DiaChiNhanHang,
+                "@DiaChiGiaoHang" , model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -62,11 +62,11 @@ namespace DataAccessLayer
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoa_don_update",
                 "@MaHoaDon", model.IDhoadon,
-                "@TenKH", model.TenKH,
-                "@Diachi", model.DiaChi,
+                "@TenKH", model.tenKH,
+                "@Diachi", model.Diachi,
                 "@Datehoadon", model.Datehoadon,
                 "@SDTKH", model.SDTKH,
-                "@DiaChiNhanHang", model.DiaChiNhanHang,
+                "@DiaChiNhanHang", model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

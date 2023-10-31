@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,10 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\DataModel\DataModel.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="interfaces\" />
   </ItemGroup>
 
 </Project>

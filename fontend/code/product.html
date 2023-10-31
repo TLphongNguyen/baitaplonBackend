@@ -13,7 +13,7 @@
 
     
 </head>
-<body>
+<body ng-app="AppBanHang"  ng-controller="ChitietCtrl">
     <header class="header">
         <div class="grid wide ">  
 
@@ -299,7 +299,7 @@
         </ul>
 
     </header>
-    <div class="content-body">
+    <div  class="content-body">
         <div class="grid wide gwap-js">
             <ul class="link-info">
                 <li class="link-info__item">
@@ -307,44 +307,36 @@
                     <i class="fa-solid fa-chevron-right link-info__icon"></i>
                 </li>
                 <li class="link-info__item">
-                    Máy Tính & Laptop
-                    <i class="fa-solid fa-chevron-right link-info__icon"></i>
-                </li>
-                <li class="link-info__item">
-                    Phụ Kiện Máy Tính
-                    <i class="fa-solid fa-chevron-right link-info__icon"></i>
-                </li>
-                <li class="link-info__item">
-                    Bàn Laptop
+                    {{sanpham.namecategory}}
                     <i class="fa-solid fa-chevron-right link-info__icon"></i>
                 </li>
                 <span class="name-link">
-                    Giá đỡ LAPTOP, MACBOOK, IPAD bằng nhôm có thể điều chỉnh được độ cao, đế tản nhiệt kê laptop nhôm
+                    {{sanpham.nameproduct}}
                 </span>
             </ul>
             <div class="product-gwap">
                 <div class="product-gwap__left">
                     <div class="img-main">
-                        <img src="/img/giado1.png" alt="">
+                        <img src="/{{sanpham.imgproduct}}" alt="">
                     </div>
                     <div class="list-img">
                         <div class="img-item">
-                            <img src="/img/giado.png" alt="">
+                            <img src="/{{sanpham.imgproduct}}" alt="">
                         </div>
                         <div class="img-item">
-                            <img src="/img/giado.png" alt="">
+                            <img src="/{{sanpham.imgproduct}}" alt="">
                         </div>
                         <div class="img-item">
-                            <img src="/img/giado.png" alt="">
+                            <img src="/{{sanpham.imgproduct}}" alt="">
                         </div>
                         <div class="img-item">
-                            <img src="/img/giado.png" alt="">
+                            <img src="/{{sanpham.imgproduct}}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="product-gwap__right">
                     <div class="name-product">
-                        Giá đỡ LAPTOP, MACBOOK, IPAD bằng nhôm có thể điều chỉnh được độ cao, đế tản nhiệt kê laptop nhôm
+                        {{sanpham.nameproduct}}
                     </div>
                     <div class="evaluate">
                         <div class="rate">
@@ -371,11 +363,11 @@
                     </div>
                     <div class="price-product">
                         <div class="price-old">
-                            ₫129.000 - ₫539.000
+                            {{sanpham.priceproduct}}đ
 
                         </div>
                         <div class="price-new">
-                            ₫79.000 - ₫379.000
+                            {{sanpham.priceproduct}}đ
                         </div>
                     </div>
                     <div class="product-body">
@@ -417,7 +409,7 @@
                                 </button>
                             </div>
                             <div class="product-quantity">
-                                123 sản phẩm có sẵn
+                                {{sanpham.soLuong}}  sản phẩm có sẵn
                             </div>
                         </div>
 
@@ -437,10 +429,11 @@
         </div>
     </div>
     <script type="module" src = "/code/product.js"></script>
-    <!-- <script src = "/code/angular.min.js"></script>
-    <script src = "/code/global.js"></script> -->
-    <script src = "/code/renderCategory.js"></script>
-    <script src = "/code/renderProduct.js"></script>
+    <script src = "/code/angular.min.js"></script>
+    <script src = "/code/global.js"></script>
+    <script src = "/code/chitietproduct.js"></script>
+
+
 
 </body>
 

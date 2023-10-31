@@ -107,7 +107,7 @@ namespace API.banhang.Controllers
             return _IproductBUL.GetProductsBYCategory(IdCategory);
         }
         [Route("search")]
-        [HttpPost]
+        [HttpGet]
         public IActionResult Search([FromBody] Dictionary<string, object> formData)
         {
             try

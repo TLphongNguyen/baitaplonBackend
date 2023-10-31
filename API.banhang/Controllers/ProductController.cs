@@ -81,12 +81,7 @@ namespace API.banhang.Controllers
             }
         }
         
-        [Route(("get-by-id-product/{id}"))]
-        [HttpGet]
-        public productModel GetDatabyID(string id)
-        {
-            return _IproductBUL.GetProductbyId(id);
-        }
+        
         [Route("create-product")]
         [HttpPost]
         public productModel CreateItem([FromBody] productModel model)
@@ -108,54 +103,9 @@ namespace API.banhang.Controllers
             _IproductBUL.Delete(model);
             return model;
         }
-        [Route("getAll-product")]
-        [HttpGet]
-        public List<productModel> getData()
-        {
-            return _IproductBUL.GetAllProduct();
-
-        }
-        [Route(("get-by-ChucNang/{ChucNang}"))]
-        [HttpGet]
-        public List<productModel> getDataBy(string ChucNang)
-        {
-            return _IproductBUL.GetProductsBY(ChucNang);
-        }
-        [Route(("get-by-Category/{IdCategory}"))]
-        [HttpGet]
-        public List<productModel> getDataByIDCategory(string IdCategory)
-        {
-            return _IproductBUL.GetProductsBYCategory(IdCategory);
-        }
-        [Route("search")]
-        [HttpPost]
-        public IActionResult Search([FromBody] Dictionary<string, object> formData)
-        {
-            try
-            {
-                var page = int.Parse(formData["page"].ToString());
-                var pageSize = int.Parse(formData["pageSize"].ToString());
-                string Name_product = "";
-                if (formData.Keys.Contains("nameproduct") && !string.IsNullOrEmpty(Convert.ToString(formData["nameproduct"]))) { Name_product = Convert.ToString(formData["nameproduct"]); }
-                string dia_chi = "";
-               
-                long total = 0;
-                var data = _IproductBUL.Search(page, pageSize, out total, Name_product);
-                return Ok(
-                    new
-                    {
-                        TotalItems = total,
-                        Data = data,
-                        Page = page,
-                        PageSize = pageSize
-                    }
-                    );
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
+  
+        
 
     }
 }

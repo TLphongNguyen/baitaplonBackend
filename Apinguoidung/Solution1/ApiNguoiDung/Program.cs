@@ -25,6 +25,10 @@ builder.Services.AddTransient<ICustomerBUL,CustomerBUL>();
 builder.Services.AddTransient<iCustomerDAL, CustomerDAL>();
 builder.Services.AddTransient<IproductBUL, productBUL>();
 builder.Services.AddTransient<iProductDAL, ProductDAL>();
+builder.Services.AddTransient<iCategoryBUL, CategoryBUL>();
+builder.Services.AddTransient<IcategoryDAL, CategoryDAL>();
+builder.Services.AddTransient<IHoaDonBul, HoaDonBUL>();
+builder.Services.AddTransient<iHoadonDAL, HoadonDAL>();
 
 // Configure the HTTP request pipeline.
 builder.Services.AddControllers();

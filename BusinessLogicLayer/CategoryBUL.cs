@@ -18,10 +18,7 @@ namespace BusinessLogicLayer
         {
             _res = rez;
         }
-        public categoryModel GetCategorybyId(string id)
-        {
-            return _res.GetCategorybyId(id);
-        }
+        
         public bool Create(categoryModel model)
         {
             return _res.Create(model);
@@ -30,13 +27,6 @@ namespace BusinessLogicLayer
         {
             return _res.Update(model);
         }
-        public List<categoryModel> Search(int pageIndex, int pageSize, out long total, string Name_category)
-        {
-            return _res.Search(pageIndex, pageSize, out total, Name_category);
-        }
-        public List<categoryModel> GetAllCategory()
-        {
-            return _res.GetAllCategory();
-        }
+     
     }
 }

@@ -80,12 +80,7 @@ namespace API.banhang.Controllers
                 throw ex;
             }
         }
-        [Route(("get-by-id-category/{id}"))]
-        [HttpGet]
-        public categoryModel GetDatabyID(string id)
-        {
-            return _icategoryBUL.GetCategorybyId(id);
-        }
+        
         [Route("create-category")]
         [HttpPost]
         public categoryModel CreateItem([FromBody] categoryModel model)
@@ -100,43 +95,7 @@ namespace API.banhang.Controllers
             _icategoryBUL.Update(model);
             return model;
         }
-        [Route("search")]
-        [HttpPost]
-        public IActionResult Search([FromBody] Dictionary<string, object> formData)
-        {
-            try
-            {
-                var page = int.Parse(formData["page"].ToString());
-                var pageSize = int.Parse(formData["pageSize"].ToString());
-                string Name_category = "";
-                if (formData.Keys.Contains("NameCategory") && !string.IsNullOrEmpty(Convert.ToString(formData["NameCategory"])))
-                {
-                    Name_category = Convert.ToString(formData["NameCategory"]);
-                }
-                    long total = 0;
-                    var data = _icategoryBUL.Search(page, pageSize, out total, Name_category);
-                    return Ok(
-                        new
-                        {
-                            TotalItems = total,
-                            Data = data,
-                            Page = page,
-                            PageSize = pageSize
-                        }
-                    );
-
-                
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        [Route("get-all")]
-        [HttpGet]
-        public List<categoryModel> getdata()
-        {
-            return _icategoryBUL.GetAllCategory();
-        }
+        
+        
     }
 }
