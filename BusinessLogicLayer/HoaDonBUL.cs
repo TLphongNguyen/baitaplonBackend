@@ -18,10 +18,7 @@ namespace BusinessLogicLayer
             _res = res;
         }
 
-        public HoadonModel GetDatabyID(string id)
-        {
-            return _res.GetDatabyID(id);
-        }
+        
         public bool Create(HoadonModel model)
         {
             return _res.create(model);
@@ -30,9 +27,6 @@ namespace BusinessLogicLayer
         {
             return _res.update(model);
         }
-        public List<thongkekhach> Search(int pageIndex, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao)
-        {
-            return _res.Search(pageIndex, pageSize, out total, ten_khach, fr_NgayTao, to_NgayTao);
-        }
+        
     }
 }

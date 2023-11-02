@@ -7,12 +7,18 @@
     <link rel="icon" href="../img/logoCPT.png">
     <link rel="stylesheet" href="../css/style_mainQT.css">
     <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../js/click.js"></script>
+    <script src="/code/jquery-3.6.0.min.js"></script>
+    <script src="/code/click.js"></script>
+    <script src ="/code/angular.min.js"></script>
+    <script src ="/code/insert.js"></script>
+    <script src ="/code/global.js"></script>
+
+
+    
     <title>Quản lý cửa hàng bán máy tính NCC</title>
 </head>
 
-<body>
+<body ng-app="AppBanHang"  ng-controller="insertCategoryCtrl">
     <section class="header">
         <a href="javascript:void(0);" class="icon" onclick="openBTN()">
             <i class="fas fa-bars"></i>
@@ -68,24 +74,24 @@
                                     <label for="txtright">Mã loại sản phẩm:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="maloai"
+                                    <input ng-model ="idCategory" type="text" id="maloai"
                                         placeholder="Nhập mã loại sản phẩm...Tự động sinh nếu không nhập...">
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
                                     <label for="txtright">Tên loại sản phẩm:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="tenloai" placeholder="Nhập tên loại sản phẩm...">
+                                    <input ng-model ="nameCategory" type="text" id="tenloai" placeholder="Nhập tên loại sản phẩm...">
                                 </div>
                             </form>
                         </div>
                         <hr>
-                        <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
-                            onclick="ThemLoaiSanPham()">Thêm loại sản phẩm</button>
+                        <button ng-click="inrertCategory()" class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
+                            >Thêm loại sản phẩm</button>
                         <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
                             onclick="NhapMoi()">Nhập mới</button>
-                        <button class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
-                            onclick="CapNhat()">Cập nhật thông tin</button>
+                        <button ng-click="updateCategory()" class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
+                            >Cập nhật thông tin</button>
                     </div>
                 </div>
                 <div class="col-8 col-s-12 content">
@@ -152,78 +158,59 @@
             </div>
         </div>
         <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                window.location.href = "../admin/login.html";
-            }
+            // var user = JSON.parse(localStorage.getItem('user'));
+            // if (!user) {
+            //     window.location.href = "../admin/login.html";
+            // }
 
-            LoadUser();
+            // LoadUser();
 
             var list = JSON.parse(localStorage.getItem('TypeProduct')) || [];
 
-            function ThemLoaiSanPham() {
-                var number = /^[0-9]+$/;
-                var maloai = document.getElementById("maloai").value;
-                var tenloai = document.getElementById("tenloai").value;
-
-                if (maloai == null || maloai == "") {
-                    var d = new Date();
-                    maloai = Number(d);
-                }
-                else if (!maloai.match(number) || maloai.length != 13) {
-                    alert("Mã loại phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
-                    return false;
-                }
-
-                if (tenloai == null || tenloai == "") {
-                    alert("Tên loại không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else {
-                    for (var x of list) {
-                        if (x.maloai == maloai) {
-                            alert("Mã loại đã tồn tại! Vui lòng nhập lại!")
-                            return false;
-                        }
-                    }
-                }
-
-                console.log("AddTypeProduct");
-                if (list == null) list = [];
-                var typeproduct = {
-                    "maloai": maloai,
-                    "tenloai": tenloai
-                };
-                list.push(typeproduct);
-                localStorage.setItem("TypeProduct", JSON.stringify(list));
-                alert("Đã thêm thành công!");
-                location.reload();
-            }
-
-            function NhapMoi() {
-                document.getElementById('maloai').value = '';
-                document.getElementById('tenloai').value = '';
-            }
-
+            
             function LoadData() {
-                var str = "";
-                var sl = 0;
-                list.sort();
-                for (x of list) {
-                    sl++;
-                    str += `<tr>
-                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
-                            <td>`+ x.maloai + `</td>
-                            <td>`+ x.tenloai + `</td>
+                var categoryApi = ' https://localhost:7162/api/Category/get-all'
+                function GetCategory(callback) {
+                    fetch(categoryApi)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(callback);
+                }
+                function rendercodeCategory(category) {
+                    const htmls = category.map((item) => {
+                        return `
+                        <tr class = "grid_view">
+                            <td style="text-align: center;padding-top: 10px;">
+                                <input type="checkbox" name="check_all">
+                            </td>
+                            <td> ${item.iDcategory}  </td>
+                            <td>${item.namecategory} </td>
                             <td style="text-align: center;">
-                                <i class="fas fa-edit" title="Sửa" onclick="SuaLoaiSanPham(`+ x.maloai + `)"></i>
-                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaLoaiSanPham(`+ x.maloai + `)"></i>
+                            <i class="fas fa-edit" title="Sửa" onclick="SuaLoaiSanPham(${item.iDcategory})"></i>
+                            <i class="fas fa-trash-alt" title="Xóa" onclick="XoaLoaiSanPham(${item.namecategory} )"></i>
                             </td>
                         </tr>
-                    `;
+                        `
+                    })
+                    document.getElementById("listTypeProduct").innerHTML = htmls.join(" ");
+                    
+                        const listData = document.querySelectorAll(".grid_view")
+                        console.log(listData)
+                        listData.forEach((i,index) => {
+                            i.onclick = () => {
+                                const tr = i.closest(".grid_view")
+                                document.getElementById('maloai').value = tr.querySelector("tr td:nth-child(2)").textContent;;
+                                document.getElementById('tenloai').value = tr.querySelector("tr td:nth-child(3)").textContent;;
+                                console.log(i);
+                            }
+                        })  
+                    
+
                 }
-                document.getElementById("listTypeProduct").innerHTML = str;
-                $('#soluong').html(sl);
+                // SuaLoaiSanPham()
+                GetCategory(rendercodeCategory) 
+                
             }
             LoadData();
 
