@@ -89,7 +89,7 @@
                         <button ng-click="inrertCategory()" class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
                             >Thêm loại sản phẩm</button>
                         <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
-                            onclick="NhapMoi()">Nhập mới</button>
+                            onclick="NhapMoi()"> refresh</button>
                         <button ng-click="updateCategory()" class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
                             >Cập nhật thông tin</button>
                     </div>
@@ -196,13 +196,13 @@
                     document.getElementById("listTypeProduct").innerHTML = htmls.join(" ");
                     
                         const listData = document.querySelectorAll(".grid_view")
-                        console.log(listData)
+                        
                         listData.forEach((i,index) => {
                             i.onclick = () => {
                                 const tr = i.closest(".grid_view")
                                 document.getElementById('maloai').value = tr.querySelector("tr td:nth-child(2)").textContent;;
                                 document.getElementById('tenloai').value = tr.querySelector("tr td:nth-child(3)").textContent;;
-                                console.log(i);
+                                
                             }
                         })  
                     
@@ -214,79 +214,20 @@
             }
             LoadData();
 
-            function XoaLoaiSanPham(maloai) {
-                if (confirm("Bạn chắc chắn muốn xóa!")) {
-                    var index = list.findIndex(x => x.maloai == maloai);
-                    if (index >= 0) {
-                        list.splice(index, 1);
-                    }
-                    LoadData();
-                    localStorage.setItem('TypeProduct', JSON.stringify(list));
-                }
+            function NhapMoi() {
+                document.getElementById('maloai').value = ""
+                document.getElementById('tenloai').value = ""
+                LoadData();
+
+
             }
 
-            function CheckAll(parent) {
-                var ids = document.getElementsByTagName('input');
-                for (var i = 0; i < ids.length; i++) {
-                    if (ids[i].name == "check_all") {
-                        ids[i].checked = parent.checked;
-                    }
-                }
-            }
+            
 
-            function SuaLoaiSanPham(maloai) {
-                for (x of list) {
-                    if (x.maloai == maloai) {
-                        document.getElementById('maloai').value = x.maloai;
-                        document.getElementById('tenloai').value = x.tenloai;
-                    }
-                }
-            }
+            
 
-            function CapNhat() {
-                var maloai = document.getElementById("maloai").value;
-                var tenloai = document.getElementById("tenloai").value;
-                var ok = true;
-
-                if (tenloai == null || tenloai == "") {
-                    alert("Tên loại không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-
-                for (x of list) {
-                    if (x.maloai == maloai) {
-                        x.tenloai = tenloai;
-                        ok = false;
-                        break;
-                    }
-                }
-
-                if (ok == false) {
-                    alert("Cập nhật thông tin thành công!");
-                    localStorage.setItem("TypeProduct", JSON.stringify(list));
-                    location.reload();
-                }
-                else {
-                    alert("Cập nhật thông tin thất bại!");
-                }
-            }
-
-            // function XoaChon() {
-            // if (confirm("Bạn chắc chắn muốn xóa!")) {
-            //     var ids = document.getElementsByTagName('input');
-            //     for (var i = 0; i < ids.length; i++) {
-            //         if (ids[i].checked == true) {
-
-            //         }
-            //     }
-            // }
-            // LoadData();
-            // localStorage.setItem('TypeProduct', JSON.stringify(list));
-            // }
-
-            // $('[type="button"]').on('click', function () {
-            //     $('td input:checked').closest('tr').remove();
-            // });
+            
+            
         </script>
     </section>
 </body>

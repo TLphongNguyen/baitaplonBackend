@@ -24,7 +24,7 @@ namespace DataAccessLayer
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "create_Product",
                 "@Nameproduct", model.Nameproduct,
-                "@IDcategory", model.IDcategory,
+                "@IDcategory", model.iDcategory,
                 "@SoLuong", model.SoLuong,
                 "@Imgproduct", model.Imgproduct,
                 "@Priceproduct", model.@Priceproduct,
@@ -51,7 +51,7 @@ namespace DataAccessLayer
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "Update_Product",
                 "@IDproduct", model.IDproduct,
                 "@Nameproduct", model.Nameproduct,
-                "@IDcategory", model.IDcategory,
+                "@IDcategory", model.iDcategory,
                 "@SoLuong", model.SoLuong,
                 "@Imgproduct", model.Imgproduct,
                 "@Priceproduct", model.@Priceproduct,
