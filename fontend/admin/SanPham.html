@@ -162,23 +162,26 @@
                                     </thead>
                                     <tbody id="listProduct"></tbody>
                                     <tbody >
-                                        <tr ng-repeat = "x in listSearch" class = "grid_view">
-                                            <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
-                                                    value="" id=""></td>
-                                            <td>{{x.iDproduct}}</td>
-                                            <td>{{x.nameproduct}}</td>
-                                            <td>
-                                                <img src="{{x.imgproduct}}">
-                                            </td>
-                                            <td style="text-align: center;">{{x.soLuong}}</td>
-                                            <td style="text-align: right;">{{x.priceproduct}}</td>
-                                            <td>{{x.namecategory}}</td>
-                                            
-                                            <td style="text-align: center;">
-                                                <i class="fas fa-edit" title="Sửa" onclick="SuaSanPham()"></i>
-                                                <i class="fas fa-trash-alt" title="Xóa"></i>
-                                            </td>
-                                        </tr>
+                                        <div class="gwap-item">
+                                            <tr ng-repeat = "x in listSearch" class = "grid_view">
+                                                <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
+                                                        value="" id=""></td>
+                                                <td>{{x.iDproduct}}</td>
+                                                <td>{{x.nameproduct}}</td>
+                                                <td>
+                                                    <img src="{{x.imgproduct}}">
+                                                </td>
+                                                <td style="text-align: center;">{{x.soLuong}}</td>
+                                                <td style="text-align: right;">{{x.priceproduct}}</td>
+                                                <td>{{x.namecategory}}</td>
+                                                
+                                                <td style="text-align: center;">
+                                                    <i class="fas fa-edit" title="Sửa" onclick="SuaSanPham()"></i>
+                                                    <i class="fas fa-trash-alt" title="Xóa"></i>
+                                                </td>
+                                            </tr>
+
+                                        </div>
                                     </tbody>
                                 </table>
                             </div>

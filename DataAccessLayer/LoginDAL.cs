@@ -55,9 +55,9 @@ namespace DataAccessLayer
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "login_insert",
                 "@Username", model.Username,
                 "@Password", model.Password,
-                "@MaLoai", model.MaLoai,
+                "@MaLoai", model.Maloai,
                 "@Email",model.Email
-                );
+                ); 
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
@@ -78,7 +78,7 @@ namespace DataAccessLayer
                 "@IdLogin", model.IDlogin,
                 "@Username", model.Username,
                 "@Password", model.Password,
-                "@MaLoai", model.MaLoai,
+                "@MaLoai", model.Maloai,
                 "@Email", model.Email
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))

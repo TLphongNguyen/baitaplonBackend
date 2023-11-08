@@ -23,7 +23,7 @@ namespace API.banhang.Controllers
             var user = _loginBUL.login(model.Username, model.Password);
             if (user == null)
                 return BadRequest(new { message = "Tài khoản hoặc mật khẩu không đúng!" });
-            return Ok(new { taikhoan = user.Username, email = user.Email, token = user.token, });
+            return Ok(new { taikhoan = user.Username, email = user.Email, token = user.token, maloai = user.Maloai, idLogin = user.IDlogin });
         }
         [Route(("get-by-id/{id}"))]
         [HttpGet]

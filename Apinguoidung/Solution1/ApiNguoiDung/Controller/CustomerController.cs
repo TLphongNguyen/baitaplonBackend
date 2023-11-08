@@ -17,7 +17,7 @@ namespace ApiNguoiDung.Controller
         }
         [Route(("get-by-id/{id}"))]
         [HttpGet]
-        public CustomerModel GetDatabyID(string id)
+        public CustomerModel GetDatabyID(int id)
         {
             return _CTMBul.GetByID(id);
         }

@@ -14,41 +14,30 @@ app.controller('LoginCtrl', function ($scope, $http) {
             data: JSON.stringify(data),
         })
             .then(function (response) {
+                console.log(response);
                 $scope.dataUser = response.data;
-                console.log($scope.dataUser);
-                localStorage.setItem('MaChitietLogin', $scope.dataUser.maChitietLogin);
-                localStorage.setItem('HoTen', $scope.dataUser.HoTen);
-                localStorage.setItem('DiaChi', $scope.dataUser.DiaChi);
-                localStorage.setItem(
-                    'SoDienThoai',
-                    $scope.dataUser.SoDienThoai
-                );
-                localStorage.setItem('Avatar', $scope.dataUser.Avatar);
-                
-                localStorage.setItem(
-                    'token',
-                    JSON.stringify($scope.dataUser.token)
-                );
-                switch ($scope.dataUser.Maloai) {
-                    case '1':
-                        window.location.href = '/index.html';
+
+                switch ($scope.dataUser.maloai) {
+                    case 1:
+                        if ($scope.dataUser.idLogin) {
+                            window.location.href = `/admin/SanPham.html?id=${$scope.dataUser.idLogin}`;
+                        } else {
+                            console.log('Không có ID để chuyển hướng.');
+                        }
                         
                         break;
-                    case '2':
-                        window.location.href = '';
+                    case 2:
+                        if($scope.dataUser.idLogin){
+                            window.location.href = `/index.html?id=${$scope.dataUser.idLogin}`;
+                        }
+                        else {
+                            console.log("khong co id");
+                        }
                         break;
                     default:
-                        window.location.href = '';
+                        console.log($scope.dataUser.maloai);
                 }
             })
-            .catch(function (error) {
-                // Xử lý khi có lỗi
-                if (error.status === 400) {
-                    console.log('Yêu cầu không hợp lệ (BadRequest).');
-                    alert(error.data.message);
-                } else {
-                    console.log('Lỗi không xác định: ' + error.status);
-                }
-            });
+        
     };
 });

@@ -17,7 +17,7 @@ namespace BUL
         {
             _res = res;
         }
-        public CustomerModel GetByID(string id)
+        public CustomerModel GetByID(int id)
         {
             return _res.GetByID(id);
         }

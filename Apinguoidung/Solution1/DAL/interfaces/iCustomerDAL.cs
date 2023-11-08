@@ -9,7 +9,7 @@ namespace DAL.interfaces
 {
     public interface iCustomerDAL
     {
-        public CustomerModel GetByID(string id);
+        public CustomerModel GetByID(int id);
         bool create(CustomerModel model);
         bool update(CustomerModel model);
     }

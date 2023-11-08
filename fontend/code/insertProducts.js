@@ -107,35 +107,7 @@ function LoadData() {
             .then(callback);
     }
 
-    // function GetProduct(callback) {
-    //     fetch(productApi)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(callback);
-    // }
-    // function renderProduct(product) {
-    //     const htmlProduct = product.map((item) => {
-    //         return `
-    //         <tr>
-    //         <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
-    //             <td>${item.iDproduct} </td>
-    //             <td>${item.nameproduct}</td>
-    //             <td style="text-align: center;"><img src="${item.imgproduct}" ></td>
-    //             <td style="text-align: center;">${item.soLuong}</td>
-    //             <td style="text-align: right;">${item.priceproduct}đ</td>
-    //             <td>${item.namecategory}</td>
-
-    //             <td style="text-align: center;">
-    //                 <i class="fas fa-edit" title="Sửa" onclick="SuaSanPham(${item.iDproduct})"></i>
-    //                 <i class="fas fa-trash-alt" title="Xóa" onclick="XoaSanPham(${item.iDproduct})"></i>
-    //             </td>
-    //         </tr>
-    //         `
-    //     })
-    // document.getElementById("listProduct").innerHTML = htmlProduct.join(" ");
-
-    // }
+    
     function rendercodeCategory(category) {
         const htmls = category.map((item) => {
             return `
@@ -146,12 +118,13 @@ function LoadData() {
     select.innerHTML = htmls.join(" ")
     }
     GetCategory(rendercodeCategory)
-    // GetProduct(renderProduct)
+    
 
 }
 LoadData();
 
-const listData = document.querySelectorAll(".grid_view")
+const listData = document.querySelectorAll(".gwap-item")
+console.log(listData);
   listData.forEach((i) => {
         i.onclick = () => {
             console.log(i);                    

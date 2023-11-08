@@ -16,7 +16,7 @@ namespace DAL
         {
             _dbHelper = dbHelper;
         }
-        public CustomerModel GetByID(string id)
+        public CustomerModel GetByID(int id)
         {
             string msgError = "loi get id";
             try
