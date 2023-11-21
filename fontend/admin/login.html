@@ -21,8 +21,8 @@
 
         </div>
         <div class="modal__body">
-            <!-- form dang ki  -->
-             <!-- <div class="auth-form sub">
+            
+             <div class="auth-form sub">
                 <div class="auth-form__container">
                     <div class="auth-form__header">
                         <h3 class="auth-form__heading">Đăng ký</h3>
@@ -30,15 +30,14 @@
                     </div>
                     <div class="auth-form__form">
                         <div class="auth-form__group">
-                            <input type="text" class="auth-form__input" placeholder="Email của bạn">
+                            <input ng-model = "tk" type="text" class="auth-form__input" placeholder="Email của bạn">
                         </div>
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="mật khẩu của bạn">
+                            <input ng-model = "mk" type="password" class="auth-form__input password" placeholder="mật khẩu của bạn">
                         </div>
-Đăng ký
-
                         <div class="auth-form__group">
-                            <input type="password" class="auth-form__input" placeholder="nhập lại mật khẩu">
+                            <input ng-model = "mkAgain" type="password" class="auth-form__input password-again " placeholder="nhập lại mật khẩu">
+                            <p class="messerro">password không trùng khớp</p>
                         </div>
                     </div>
 
@@ -54,7 +53,7 @@
 
                     <div class="auth-form__controls">
                         <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
-                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                        <button ng-click = "createAccount()" class="btn sub btn--primary ">ĐĂNG KÝ</button>
                     </div>
                 </div>
                 <div class="auth-form__socials">
@@ -75,7 +74,7 @@
                     </a>
                 </div>
 
-            </div>  -->
+            </div>
              <!-- form dang nhap -->
             <div class="auth-form login">
                 <form class="auth-form__container">
@@ -106,7 +105,8 @@
 
                     <div class="auth-form__controls">
                         <button class="btn btn--nomal auth-form__controls-back">TRỞ LẠI </button>
-                        <a href="#" ng-click="login()" type="submit" class="btn btn--primary">ĐĂNG NHẬP</a>
+                        <a href="#" ng-click="login()" type="submit" class="
+                        btn btn--primary">ĐĂNG NHẬP</a>
                     </div>
                 </form>
                 <div class="auth-form__socials">
@@ -133,7 +133,9 @@
          </div> 
     </div> 
     <script src = "/code/angular.min.js"></script>
+    <script src = "/code/global.js"></script>
     <script src = "/code/login.js">
+
         // login
         
         const modal = document.querySelector(".modal")

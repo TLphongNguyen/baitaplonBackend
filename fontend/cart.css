@@ -308,10 +308,7 @@
     height: 32px;
     cursor: pointer;
 }
-.btn-giam:hover,
-.btn-tang:hover {
-    
-}
+
 .into-money span {
     color: #ee4d2d;
     font-size: 14px;
@@ -340,6 +337,14 @@
     font-size: 14px;
 }
 .delete-search {
-    width: 12.70417%;
     text-transform: capitalize;
+}
+.buy-now {
+    padding: 6px 10px;
+    color : #fff;
+    background-color: var(--primary-color);
+    margin-top: 10px;
+    outline: none;
+    border: transparent;
+    cursor: pointer;
 }

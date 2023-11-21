@@ -120,11 +120,11 @@
                     </li>
                     <li class="header__navbar-item login header__navbar--item-strong">đăng nhập</li> -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="/img/user.png" alt="" class="header__navbar-user-img">
-                        <span class="header__navbar-user-name">Phong Nguyen</span>
+                        <img src="{{user.avatar}}" alt="" class="header__navbar-user-img">
+                        <span class="header__navbar-user-name">{{user.hoTen }}</span>
                         <ul class="header__navbar-user-menu">
                             <li class="header__navbar-user-item">
-                                <a href="https://www.facebook.com/phonggdeptry286">Tài khoản của tôi</a>
+                                <a class = "link-info__user" href="#">Tài khoản của tôi</a>
                             </li>
                             <li class="header__navbar-user-item">
                                 <a href="">Địa chỉ của tôi</a>
@@ -133,7 +133,7 @@
                                 <a href="">đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item">
-                                <a href="">Đăng xuất</a>
+                                <a href="/admin/login.html">Đăng xuất</a>
                             </li>
                         </ul>
                     </li>
@@ -200,83 +200,41 @@
                 <div class="header-cart">
                     <div class="header-wrap">
                         <i class="header-cart-icon fa-solid fa-cart-shopping"></i>
-                        <span class="header-cart-notice">3</span>
+                        <span class="header-cart-notice">{{ DemSoLuongSanPhamKhongTrunglapTrongGioHang() }}</span>
                         <!-- no cart  header-cart-list__no-cart -->
                         <div class="header-cart-list ">
                             <img src="/img/no-cart.png" alt="" class = "header-cart-list__no-cart-img">
                             <span class="header-cart-msg">chưa có sản phẩm</span>
                             <h4 class="header-cart-heading">Sản phẩm đã thêm</h4>
                             <ul class="header-cart-list-item">
-                                <li class="header-cart-item">
-                                    <img src="/img/–_ obito.jfif" alt="" class="header-cart-img">
+                                <li ng-repeat="item in giohang" class="header-cart-item">
+                                    <img src="{{item.imgproduct}}" alt="" class="header-cart-img">
                                     <div class="header-cart-item-info">
                                         <div class="header-cart-item-header">
 
-                                            <h5 class="header-cart-item-name">uchiha obito</h5>
+                                            <h5 class="header-cart-item-name">{{item.nameproduct}}</h5>
                                             <div class="header-cart-item-price-wrap">
-                                                <span class="header-cart-item-price">1.000.000Dđ</span>
+                                                <span class="header-cart-item-price">{{item.priceproduct}}</span>
                                                 <span class="header-cart-item-multiply">x</span>
-                                                <span class="header-cart-item-qnt">1</span>
+                                                <span class="header-cart-item-qnt">{{item.soLuong}}</span>
                                             </div>
                                         </div>
                                         <div class="header-cart-item-body">
                                             <span class="header-cart-item-decr">
-                                                Phân loại : tộc uchiha
+                                                Phân loại : {{item.namecategory}}
                                             </span>
-                                            <span class="header-cart-item-remove">Xóa</span>
+                                            <span ng-click="XoaKhoiGioHang(item.iDproduct)" class="header-cart-item-remove">Xóa</span>
 
                                         </div>
                                     </div>
                                 </li>
 
-                                <li class="header-cart-item">
-                                    <img src="/img/itachi" alt="" class="header-cart-img">
-                                    <div class="header-cart-item-info">
-                                        <div class="header-cart-item-header">
-
-                                            <h5 class="header-cart-item-name">uchiha itachi</h5>
-                                            <div class="header-cart-item-price-wrap">
-                                                <span class="header-cart-item-price">1.000.000Dđ</span>
-                                                <span class="header-cart-item-multiply">x</span>
-                                                <span class="header-cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header-cart-item-body">
-                                            <span class="header-cart-item-decr">
-                                                Phân loại : tộc uchiha
-                                            </span>
-                                            <span class="header-cart-item-remove">Xóa</span>
-
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="header-cart-item">
-                                    <img src="/img/sasuke" alt="" class="header-cart-img">
-                                    <div class="header-cart-item-info">
-                                        <div class="header-cart-item-header">
-
-                                            <h5 class="header-cart-item-name">uchiha sasuke</h5>
-                                            <div class="header-cart-item-price-wrap">
-                                                <span class="header-cart-item-price">1.000.000Dđ</span>
-                                                <span class="header-cart-item-multiply">x</span>
-                                                <span class="header-cart-item-qnt">1</span>
-                                            </div>
-                                        </div>
-                                        <div class="header-cart-item-body">
-                                            <span class="header-cart-item-decr">
-                                                Phân loại : tộc uchiha
-                                            </span>
-                                            <span class="header-cart-item-remove">Xóa</span>
-
-                                        </div>
-                                    </div>
-                                </li>
+                                
                            
                                 
                                 
                             </ul>
-                            <a href="#" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                            <a href="/code/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
                         </div>
 
                     </div>
@@ -414,13 +372,16 @@
                         </div>
 
                         <div class="gwap-btn">
-                            <button class="add-cart">
+                            <button ng-click = "ThemVaoGioHang()" class="add-cart">
                                 <i class="fa-solid fa-cart-plus"></i>
                                 thêm vào giỏ hàng
                             </button>
-                            <button class="buy-now">
-                                Mua ngay
-                            </button>
+                            <a href="/code/cart.html" class="link-cart">
+                                <button ng-click = "ThemVaoGioHang()" class="buy-now">
+                                    Mua ngay
+                                </button>
+
+                            </a>
                         </div>
 
                     </div>

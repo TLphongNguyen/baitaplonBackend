@@ -14,5 +14,6 @@ namespace DataModel
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }
         public string Avatar { get; set; }
+        public string Email { get; set; }
     }
 }

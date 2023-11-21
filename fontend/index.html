@@ -17,7 +17,7 @@
 
 
 </head>
-<body ng-app="AppBanHang"  ng-controller="HomeCtrl">
+<body ng-app="AppBanHang" ng-controller="HomeCtrl" >
     <div class="app">
         <header class="header">
             <div class="grid wide ">  
@@ -129,7 +129,7 @@
                             <span class="header__navbar-user-name">{{user.hoTen }}</span>
                             <ul class="header__navbar-user-menu">
                                 <li class="header__navbar-user-item">
-                                    <a href="https://www.facebook.com/phonggdeptry286">Tài khoản của tôi</a>
+                                    <a class = "link-info__user" href="#">Tài khoản của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
                                     <a href="">Địa chỉ của tôi</a>
@@ -138,7 +138,7 @@
                                     <a href="">đơn mua</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="/admin/login.html">Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>
@@ -212,21 +212,21 @@
                                 <span class="header-cart-msg">chưa có sản phẩm</span>
                                 <h4 class="header-cart-heading">Sản phẩm đã thêm</h4>
                                 <ul class="header-cart-list-item">
-                                    <li class="header-cart-item">
-                                        <img src="/img/–_ obito.jfif" alt="" class="header-cart-img">
+                                    <li ng-repeat="item in LoadGioHang" class="header-cart-item">
+                                        <img src="{{item.imgproduct}}" alt="" class="header-cart-img">
                                         <div class="header-cart-item-info">
                                             <div class="header-cart-item-header">
 
-                                                <h5 class="header-cart-item-name">uchiha obito</h5>
+                                                <h5 class="header-cart-item-name">{{item.nameproduct}}</h5>
                                                 <div class="header-cart-item-price-wrap">
-                                                    <span class="header-cart-item-price">1.000.000Dđ</span>
+                                                    <span class="header-cart-item-price">{{item.priceproduct}}</span>
                                                     <span class="header-cart-item-multiply">x</span>
-                                                    <span class="header-cart-item-qnt">1</span>
+                                                    <span class="header-cart-item-qnt">{{item.soLuong}}</span>
                                                 </div>
                                             </div>
                                             <div class="header-cart-item-body">
                                                 <span class="header-cart-item-decr">
-                                                    Phân loại : tộc uchiha
+                                                    Phân loại : {{item.namecategory}}
                                                 </span>
                                                 <span class="header-cart-item-remove">Xóa</span>
 
@@ -234,54 +234,11 @@
                                         </div>
                                     </li>
 
-                                    <li class="header-cart-item">
-                                        <img src="/img/itachi" alt="" class="header-cart-img">
-                                        <div class="header-cart-item-info">
-                                            <div class="header-cart-item-header">
-
-                                                <h5 class="header-cart-item-name">uchiha itachi</h5>
-                                                <div class="header-cart-item-price-wrap">
-                                                    <span class="header-cart-item-price">1.000.000Dđ</span>
-                                                    <span class="header-cart-item-multiply">x</span>
-                                                    <span class="header-cart-item-qnt">1</span>
-                                                </div>
-                                            </div>
-                                            <div class="header-cart-item-body">
-                                                <span class="header-cart-item-decr">
-                                                    Phân loại : tộc uchiha
-                                                </span>
-                                                <span class="header-cart-item-remove">Xóa</span>
-
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart-item">
-                                        <img src="/img/sasuke" alt="" class="header-cart-img">
-                                        <div class="header-cart-item-info">
-                                            <div class="header-cart-item-header">
-
-                                                <h5 class="header-cart-item-name">uchiha sasuke</h5>
-                                                <div class="header-cart-item-price-wrap">
-                                                    <span class="header-cart-item-price">1.000.000Dđ</span>
-                                                    <span class="header-cart-item-multiply">x</span>
-                                                    <span class="header-cart-item-qnt">1</span>
-                                                </div>
-                                            </div>
-                                            <div class="header-cart-item-body">
-                                                <span class="header-cart-item-decr">
-                                                    Phân loại : tộc uchiha
-                                                </span>
-                                                <span class="header-cart-item-remove">Xóa</span>
-
-                                            </div>
-                                        </div>
-                                    </li>
-                               
+                                   
                                     
                                     
                                 </ul>
-                                <a href="#" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                                <a href="/code/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
                             </div>
 
                         </div>
@@ -471,6 +428,292 @@
                                 
                             </div>
                         </div>
+
+                        <div class="product-category">
+                            <div class="header-product">
+                                <div class="header-title__product">
+                                    Quần áo
+                                </div>
+                            </div>
+                            <div class="product-category__body">
+                                <ul class="row sm-gutter product-category__list">
+                                    <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
+                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                            <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
+                                            </div>
+                                            <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                {{y.priceproduct}}đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{y.priceproduct}} đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like-liked">
+                                                    <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                    <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                                </span>
+                                
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">{{y.soLuong}} đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__orign">
+                                                <span class="home-product-item__brand">
+                                                {{y.namecategory}}
+                                                </span>
+                                                <span class="home-product-item__origin-name">
+                                                    Konoha
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>yêu thích</span> 
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-precent">{{y.sale}}%</span>
+                                                <div class="home-product-item__sale-off-label">GIẢM</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-category">
+                            <div class="header-product">
+                                <div class="header-title__product">
+                                    Giày dép
+                                </div>
+                            </div>
+                            <div class="product-category__body">
+                                <ul class="row sm-gutter product-category__list">
+                                    <li ng-repeat="y in Footwear" class=" product-category__item col l-2-4 m-4 c-6">
+                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                            <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
+                                            </div>
+                                            <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                {{y.priceproduct}}đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{y.priceproduct}} đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like-liked">
+                                                    <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                    <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                                </span>
+                                
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">{{y.soLuong}} đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__orign">
+                                                <span class="home-product-item__brand">
+                                                {{y.namecategory}}
+                                                </span>
+                                                <span class="home-product-item__origin-name">
+                                                    Konoha
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>yêu thích</span> 
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-precent">{{y.sale}}%</span>
+                                                <div class="home-product-item__sale-off-label">GIẢM</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-category">
+                            <div class="header-product">
+                                <div class="header-title__product">
+                                    đồ gia dụng
+                                </div>
+                            </div>
+                            <div class="product-category__body">
+                                <ul class="row sm-gutter product-category__list">
+                                    <li ng-repeat="y in Houseware" class=" product-category__item col l-2-4 m-4 c-6">
+                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                            <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
+                                            </div>
+                                            <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                {{y.priceproduct}}đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{y.priceproduct}} đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like-liked">
+                                                    <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                    <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                                </span>
+                                
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">{{y.soLuong}} đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__orign">
+                                                <span class="home-product-item__brand">
+                                                {{y.namecategory}}
+                                                </span>
+                                                <span class="home-product-item__origin-name">
+                                                    Konoha
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>yêu thích</span> 
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-precent">{{y.sale}}%</span>
+                                                <div class="home-product-item__sale-off-label">GIẢM</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-category">
+                            <div class="header-product">
+                                <div class="header-title__product">
+                                    đồ sơ sinh
+                                </div>
+                            </div>
+                            <div class="product-category__body">
+                                <ul class="row sm-gutter product-category__list">
+                                    <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
+                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                            <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
+                                            </div>
+                                            <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                {{y.priceproduct}}đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{y.priceproduct}} đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like-liked">
+                                                    <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                    <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                                </span>
+                                
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">{{y.soLuong}} đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__orign">
+                                                <span class="home-product-item__brand">
+                                                {{y.namecategory}}
+                                                </span>
+                                                <span class="home-product-item__origin-name">
+                                                    Konoha
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>yêu thích</span> 
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-precent">{{y.sale}}%</span>
+                                                <div class="home-product-item__sale-off-label">GIẢM</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-category">
+                            <div class="header-product">
+                                <div class="header-title__product">
+                                    Đồ điện tử
+                                </div>
+                            </div>
+                            <div class="product-category__body">
+                                <ul class="row sm-gutter product-category__list">
+                                    <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
+                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                            <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
+                                            </div>
+                                            <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
+                                            <div class="home-product-item__price">
+                                                <span class="home-product-item__price-old">
+                                                {{y.priceproduct}}đ
+                                                </span>
+                                                <span class="home-product-item__price-current">
+                                                    {{y.priceproduct}} đ
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__action">
+                                                <span class="home-product-item__like home-product-item__like-liked">
+                                                    <i class="home-product-item__icon-empy fa-regular fa-heart"></i>
+                                                    <i class="home-product-item__icon-fill fa-solid fa-heart"></i>
+                                                </span>
+                                
+                                                <div class="home-product-item__rating">
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="home-product-item__gold fa-solid fa-star"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="home-product-item__sold">{{y.soLuong}} đã bán</span>
+                                            </div>
+                                            <div class="home-product-item__orign">
+                                                <span class="home-product-item__brand">
+                                                {{y.namecategory}}
+                                                </span>
+                                                <span class="home-product-item__origin-name">
+                                                    Konoha
+                                                </span>
+                                            </div>
+                                            <div class="home-product-item__favourite">
+                                                <i class="fa-solid fa-check"></i>
+                                                <span>yêu thích</span> 
+                                            </div>
+                                            <div class="home-product-item__sale-off">
+                                                <span class="home-product-item__sale-off-precent">{{y.sale}}%</span>
+                                                <div class="home-product-item__sale-off-label">GIẢM</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <ul class="pagination home-product__pagination">
                             <li class="pagination-item ">
                                 <a href="" class="pagination-link ">
@@ -526,6 +769,101 @@
 
 
         </div>
+        <div class="modal-1">
+            <div class="modal__overlay">
+    
+            </div>
+            <div class="modal__body">
+               <div class="user-gwap">
+                    <div class="user-header">
+                        <div class="header-left">
+                            <h1 class="h1-header">Hồ Sơ Của Tôi</h1>
+                            <p class="info-header">
+                                Quản lý thông tin hồ sơ để bảo mật tài khoản
+                            </p>
+
+                        </div>
+                        <div class="icon">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="user-body">
+                        <div class="info-user">
+                            <div class="info-right">
+                                <ul class="list-info-right">
+                                    <li class="item-info-right">
+                                        <p class="item-info_p">
+                                            Tên đăng nhập
+
+                                        </p>
+                                        <input ng-model="idCT"  type="text" hidden >
+                                        <input ng-model="idlogin" type="text"hidden>
+                                        <div class="info-content">
+
+                                            <input ng-model="hoten" ng-value="user.hoTen"  placeholder="nhập Tên của bạn" class="name-user info-input" required></input>
+                                            <p class="required name"></p>
+                                        </div>	
+
+                                    </li>
+                                    <li class="item-info-right">
+                                        <p class="item-info_p">
+                                            Email	
+
+                                        </p>
+                                        <div class="info-content">
+                                            <input ng-model="email" ng-value="user.email"  placeholder="nhập Email của bạn" class="email-user info-input" required></input>
+                                            <p class="required email">Email không hợp lệ. Vui lòng nhập địa chỉ email đúng định dạng.</p>
+
+                                            
+                                        </div>	
+                                    </li>
+                                    <li class="item-info-right">
+                                        <p class="item-info_p">
+                                            Số điện thoại	
+
+                                        </p>
+                                        <div class="info-content">
+                                            <input ng-model = "sdt" ng-value="user.soDienThoai" placeholder="nhập số điện thoại của bạn" class="phone-user info-input" required></input>
+                                            <p class="required phone">vui lòng nhập số điện thoại của mình</p>
+
+                                             
+                                        </div>	
+                                    </li>
+                                    <li class="item-info-right">
+                                        <p class="item-info_p">
+                                            Địa chỉ	
+
+                                        </p>
+                                        <div class="info-content">
+                                            <input ng-model = "diachi" ng-value = "user.diaChi  " placeholder="nhập địa chỉ của bạn" class="address-user info-input" required></input>	
+                                            <p class="required address">vui lòng nhập địa chỉ của mình</p>
+                                        
+                                        </div>	
+                                    </li>
+                                </ul>
+                                
+                            </div>  
+                            <div class="info-left">
+                                <div class="img-gwap">
+
+                                    <img ng-src="{{user.avatar}}" alt="" class="avt">                       
+                                </div>
+                                <input type="file" custom-on-change = "loadFile" class="select-avt" ng-model="fileInput" >
+                                <p class="img-text">Dụng lượng file tối đa 1 MB<br />
+                                    Định dạng:.JPEG, .PNG</p>
+                            </div>
+                        </div>
+                        <button ng-click = "updateUser()" class="user-save">
+                            Lưu
+                        </button>
+                    </div>
+               </div>
+              
+                
+    
+            
+             </div> 
+        </div> 
         <footer class="footer">
             <div class="grid wide  ">
                 <div class="grid-row footer-content">
@@ -635,6 +973,7 @@
     <script src = "/code/global.js"></script>
     <script src = "/code/home.js"></script>
     <script src = "/code/renderCategory.js"></script>
+    <script></script>
 
 
 

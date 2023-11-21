@@ -512,7 +512,14 @@
     color : var(--primary-color);
 
 }
-
+.messerro {
+    font-size: 12px;
+    color : red;
+    display: none;
+}
+.error {
+    outline : red;
+}
 .header-with-search {
     height: var(--header-with-search-height);
     display: flex;
@@ -1210,12 +1217,7 @@
     font-size: 1.2rem;
     font-weight: 300;
 }
-.home-product-item__brand {
 
-}
-.home-product-item__origin-name {
-
-}
 .home-product-item__favourite {
     position: absolute;
     top: 10px;
@@ -1350,4 +1352,196 @@
     color: #737373;
 
 }
+.user-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+}
+.user-gwap {
+    width: 1000px;
+    height: 580px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius : 20px;
+}
+.h1-header {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: #333;
 
+}
+.info-header {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #555;
+}
+.user-body {
+    padding-top: 30px;
+    
+}
+.info-user {
+    display: flex;
+
+}
+.list-info-right {
+    width: 100%;
+}
+.item-info-right {
+    display: flex;
+    align-items: center;
+    
+}
+.item-info-right p {
+    margin: 0;
+}
+.info-right {
+    display: flex;
+    width: 70%;
+}
+.item-info_p {
+    text-align: right;
+    color: rgba(85,85,85,.8);
+    overflow: hidden;
+    padding-bottom: 30px;
+    white-space: nowrap;
+    font-size: 14px;
+    width: 20%;
+}
+.info-content {
+    margin-left: 20px;
+    padding-bottom: 30px;
+    /* display: flex; */
+    align-items: center;
+
+}
+.info-content input {
+    margin-bottom: 12px;
+}
+.info-input:focus {
+    border: 1px solid rgb(87, 194, 247);
+}
+.info-input__required {
+    border: 1px solid red;
+}
+.name-user,.address-user,.email-user,.phone-user  {
+    background: none;
+    padding: 12px;
+    outline: none;
+    border: 0;
+    flex: 1;
+    flex-shrink: 0;
+    filter: none;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 0 rgba(0,0,0,.02);
+    width: 400px;
+    height: 40px;
+}
+.item-content {
+    font-size: 14px;
+}
+.link-update {
+    margin-left: 16px;
+    display: block;
+    outline: none;
+    background: none;
+    color: #05a;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.user-save {
+    color: #fff;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    outline: 0;
+    background: #ee4d2d;
+    height: 40px;
+    padding: 0 20px;
+    min-width: 70px;
+    max-width: 220px;
+    border: none;
+    border-radius: 6px;
+    flex-direction: column;
+    font-size: 14px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.09);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    transform: translateX(266%);
+}
+.avt {
+    width: 100%;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 50%;
+    
+}
+.info-left {
+    width: 30%;
+}
+.img-gwap {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+}
+.select-avt {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 10px auto;
+}
+.img-text {
+    color : #999999;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+.icon:hover {
+    background-color: red;
+    color : #fff;
+    cursor: pointer;
+}
+.icon i {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    line-height: 30px;
+}
+.product-category {
+    margin-top: 30px;
+}
+.header-product {
+    width: 100%;
+    border-bottom:1px solid var(--primary-color);
+}
+.header-title__product {
+    height: 30px;
+    width: 10%;
+    background-color: var(--primary-color);
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    color : #fff;
+}
+.product-category__list {
+    padding-left: 0;
+}

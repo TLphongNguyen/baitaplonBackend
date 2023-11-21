@@ -42,7 +42,8 @@ namespace DAL
                 "@HoTen", model.HoTen,
                 "@DiaChi", model.DiaChi,
                 "@SoDienThoai", model.SoDienThoai,
-                "@Avatar", model.Avatar
+                "@Avatar", model.Avatar,
+                "@Email", model.Email
 
 
 
@@ -69,8 +70,8 @@ namespace DAL
                 "@HoTen", model.HoTen,
                 "@DiaChi", model.DiaChi,
                 "@SoDienThoai", model.SoDienThoai,
-                "@Avatar", model.Avatar
-
+                "@Avatar", model.Avatar,
+                "@Email", model.Email
                 );
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

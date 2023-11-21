@@ -12,7 +12,6 @@ namespace DataModel
         public string Username { get; set; }
         public string Password { get; set; }
         public int Maloai { get; set; }
-        public string Email { get; set; }
         public string token { get; set; }
     }
 }

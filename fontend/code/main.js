@@ -10,47 +10,88 @@ menuLefts.forEach((menuLeft,index)=> {
 
 
 
-const modal = document.querySelector(".modal")
-const formSub = document.querySelector(".auth-form.sub")
-const formLogin = document.querySelector(".auth-form.login");
-const spanSub = document.querySelector(".auth-form__switch-btn.sub")
-const spanLogin = document.querySelector(".auth-form__switch-btn.login");
-const btnHeaderSub = document.querySelector(".header__navbar-item.sub")
-const btnHeaderlogin = document.querySelector(".header__navbar-item.login")
-const btnBacks = document.querySelectorAll(".auth-form__controls-back")
+const modal = document.querySelector(".modal-1")
+const userbtn = document.querySelector(".link-info__user")
+const iconclose = document.querySelector(".icon")
 
 
-//dang nhap 
-// btnHeaderSub.onclick = () => {
-//     modal.style.display = "flex";
-//     formSub.style.display = "block";
-//     formLogin.style.display = "none";
+userbtn.onclick = () => {
+    modal.style.display = "flex"
+}
+iconclose.onclick = () => {
+    modal.style.display = "none"
+    
 
-// }
-// btnBacks.forEach((btnBack) => {
-//     btnBack.onclick = () => {
-//         modal.style.display = "none";
-//         formSub.style.display = "none";
-//     }
+}
 
-// })
-// spanSub.onclick = () => {
-//     formSub.style.display = "none";
-//     formLogin.style.display = "block";
-// }
-// //login
-// btnHeaderlogin.onclick = () => {
-//     modal.style.display = "flex";
-//     formSub.style.display = "none";
-//     formLogin.style.display = "block";
-// }
-// spanLogin.onclick = () => {
-//     formSub.style.display = "block";
-//     formLogin.style.display = "none";
-// }
+//required
+const inputName = document.querySelector(".name-user")
+const inputEmail = document.querySelector(".email-user")
+const inputPhone = document.querySelector(".phone-user")
+const inputAddress = document.querySelector(".address-user")
+
+function containsSpecialCharacter(inputStr) {
+    const specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    return specialCharacters.test(inputStr);
+}
+inputName.onblur = () => {
+    if(inputName.value.length  < 2) {
+        document.querySelector(".required.name").textContent = "vui lòng nhập đầy đủ tên"
+        document.querySelector(".required.name").style.display = "block";
+    }
+    else if (containsSpecialCharacter(inputName.value)) {
+        document.querySelector(".required.name").textContent = "Không được sử dụng kí tự đặc biệt trong tên"
+        document.querySelector(".required.name").style.display = "block";
+    }
+    else {
+        document.querySelector(".required.name").style.display = "none";
+    }
+}
+function containsSpecialCharacter(inputStr) {
+    const specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    return specialCharacters.test(inputStr);
+}
+inputAddress.onblur = () => {
+    if(inputAddress.value.length  < 2) {
+        document.querySelector(".required.address").textContent = "vui lòng nhập đầy đủ địa chỉ"
+        document.querySelector(".required.address").style.display = "block";
+    }
+    else if (containsSpecialCharacter(inputAddress.value)) {
+        document.querySelector(".required.address").textContent = "Không được sử dụng kí tự đặc biệt trong địa chỉ"
+        document.querySelector(".required.address").style.display = "block";
+    }
+    else {
+        document.querySelector(".required.address").style.display = "none";
+    }
+}
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+inputEmail.onblur = () => {
+    if (!isValidEmail(inputEmail.value)) {
+        
+        document.querySelector(".required.email").style.display = "block";
+    }
+   
+    else {
+        document.querySelector(".required.email").style.display = "none";
+    }
+}
+function isNumeric(value) {
+    // Hàm isNaN trả về true nếu giá trị không phải là số
+    return !isNaN(value);
+}
+inputPhone.onblur = () => {
+    const inputValue = inputPhone.value.trim();
+
+    if (isNumeric(inputValue) === false || inputValue.length !=10) {
+        document.querySelector(".required.phone").style.display = "block";
+    } else {
+        document.querySelector(".required.phone").style.display = "none";
+    }
+}
 
 
 
 
-
-//conerct database

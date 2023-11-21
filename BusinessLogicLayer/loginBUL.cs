@@ -44,7 +44,6 @@ namespace BusinessLogicLayer
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, user.Username.ToString()),
-                    new Claim(ClaimTypes.Email, user.Email),
                     new Claim("IDlogin", user.IDlogin.ToString()),
                     new Claim("MaLoai",user.Maloai.ToString())
                 }),
@@ -53,7 +52,6 @@ namespace BusinessLogicLayer
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.token = tokenHandler.WriteToken(token);
-            user.Email = tokenHandler.WriteToken(token);
             return user;
         }
     }

@@ -74,6 +74,16 @@ html{
 
 /* modal overley */
 
+.modal-1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    display: none;
+
+}
 .modal {
     position: fixed;
     top: 0;
@@ -81,8 +91,6 @@ html{
     left: 0;
     bottom: 0;
     display: flex;
-    /* display: none; */
-
 }
 
 .modal__overlay{
@@ -101,6 +109,15 @@ html{
     
     
     z-index: 1;
+}
+.auth-form.sub {
+    display: none;
+}
+.required {
+    display: block;
+    font-size: 12px;
+    color : red;
+    display: none;
 }
 
 /* button style */

@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/logoCPT.png">
     <link rel="stylesheet" href="../css/style_mainQT.css">
     <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../js/click.js"></script>
+    <script src="/code/jquery-3.6.0.min.js"></script>
+    <script src="/code/click.js"></script>
     <title>Quản lý cửa hàng bán máy tính NCC</title>
 </head>
 
-<body>
+<body ng-app="appbanhang"  ng-controller="nhaccController">
     <section class="header">
         <a href="javascript:void(0);" class="icon" onclick="openBTN()">
             <i class="fas fa-bars"></i>
@@ -68,42 +67,37 @@
                                     <label for="txtright">Mã nhà cung cấp:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="mancc"
+                                    <input ng-model = "manhacc" type="text" id="mancc"
                                         placeholder="Nhập mã nhà cung cấp...Tự động sinh nếu không nhập...">
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
                                     <label for="txtright">Tên nhà cung cấp:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="tenncc" placeholder="Nhập tên nhà cung cấp...">
+                                    <input ng-model = "tennhacc" type="text" id="tenncc" placeholder="Nhập tên nhà cung cấp...">
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
                                     <label for="txtright">Số điện thoại:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="sdtncc" placeholder="Nhập số điện thoại nhà cung cấp...">
+                                    <input ng-model ="sdtnhacc" type="text" id="sdtncc" placeholder="Nhập số điện thoại nhà cung cấp...">
                                 </div>
-                                <div class="col-12 col-s-12 padding-box">
-                                    <label for="txtright">Email:</label>
-                                </div>
-                                <div class="col-12 col-s-12 padding-box">
-                                    <input type="email" id="emailncc" placeholder="Nhập email nhà cung cấp...">
-                                </div>
+                                
                                 <div class="col-12 col-s-12 padding-box">
                                     <label for="txtright">Địa chỉ:</label>
                                 </div>
                                 <div class="col-12 col-s-12 padding-box">
-                                    <input type="text" id="diachincc" placeholder="Nhập địa chỉ nhà cung cấp...">
+                                    <input ng-model = "diachinhacc" type="text" id="diachincc" placeholder="Nhập địa chỉ nhà cung cấp...">
                                 </div>
                             </form>
                         </div>
                         <hr>
                         <button class="btn-form" style="background-color: rgba(44, 140, 15, 0.8);"
-                            onclick="ThemNhaCungCap()">Thêm nhà cung cấp</button>
+                           ng-click = "createNhacc()">Thêm nhà cung cấp</button>
                         <button class="btn-form" style="background-color: rgba(227, 32, 21, 0.8);"
                             onclick="NhapMoi()">Nhập mới</button>
                         <button class="btn-form" style="background-color: rgba(14, 87, 224, 0.8);" id="btnUpdate"
-                            onclick="CapNhat()">Cập nhật thông tin</button>
+                        ng-click="updateNhacc()">Cập nhật thông tin</button>
                     </div>
                 </div>
                 <div class="col-8 col-s-12 content">
@@ -132,27 +126,27 @@
                                             <th>Mã nhà cung cấp</th>
                                             <th>Tên nhà cung cấp</th>
                                             <th>Số điện thoại</th>
-                                            <th>Email</th>
+                                            
                                             <th>Địa chỉ</th>
                                             <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody id="listSupplier"></tbody>
-                                    <!-- <tbody>
-                                        <tr>
+                                    <tbody>
+                                        <tr class = "grid_views" ng-repeat = "x in listNhacc">
                                             <td style="text-align: center;padding-top: 10px;"><input type="checkbox"
                                                     value="" id=""></td>
-                                            <td>444441</td>
-                                            <td>Trần Anh</td>
-                                            <td>0965452458</td>
-                                            <td>trananh@gmail.com</td>
-                                            <td>Hà Nội</td>
+                                            <td>{{x.maNhaCC}}</td>
+                                            <td>{{x.tenNhaCC}}</td>
+                                            <td>{{x.sdtNhaCC}}</td>
+                    
+                                            <td>{{x.diachiNhaCC }}</td>
                                             <td style="text-align: center;">
                                                 <i class="fas fa-edit" title="Sửa" onclick="SuaNhaCungCap()"></i>
                                                 <i class="fas fa-trash-alt" title="Xóa"></i>
                                             </td>
                                         </tr>
-                                    </tbody> -->
+                                    </tbody>
                                 </table>
                             </div>
                             <div class="col-12 col-s-12 padding-box">
@@ -175,82 +169,26 @@
                 </div>
             </div>
         </div>
+        <script src = "/code/angular.min.js"></script>
+        <script src = "/code/global.js"></script>
+        <script src = "/code/nhaCC.js"></script>
         <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                window.location.href = "../admin/login.html";
-            }
+                    setTimeout(()=>{
+                        const listData = document.querySelectorAll(".grid_views")
+                        console.log(listData);
+                        listData.forEach((i,index) => {
+                            i.onclick = () => {
+                                const tr = i.closest(".grid_views")
+                                document.getElementById('mancc').value = tr.querySelector("tr td:nth-child(2)").textContent;;
+                                document.getElementById('tenncc').value = tr.querySelector("tr td:nth-child(3)").textContent;;
+                                document.getElementById('sdtncc').value = tr.querySelector("tr td:nth-child(4)").textContent;;
+                                document.getElementById('diachincc').value = tr.querySelector("tr td:nth-child(5)").textContent;;
+                                
+                                
+                            }
+                        })
 
-            LoadUser();
-
-            var list = JSON.parse(localStorage.getItem('Supplier')) || [];
-
-            function ThemNhaCungCap() {
-                var mancc = document.getElementById("mancc").value;
-                var tenncc = document.getElementById("tenncc").value;
-                var sdtncc = document.getElementById("sdtncc").value;
-                var emailncc = document.getElementById("emailncc").value;
-                var diachincc = document.getElementById("diachincc").value;
-                var number = /^[0-9]+$/;
-                var atposition = emailncc.indexOf("@");
-                var dotposition = emailncc.lastIndexOf(".");
-
-                if (mancc == null || mancc == "") {
-                    var d = new Date();
-                    mancc = Number(d);
-                }
-                else if (!mancc.match(number) || mancc.length != 13) {
-                    alert("Mã nhà cung cấp phải là kiểu số và có độ dài là 13 ký tự! Vui lòng nhập lại!");
-                    return false;
-                }
-
-                if (tenncc == null || tenncc == "") {
-                    alert("Tên nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (sdtncc == null || sdtncc == "") {
-                    alert("Số điện thoại nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                } else if (!sdtncc.match(number) || sdtncc.length != 10) {
-                    alert("Số điện thoại nhà cung cấp phải là kiểu số và có độ dài là 10 ký tự! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (emailncc == null || emailncc == "") {
-                    alert("Email nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (atposition < 1 || dotposition < (atposition + 2) || (dotposition + 2) >= emailncc.length) {
-                    alert("Email nhà cung cấp không hợp lệ! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (diachincc == null || diachincc == "") {
-                    alert("Địa chỉ nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else {
-                    for (var x of list) {
-                        if (x.mancc == mancc) {
-                            alert("Mã nhà cung cấp đã tồn tại! Vui lòng nhập lại!")
-                            return false;
-                        }
-                    }
-                }
-
-                console.log("AddSupplier");
-                if (list == null) list = [];
-                var supplier = {
-                    "mancc": mancc,
-                    "tenncc": tenncc,
-                    "sdtncc": sdtncc,
-                    "emailncc": emailncc,
-                    "diachincc": diachincc
-                };
-                list.push(supplier);
-                localStorage.setItem("Supplier", JSON.stringify(list));
-                alert("Đã thêm thành công!");
-                location.reload();
-            }
-
+                    },2000)
             function NhapMoi() {
                 document.getElementById('mancc').value = '';
                 document.getElementById('tenncc').value = '';
@@ -258,43 +196,6 @@
                 document.getElementById('emailncc').value = '';
                 document.getElementById('diachincc').value = '';
             }
-
-            function LoadData() {
-                var str = "";
-                var sl = 0;
-                list.sort();
-                for (x of list) {
-                    sl++;
-                    str += `<tr>
-                        <td style="text-align: center;padding-top: 10px;"><input type="checkbox" name="check_all"></td>
-                            <td>`+ x.mancc + `</td>
-                            <td>`+ x.tenncc + `</td>
-                            <td>`+ x.sdtncc + `</td>
-                            <td>`+ x.emailncc + `</td>
-                            <td>`+ x.diachincc + `</td>
-                            <td style="text-align: center;">
-                                <i class="fas fa-edit" title="Sửa" onclick="SuaNhaCungCap(`+ x.mancc + `)"></i>
-                                <i class="fas fa-trash-alt" title="Xóa" onclick="XoaNhaCungCap(`+ x.mancc + `)"></i>
-                            </td>
-                        </tr>
-                    `;
-                }
-                document.getElementById("listSupplier").innerHTML = str;
-                $('#soluong').html(sl);
-            }
-            LoadData();
-
-            function XoaNhaCungCap(mancc) {
-                if (confirm("Bạn chắc chắn muốn xóa!")) {
-                    var index = list.findIndex(x => x.mancc == mancc);
-                    if (index >= 0) {
-                        list.splice(index, 1);
-                    }
-                    LoadData();
-                    localStorage.setItem('Supplier', JSON.stringify(list));
-                }
-            }
-
             function CheckAll(parent) {
                 var ids = document.getElementsByTagName('input');
                 for (var i = 0; i < ids.length; i++) {
@@ -303,74 +204,7 @@
                     }
                 }
             }
-
-            function SuaNhaCungCap(mancc) {
-                for (x of list) {
-                    if (x.mancc == mancc) {
-                        document.getElementById('mancc').value = x.mancc;
-                        document.getElementById('tenncc').value = x.tenncc;
-                        document.getElementById('sdtncc').value = x.sdtncc;
-                        document.getElementById('emailncc').value = x.emailncc;
-                        document.getElementById('diachincc').value = x.diachincc;
-                    }
-                }
-            }
-
-            function CapNhat() {
-                var mancc = document.getElementById("mancc").value;
-                var tenncc = document.getElementById("tenncc").value;
-                var sdtncc = document.getElementById("sdtncc").value;
-                var emailncc = document.getElementById("emailncc").value;
-                var diachincc = document.getElementById("diachincc").value;
-                var number = /^[0-9]+$/;
-                var atposition = emailncc.indexOf("@");
-                var dotposition = emailncc.lastIndexOf(".");
-                var ok = true;
-
-                if (tenncc == null || tenncc == "") {
-                    alert("Tên nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (sdtncc == null || sdtncc == "") {
-                    alert("Số điện thoại nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                } else if (!sdtncc.match(number) || sdtncc.length != 10) {
-                    alert("Số điện thoại nhà cung cấp phải là kiểu số và có độ dài là 10 ký tự! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (emailncc == null || emailncc == "") {
-                    alert("Email nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (atposition < 1 || dotposition < (atposition + 2) || (dotposition + 2) >= emailncc.length) {
-                    alert("Email nhà cung cấp không hợp lệ! Vui lòng nhập lại!");
-                    return false;
-                }
-                else if (diachincc == null || diachincc == "") {
-                    alert("Địa chỉ nhà cung cấp không được để trống! Vui lòng nhập lại!");
-                    return false;
-                }
-
-                for (x of list) {
-                    if (x.mancc == mancc) {
-                        x.mancc = mancc;
-                        x.sdtncc = sdtncc;
-                        x.emailncc = emailncc;
-                        x.diachincc = diachincc;
-                        ok = false;
-                        break;
-                    }
-                }
-
-                if (ok == false) {
-                    alert("Cập nhật thông tin thành công!");
-                    localStorage.setItem("Supplier", JSON.stringify(list));
-                    location.reload();
-                }
-                else {
-                    alert("Cập nhật thông tin thất bại!");
-                }
-            }
+      
         </script>
     </section>
 </body>

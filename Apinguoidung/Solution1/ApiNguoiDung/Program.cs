@@ -29,6 +29,8 @@ builder.Services.AddTransient<iCategoryBUL, CategoryBUL>();
 builder.Services.AddTransient<IcategoryDAL, CategoryDAL>();
 builder.Services.AddTransient<IHoaDonBul, HoaDonBUL>();
 builder.Services.AddTransient<iHoadonDAL, HoadonDAL>();
+builder.Services.AddTransient<iNhaCCDAL, NhaCungCapDAL>();
+builder.Services.AddTransient<iNhaCungCapBUL, NhaCungCapBUL>();
 
 // Configure the HTTP request pipeline.
 builder.Services.AddControllers();

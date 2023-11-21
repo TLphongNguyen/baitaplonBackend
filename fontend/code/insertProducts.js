@@ -1,4 +1,5 @@
 var app = angular.module('AppBanHang', []);
+
 app.controller("insertProductCtrl", ($scope,$http)=> {
     $scope.idProducts = "";
     $scope.nameProduct = "";
@@ -41,8 +42,9 @@ app.controller("insertProductCtrl", ($scope,$http)=> {
     
    
     };
-    $scope.previewImage = function(input) {
-        var file = input.files[0];
+
+$scope.previewImage = function(input) {
+    var file = input.files[0];
         
        
         if (file) {
@@ -58,7 +60,9 @@ app.controller("insertProductCtrl", ($scope,$http)=> {
             };
             reader.readAsDataURL(file);
         }
-    };
+  
+};
+
   
     
     
@@ -122,25 +126,26 @@ function LoadData() {
 
 }
 LoadData();
-
-const listData = document.querySelectorAll(".gwap-item")
-console.log(listData);
-  listData.forEach((i) => {
-        i.onclick = () => {
-            console.log(i);                    
+setTimeout(() => {
+    const listData = document.querySelectorAll(".gwap-item")
+    console.log(listData);
+      listData.forEach((i) => {
+            i.onclick = () => {
+                console.log(i);                    
+                    
+                const tr = i.closest(".gwap-item")
+                document.getElementById('masanpham').value = tr.querySelector("tr td:nth-child(2)").textContent;
+                document.querySelector('.category-item').textContent = tr.querySelector("tr td:nth-child(7)").textContent;
+                document.getElementById('tensanpham').value = tr.querySelector("tr td:nth-child(3)").textContent;
+                document.getElementById('imgproduct').value = tr.querySelector("tr td:nth-child(4) img").textContent;
+                document.getElementById('slsp').value = tr.querySelector("tr td:nth-child(5)").textContent;
+                document.getElementById('giaban').value = tr.querySelector("tr td:nth-child(6)").textContent;
+    
                 
-            const tr = i.closest(".grid_view")
-            document.querySelector('.category-item').value = tr.querySelector("tr td:nth-child(2)").textContent;
-            document.getElementById('masanpham').value = tr.querySelector("tr td:nth-child(3)").textContent;
-            document.getElementById('tensanpham').value = tr.querySelector("tr td:nth-child(4)").textContent;
-            document.getElementById('imgproduct').value = tr.querySelector("tr td:nth-child(5)").textContent;
-            document.getElementById('slsp').value = tr.querySelector("tr td:nth-child(6)").textContent;
-            document.getElementById('giaban').value = tr.querySelector("tr td:nth-child(7)").textContent;
-            document.getElementById('giagiam').value = tr.querySelector("tr td:nth-child(8)").textContent;
+            }
+        })
 
-            
-        }
-    })
+},1000)
 function XoaSanPham(masanpham) {
     if (confirm("Bạn chắc chắn muốn xóa!")) {
         var index = list.findIndex(x => x.masanpham == masanpham);

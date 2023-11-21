@@ -27,7 +27,7 @@ namespace DataAccessLayer
                 "@Diachi", model.Diachi,
                 "@Datehoadon" ,model.Datehoadon,
                 "@SDTKH", model.SDTKH,
-                "@DiaChiGiaoHang" , model.DiaChiGiaoHang,
+                "@DiaChiNhanHang", model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

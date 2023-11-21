@@ -15,12 +15,7 @@ namespace API.banhang.Controllers
             _nhaCCBul = nhaCCBul;
             
         }
-        [Route(("get-by-id/{id}"))]
-        [HttpGet]
-        public NhaCungCapModel GetDatabyID(string id)
-        {
-            return _nhaCCBul.GetNhaCungCapByID(id);
-        }
+        
         [Route("create-NhaCC")]
         [HttpPost]
         public NhaCungCapModel CreateItem([FromBody] NhaCungCapModel model)

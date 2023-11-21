@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/cart.css">
     <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
 </head>
-<body>
+<body ng-app="AppBanHang"  ng-controller="ChitietCtrl">
     <header class="header">
         <div class="grid wide ">
             <div class="header__navbar hide-on-mobile-tablet">
@@ -117,11 +117,11 @@
                     </li>
                     <li class="header__navbar-item login header__navbar--item-strong">đăng nhập</li> -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="/img/user.png" alt="" class="header__navbar-user-img">
-                        <span class="header__navbar-user-name">Phong Nguyen</span>
+                        <img src="{{user.avatar}}" alt="" class="header__navbar-user-img">
+                        <span class="header__navbar-user-name">{{user.hoTen }}</span>
                         <ul class="header__navbar-user-menu">
                             <li class="header__navbar-user-item">
-                                <a href="https://www.facebook.com/phonggdeptry286">Tài khoản của tôi</a>
+                                <a class = "link-info__user" href="#">Tài khoản của tôi</a>
                             </li>
                             <li class="header__navbar-user-item">
                                 <a href="">Địa chỉ của tôi</a>
@@ -130,7 +130,7 @@
                                 <a href="">đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item">
-                                <a href="">Đăng xuất</a>
+                                <a href="/admin/login.html">Đăng xuất</a>
                             </li>
                         </ul>
                     </li>
@@ -191,112 +191,218 @@
                     <li class="item-info">Thao Tác</li>
                 </ul>
             </div>
-            <ul class="cart-list">
-                <div class="cart-item">
-                    <div class="cart-shop">
-                        <div class="checkboxGwap">
+            <ul  class="cart-list">
+                <li ng-repeat="item in giohang" class="cart-item">
+                    <div class="cart-item">
+                        <div class="cart-shop">
+                            <div class="checkboxGwap">
 
-                            <input type="checkbox" name="" id="check-box">
+                                <input type="checkbox" name="" id="check-box">
+                            </div>
+                            <div class="cart-like">
+                                Yêu thích+
+                            </div>
+                            <span class="name-shop">
+                                {{item.namecategory}}
+                            </span>
+                            <div class="cart-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
                         </div>
-                        <div class="cart-like">
-                            Yêu thích+
+                    </div>
+                    <div class="cart-prodcut">
+                        <div class="gwap-sale">
+                            <div class="product-sale">
+                                <span class="deal">Deal sốc</span>
+                                <span class="buy-deal">Mua kèm deal độc quyền</span>
+                                <span class="more">
+                                    thêm
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
+    
                         </div>
-                        <span class="name-shop">
-                            Macbox - Thế Giới Phụ Kiện
-                        </span>
-                        <div class="cart-icon">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="product-item">
+                            <div class="checkboxGwap">
+    
+                                <input type="checkbox" name="" id="check-box check-tf">
+                            </div>
+                            <div class="product-gwap">
+                                <div class="product-img">
+                                    <img src="{{item.imgproduct}}" alt="">
+                                </div>
+                                <div class = "gwap-title">
+                                    <span class="product-title">
+                                        {{item.nameproduct}}
+                                    </span>
+                                    <img src="/img/sale.png" alt="" class="img-sale">
+    
+                                </div>
+                            </div>
+                            <div class="product-category">
+                                <span class="category">
+                                    Phân loại hàng
+                                    <i class="fa-solid fa-caret-down"></i>
+                                </span>
+                                <span class="category-new">
+                                    {{item.namecategory}}
+                                </span>
+                            </div>
+                            <div class="gwap-price">
+                                <div class="price-item">
+                                    <span class="price-old">
+                                        ₫{{item.priceproduct}}
+                                    </span>
+                                    <span class="price-sale">
+                                        <!-- Giảm Giá 7% -->
+    
+                                    </span>
+                                </div>
+                                <div class="price-item">
+                                    <span class="price-new">
+                                        ₫{{item.priceproduct}}
+                                    </span>
+                                    <div class="price-update">
+                                        <!-- Đã Cập Nhật -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gwap-number">
+                                <div class="quantity">
+                                    <button class="btn-giam">
+                                        <i class="fa-solid fa-minus"></i>
+    
+                                    </button>
+                                    <span class="quantity-number">
+                                        {{item.soLuong}}
+                                    </span>
+                                    <button class="btn-tang">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="into-money">
+                                <span class = "price-now">79000</span>
+                                Đ
+                            </div>
+                            <div class="delete-search">
+                                <span ng-click="XoaKhoiGioHang(item.iDproduct)" class="delete-cart">
+                                    Xóa
+                                </span>
+                                <a href="/code/payload.html" class="link-pay">
+                                    <button ng-click="buyNow(item)" class="buy-now">
+                                        Mua ngay
+                                    </button>
+                                    
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="grid wide  ">
+            <div class="grid-row footer-content">
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer-heading">CHĂM SÓC KHÁCH HÀNG</h3>
+                    <ul class="footer-list">
+                       
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Hưỡng dẫn mua hàng</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="footer-item__link">Chính sách vận chuyển</a>
+
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer-heading">VỀ CHÚNG TÔI</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">Giới thiệu</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">tuyển dụng </a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">điểu khoản</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer-heading">Danh mục</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">uchiha</a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">senju </a>
+                        </li>
+                        <li class="footer-item">
+                            <a href="" class="footer-item__link">uzumaki</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-4 c-6">
+                    <h3 class="footer-heading">THEO DÕI</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item">
+                            <i class="footer-item__icon fa-brands fa-facebook"></i>
+                            <a href="" class="footer-item__link">facebook</a>
+                        </li>
+                        <li class="footer-item">
+                            <i class="footer-item__icon fa-brands fa-instagram"></i>
+                            <a href="" class="footer-item__link">instagram </a>
+                        </li>
+                        <li class="footer-item">
+                            <i class="footer-item__icon fa-brands fa-twitter"></i>
+                            <a href="" class="footer-item__link">twitter</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2-4 m-8 c-12">
+                    <h3 class="footer-heading">VÀO CỬA HÀNG TRÊN ỨNG DỤNG</h3>
+                    <div class="footer__download">
+                        <img src="/img/qrcode.png" alt="" class="footer__download-pr">
+                        <div class="footer__download-apps">
+                            <a href="" class="footer__download-apps-link">
+
+                                <img src="/img/ggplay.png" alt="" class="footer__download-apps-img">
+                            </a>
+                            <a href="" class="footer__download-apps-link">
+
+                                <img src="/img/appstore.png" alt="" class="footer__download-apps-img">
+                            </a>
+
                         </div>
                     </div>
                 </div>
-                <div class="cart-prodcut">
-                    <div class="gwap-sale">
-                        <div class="product-sale">
-                            <span class="deal">Deal sốc</span>
-                            <span class="buy-deal">Mua kèm deal độc quyền</span>
-                            <span class="more">
-                                thêm
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </span>
-                        </div>
 
-                    </div>
-                    <div class="product-item">
-                        <div class="checkboxGwap">
-
-                            <input type="checkbox" name="" id="check-box">
-                        </div>
-                        <div class="product-gwap">
-                            <div class="product-img">
-                                <img src="/img/giado.png" alt="">
-                            </div>
-                            <div class = "gwap-title">
-                                <span class="product-title">
-                                    Giá đỡ LAPTOP, MACBOOK, IPAD bằng nhôm có thể điều chỉnh được độ cao, đế tản nhiệt kê laptop nhôm
-                                </span>
-                                <img src="/img/sale.png" alt="" class="img-sale">
-
-                            </div>
-                        </div>
-                        <div class="product-category">
-                            <span class="category">
-                                Phân loại hàng
-                                <i class="fa-solid fa-caret-down"></i>
-                            </span>
-                            <span class="category-new">
-                                N3 V1 Bạc (14inch)\
-                            </span>
-                        </div>
-                        <div class="gwap-price">
-                            <div class="price-item">
-                                <span class="price-old">
-                                    ₫85.000
-                                </span>
-                                <span class="price-sale">
-                                    <!-- Giảm Giá 7% -->
-
-                                </span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-new">
-                                    ₫79.000
-                                </span>
-                                <div class="price-update">
-                                    <!-- Đã Cập Nhật -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gwap-number">
-                            <div class="quantity">
-                                <button class="btn-giam">
-                                    <i class="fa-solid fa-minus"></i>
-
-                                </button>
-                                <span class="quantity-number">
-                                    1
-                                </span>
-                                <button class="btn-tang">
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="into-money">
-                            <span class = "price-now">79000</span>
-                            Đ
-                        </div>
-                        <div class="delete-search">
-                            <span class="delete-cart">
-                                Xóa
-                            </span>
-                            <button class="search-more">
-                                Tìm sản phẩm tương tự
-                            </button>
-                        </div>
-                    </div>
-                </ul>
-            </ul>
+            </div>
+            
         </div>
-    </div>
+        <div class="footer__bottom">
+            <div class="grid wide ">
+                <p class="footer__text">
+                    Địa chỉ: Làng Trương. Tổng đài hỗ trợ: 0862889603 - Email: acelinhphong@gmail.com © 2020 Bản quyền thuộc về Bố Phong
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
-<script src = "/code/cart.js"></script>
+<script src = "/code/angular.min.js"></script>
+<script src = "/code/global.js"></script>
+<script src = "chitietproduct.js"></script>
 </html>
