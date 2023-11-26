@@ -4,6 +4,8 @@ app.controller("hoadonCtrl", function($scope,$http){
     $scope.tenKH = '';
     $scope.diachi = '';
     $scope.diaChiGiaoHang = '';
+    $scope.listHoaDon =[];
+    $scope.productInfo = [];
     var idLogin = localStorage.getItem('idLogin');
     $scope.loadUser = (()=> {
         
@@ -45,7 +47,7 @@ app.controller("hoadonCtrl", function($scope,$http){
     })
     // Gán thông tin sản phẩm cho $scope để hiển thị trong HTML
     $scope.selectedProduct = selectedProduct;
-    $scope.iDhoadon = 1;
+    $scope.iDhoadon = '';
     $scope.iDchitiethd = '';
     $scope.iDproduct =  selectedProduct.iDproduct;
     $scope.soluong= '';
@@ -56,7 +58,7 @@ app.controller("hoadonCtrl", function($scope,$http){
     $scope.loadUser();
     
     $scope.createHoaDon = (() => {
-        data = {
+        var data = {
             datehoadon: $scope.datehoadon,
             tenKH: $scope.tenKH,
             diachi: $scope.diachi,
@@ -78,9 +80,88 @@ app.controller("hoadonCtrl", function($scope,$http){
         })
         .then((response)=> {
             console.log(response.data);
+            if(response.data != undefined) {
+                alert("Đặt hàng thành công")
+            }
         })
     })
     
+    $scope.getDataHoaDon =(()=> {
+        $http({
+            method : 'GET',
+            url : current_url1 +'/api/HoaDon/get-by-id-customer/' + idLogin,
+            
+        })
+        .then((res) => {
+            $scope.listHoaDon = res.data
+            if ($scope.listHoaDon && $scope.listHoaDon.length > 0) {
+                // Lặp qua từng hóa đơn
+                angular.forEach($scope.listHoaDon, (hoaDon) => {
+                    // Kiểm tra xem có danh sách chi tiết hóa đơn không
+                    if (hoaDon.list_json_chitiethoadon && hoaDon.list_json_chitiethoadon.length > 0) {
+                        // Lấy ID sản phẩm từ chi tiết hóa đơn đầu tiên
+                        let productId = hoaDon.list_json_chitiethoadon[0].iDproduct;
+                        $scope.iDhoadon = hoaDon.iDhoadon
+                        // Gọi API hoặc xử lý dữ liệu sản phẩm dựa trên productId
+                        // Ví dụ:
+                        $http({
+                            method: 'GET',
+                            url: current_url1 + '/api/Product/get-by-id-product/' + productId,
+                        })
+                        .then((productRes) => {
+                            // Gán thông tin sản phẩm vào hóa đơn tương ứng
+                            hoaDon.productInfo = productRes.data;
+                        });
+                    }
+                });
+            }
+        })
+    })
+    $scope.getDataHoaDon();
+    $scope.showConfirmation = false;
+    $scope.deleteHoaDon = (() => {
+        $http({
+        method: 'DELETE',
+        url: current_url + '/api/HoaDon/delete-hoadon/'+ $scope.iDhoadon,
+    })
+    .then((response) => {
+        $scope.hoaDonInfo = response.data.hoaDonInfo;
+        $scope.showConfirmation = true;
+    })
+    })
+    $scope.confirmDelete = () => {
+    // Hiển thị thông báo xác nhận
+    var confirmDelete = confirm("Bạn có chắc chắn muốn hủy không? Nếu đồng ý, hóa đơn sẽ bị hủy.");
+
+    if (confirmDelete) {
+        // Gọi API DELETE để xóa hóa đơn khi người dùng đồng ý
+        $http({
+            method: 'DELETE',
+            url: current_url + '/api/HoaDon/delete-hoadon/'+ $scope.iDhoadon,
+        })
+        
+        .then((response) => {
+            console.log(response.data);
+            alert("hủy hóa đơn thành công");
+            // Thực hiện các xử lý khác nếu cần
+            $scope.showConfirmation = false;
+            $scope.getDataHoaDon();
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("hủy hóa đơn thất bại");
+            // Xử lý lỗi nếu cần
+            $scope.showConfirmation = false;
+        });
+    } else {
+        // Hủy xác nhận nếu người dùng không đồng ý
+        $scope.showConfirmation = false;
+    }
+};
+$scope.cancelDelete = () => {
+    // Hủy xác nhận và ẩn xác nhận
+    $scope.showConfirmation = false;
+};
         
 
     

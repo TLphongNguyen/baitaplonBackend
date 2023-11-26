@@ -19,50 +19,50 @@ function LoadUser() {
 }
 
 function TTTaiKhoan() {
-    window.location.href = "../admin/TTTaiKhoan.html";
+    window.location.href = "/admin/TTTaiKhoan.html";
 }
 
 function LogOut() {
     localStorage.setItem('user', null);
-    window.location.href = "../admin/login.html";
+    window.location.href = "/admin/login.html";
 }
 
 function TongQuan() {
-    window.location.href = "../admin/TongQuan.html";
+    window.location.href = "/admin/TongQuan.html";
 }
 
 function LoaiSanPham() {
-    window.location.href = "../admin/LoaiSanPham.html";
+    window.location.href = "/admin/LoaiSanPham.html";
 }
 
 function SanPham() {
-    window.location.href = "../admin/SanPham.html";
+    window.location.href = "/admin/SanPham.html";
 }
 
 function NhaCungCap() {
-    window.location.href = "../admin/NhaCungCap.html";
+    window.location.href = "/admin/NhaCungCap.html";
 }
 
 function KhachHang() {
-    window.location.href = "../admin/KhachHang.html";
+    window.location.href = "/admin/KhachHang.html";
 }
 
 function NhanVien() {
-    window.location.href = "../admin/NhanVien.html";
+    window.location.href = "/admin/NhanVien.html";
 }
 
 function HoaDonNhap() {
-    window.location.href = "../admin/HoaDonNhap.html";
+    window.location.href = "/admin/HoaDonNhap.html";
 }
 
 function HoaDonBan() {
-    window.location.href = "../admin/HoaDonBan.html";
+    window.location.href = "/admin/HoaDonBan.html";
 }
 
 function TinTuc() {
-    window.location.href = "../admin/TinTuc.html";
+    window.location.href = "/admin/TinTuc.html";
 }
 
 function ThietLap() {
-    window.location.href = "../admin/ThietLap.html";
+    window.location.href = "/admin/ThietLap.html";
 }

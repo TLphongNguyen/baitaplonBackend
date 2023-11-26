@@ -27,6 +27,9 @@ namespace BusinessLogicLayer
         {
             return _res.update(model);
         }
-        
+        public bool Delete(int idHoaDon)
+        {
+            return _res.Delete(idHoaDon);
+        }
     }
 }

@@ -32,8 +32,6 @@
                 <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
                 <button onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
                 <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
-                <button onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
-                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
                 <button class="active" onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
                 <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
                 <button onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
@@ -213,33 +211,7 @@
             </div>
         </div>
         <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                window.location.href = "../admin/login.html";
-            }
-
-            LoadUser();
-
-            // var sanpham = '<tr>\
-            //             <td>\<input type="text" class="" placeholder="Mã sản phẩm...">\</td>\
-            //             <td>\
-            //                 <input type="text" class="" placeholder="Tên sản phẩm...">\
-            //             </td>\
-            //             <td>\
-            //                 <input type="number" class="" placeholder="Số lượng...">\
-            //             </td>\
-            //             <td>\
-            //                 <input type="number" class="" placeholder="Đơn giá...">\
-            //             </td>\
-            //             <td>\
-            //                 <button class="" onclick="XoaSanPham(this)"><i class="fas fa-trash"></i></button>\
-            //             </td>\
-            //         </tr>';
-            // $("#AddSanPham").click(function (e) {
-            //     $("#DSSanPham").append(sanpham);
-            // });
-
-            var list = JSON.parse(localStorage.getItem('Import')) || [];
+           
 
             function ThemHoaDon() {
                 var mahd = document.getElementById("mahd").value;

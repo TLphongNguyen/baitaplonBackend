@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style_mainQT.css">
     <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
     <script src="../js/jquery-3.6.0.min.js"></script>
-    <script src="../js/click.js"></script>
+    <script src="/code/click.js"></script>
     <title>Quản lý cửa hàng bán máy tính NCC</title>
 </head>
 
@@ -32,8 +32,6 @@
                 <button onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</button>
                 <button onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</button>
                 <button onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</button>
-                <button onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</button>
-                <button onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</button>
                 <button onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</button>
                 <button onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</button>
                 <button onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</button>
@@ -47,8 +45,6 @@
                     <li onclick="LoaiSanPham()"><i class="fas fa-boxes"></i> Loại sản phẩm</li>
                     <li onclick="SanPham()"><i class="fas fa-barcode"></i> Sản phẩm</li>
                     <li onclick="NhaCungCap()"><i class="fas fa-truck"></i> Nhà cung cấp</li>
-                    <li onclick="KhachHang()"><i class="fas fa-users"></i> Khách hàng</li>
-                    <li onclick="NhanVien()"><i class="fas fa-user"></i> Nhân viên</li>
                     <li onclick="HoaDonNhap()"><i class="fas fa-file-import"></i> Hóa đơn nhập</li>
                     <li onclick="HoaDonBan()"><i class="fas fa-shopping-cart"></i> Hóa đơn bán</li>
                     <li onclick="TinTuc()"><i class="fas fa-newspaper"></i> Tin tức</li>
@@ -143,12 +139,7 @@
             </div>
         </div>
         <script>
-            var user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                window.location.href = "../admin/login.html";
-            }
-
-            LoadUser();
+            
         </script>
     </section>
 </body>

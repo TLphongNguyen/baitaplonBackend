@@ -135,7 +135,7 @@
                                     <a href="">Địa chỉ của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="">đơn mua</a>
+                                    <a href="/code/ordered.html">đơn mua</a>
                                 </li>
                                 <li class="header__navbar-user-item">
                                     <a href="/admin/login.html">Đăng xuất</a>
@@ -428,7 +428,53 @@
                                 
                             </div>
                         </div>
-
+                        <ul ng-click ="pageChange " class="pagination home-product__pagination">
+                            <li class="pagination-item " >
+                                <a href="" class="pagination-link ">
+                                    <i class="pagination-icon fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="pagination-item pagination__active" ng-click="pageChange('1')">
+                                <a href="" class="pagination-link">
+                                   1
+                                </a>
+                            </li>
+                            <li class="pagination-item" ng-click="pageChange('2')">
+                                <a href="" class="pagination-link">
+                                    2
+                                </a>
+                            </li>
+                            <li class="pagination-item" ng-click="pageChange('3')">
+                                <a href="" class="pagination-link">
+                                    3
+                                </a>
+                            </li>
+                            <li class="pagination-item" ng-click="pageChange('4')">
+                                <a href="" class="pagination-link">
+                                    4
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-link" ng-click="pageChange('5')">
+                                   5
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-link">
+                                    ...
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-link">
+                                   14
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="" class="pagination-link">
+                                    <i class="pagination-icon fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
                         <div class="product-category">
                             <div class="header-product">
                                 <div class="header-title__product">
@@ -608,7 +654,7 @@
                             </div>
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
-                                    <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
+                                    <li ng-repeat="y in babies" class=" product-category__item col l-2-4 m-4 c-6">
                                         <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
@@ -665,7 +711,7 @@
                             </div>
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
-                                    <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
+                                    <li ng-repeat="y in electronic" class=" product-category__item col l-2-4 m-4 c-6">
                                         <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
@@ -714,53 +760,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <ul class="pagination home-product__pagination">
-                            <li class="pagination-item ">
-                                <a href="" class="pagination-link ">
-                                    <i class="pagination-icon fa-solid fa-chevron-left"></i>
-                                </a>
-                            </li>
-                            <li class="pagination-item pagination__active" >
-                                <a href="" class="pagination-link">
-                                   1
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                    2
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                    3
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                    4
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                   5
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                    ...
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                   14
-                                </a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="" class="pagination-link">
-                                    <i class="pagination-icon fa-solid fa-chevron-right"></i>
-                                </a>
-                            </li>
-                        </ul>
+                        
 
                     </div>
                     

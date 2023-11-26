@@ -25,7 +25,7 @@ app.controller('LoginCtrl', function ($scope, $http) {
                 switch ($scope.dataUser.maloai) {
                     case 1:
                         if ($scope.dataUser.idLogin) {
-                            window.location.href = `/admin/SanPham.html?id=${$scope.dataUser.idLogin}`;
+                            window.location.href = `/admin/TongQuan.html?id=${$scope.dataUser.idLogin}`;
                         } else {
                             console.log('Không có ID để chuyển hướng.');
                         }

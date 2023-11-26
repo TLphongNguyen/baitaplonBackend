@@ -12,6 +12,7 @@ namespace BusinessLogicLayer.interfaces
 
         bool Create(HoadonModel model);
         bool Update(HoadonModel model);
+        bool Delete(int idHoaDon);
         
     }
 }

@@ -32,7 +32,23 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
-  
+        public List<HoadonModel> GetDatabyIDCustomer(int id)
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "GetCustomerInfoByIDLogin",
+                     "@IDlogin", id);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<HoadonModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public List<thongkekhach> Search(int pageIndex, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao)
         {

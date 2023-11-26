@@ -1,0 +1,12 @@
+.product-category {
+    margin-top: 0px;
+}
+.quantity,.into-money {
+    font-size: 14px;
+}
+.product-item {
+    justify-content: space-between;
+}
+.delete-search {
+    margin-right: 30px;
+}

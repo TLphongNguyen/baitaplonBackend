@@ -22,7 +22,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
-        
+        public List<HoadonModel> GetDatabyIDCustomer(int id)
+        {
+            return _res.GetDatabyIDCustomer(id);
+        }
         public List<thongkekhach> Search(int pageIndex, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao)
         {
             return _res.Search(pageIndex, pageSize, out total, ten_khach, fr_NgayTao, to_NgayTao);

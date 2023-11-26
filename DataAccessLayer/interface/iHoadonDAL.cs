@@ -13,5 +13,6 @@ namespace DataAccessLayer.interfaces
 
         bool create(HoadonModel hoadon);
         bool update(HoadonModel hoadon);
+        bool Delete(int idHoaDon);
     }       
 }

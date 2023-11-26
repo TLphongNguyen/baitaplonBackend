@@ -17,8 +17,8 @@ app.controller("HomeCtrl", function ($scope, $http) {
     $scope.clothes = [];
     $scope.Footwear = [];
     $scope.Houseware = [];
-    $scope.clothes = [];
-    $scope.clothes = [];
+    $scope.babies = [];
+    $scope.electronic = [];
     $scope.user = '';
     $scope.idCT = '';
     $scope.idlogin = $scope.user.iDLogin;
@@ -27,6 +27,10 @@ app.controller("HomeCtrl", function ($scope, $http) {
     $scope.sdt = '';
     $scope.avt = '';
     $scope.email = ''
+    $scope.page = 1;
+    $scope.pageSize = 10;
+    $scope.nameSearch = "";
+   
     $scope.renderCategory = function () {
         $http({
             method : 'GET',
@@ -39,14 +43,23 @@ app.controller("HomeCtrl", function ($scope, $http) {
     $scope.renderCategory();
     $scope.RenderProduct= function () {
         $http({
-            method: 'GET',
-            url: current_url1 + '/api/Product/getAll-product',
-        }).then(function (response) {  
+            method:'POST',
+            data: { page: $scope.page, pageSize:$scope.pageSize,nameproduct : $scope.nameSearch},
+            url:current_url1 + '/api/Product/search',
             
-            $scope.listProduct = response.data;  
-        });
+            
+        })
+        .then((res)=>{
+            $scope.listProduct = res.data.data;
+        })
     }; 
 	$scope.RenderProduct();
+    $scope.pageChange = ((valueinput)=>{
+        // Thực hiện các hành động khác dựa trên giá trị valueinput
+        $scope.page = valueinput;
+        console.log($scope.page);
+        $scope.RenderProduct()
+    })
     $scope.loadClothes = function() {
         $http({
             method : 'GET',
@@ -80,6 +93,28 @@ app.controller("HomeCtrl", function ($scope, $http) {
         })
     }
     $scope.loadHouseware();
+    $scope.babies = (() => {
+        $http({
+            method : 'GET',
+            url :current_url1 + '/api/Product/get-by-Category/4'
+
+        })
+        .then((res)=> {
+            $scope.babies = res.data;
+        })
+    })
+    $scope.babies();
+    $scope.electronic = (() => {
+        $http({
+            method : 'GET',
+            url :current_url1 + '/api/Product/get-by-Category/5'
+
+        })
+        .then((res)=> {
+            $scope.electronic = res.data;
+        })
+    })
+    $scope.electronic();
     $scope.loadUser = (()=> {
         var key = 'id';
         var value = window.location.search.substring(window.location.search.indexOf(key)+key.length+1)

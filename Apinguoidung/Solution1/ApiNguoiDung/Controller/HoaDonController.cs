@@ -20,7 +20,12 @@ namespace API.banhang.Controllers
         {
             return _hoadonBusiness.GetDatabyID(id);
         }
-        
+        [Route("get-by-id-customer/{id}")]
+        [HttpGet]
+        public List<HoadonModel> GetDatabyIDCustomer(int id)
+        {
+            return _hoadonBusiness.GetDatabyIDCustomer(id);
+        }
 
         [Route("search")]
         [HttpPost]

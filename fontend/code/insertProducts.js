@@ -12,16 +12,13 @@ app.controller("insertProductCtrl", ($scope,$http)=> {
     $scope.pageSize = 10;
     $scope.nameSearch = "";
     $scope.listSearch = [];
-    $scope.pageChange = ((valueinput)=>{
-        // Thực hiện các hành động khác dựa trên giá trị valueinput
-        $scope.page = valueinput;
-        console.log($scope.page);
-    })
+    $scope.listCategory = [];
+   
     $scope.searchProduct = (()=> {
         
         $http({
             method:'POST',
-            data: { page: $scope.page, pageSize:$scope.pageSize,nameSearch : $scope.nameSearch},
+            data: { page: $scope.page, pageSize:$scope.pageSize,nameproduct : $scope.nameSearch},
             url:current_url1 + '/api/Product/search',
             
             
@@ -30,7 +27,14 @@ app.controller("insertProductCtrl", ($scope,$http)=> {
             $scope.listSearch = res.data.data;
         })
     })
+    $scope.pageChange = ((valueinput)=>{
+        // Thực hiện các hành động khác dựa trên giá trị valueinput
+        $scope.page = valueinput;
+        console.log($scope.page);
+        $scope.searchProduct()
+    })
     $scope.performSearch = () => {
+        console.log($scope.nameSearch);
         $scope.searchProduct();
     };
     $scope.searchProduct();
@@ -38,6 +42,7 @@ app.controller("insertProductCtrl", ($scope,$http)=> {
         const category = document.querySelector("#loaisp");
         let categoryItem = category.value;
         $scope.idCategory = categoryItem;
+        
         console.log("Giá trị idCategory đã thay đổi: " + $scope.idCategory);
     
    
@@ -86,6 +91,42 @@ $scope.previewImage = function(input) {
         })
         
     };
+    $scope.renderCategory = function () {
+        $http({
+            method : 'GET',
+            url : current_url1 + "/api/Category/get-all",
+
+        }).then(function (response) {
+            $scope.listCategory = response.data;
+        })
+    }
+    $scope.renderCategory();
+    $scope.updateProduct = function() {
+        var data = {
+            iDproduct :$scope.idProducts,
+            Nameproduct :$scope.nameProduct,
+            IDcategory :$scope.idCategory,
+            SoLuong :$scope.soLuong,
+            Imgproduct : $scope.imgProduct,
+            PriceProduct : $scope.priceProduct,
+            sale : $scope.sale
+        }
+        $http({
+            method  : 'POST',
+            url : current_url + "/api/Product/update-product",
+            data : JSON.stringify(data),
+        })
+        .then ((res)=> {
+            if(res != null) {
+                alert("Cập nhật thông tin thành công!");
+            }
+            else {
+                alert("vui long kiem tra lai thong tin")
+            }
+            
+        })
+        $scope.renderCategory();
+    }
 
 })
 
@@ -99,43 +140,41 @@ function NhapMoi() {
     document.getElementById('giaban').value = '';
 }
 function LoadData() {
-    const select = document.querySelector("#loaisp")
-    var categoryApi = ' https://localhost:7162/api/Category/get-all'
-    // var productApi = 'https://localhost:7162/api/Product/getAll-product'
+    // const select = document.querySelector("#loaisp")
+    // var categoryApi = ' https://localhost:7162/api/Category/get-all'
+    // // var productApi = 'https://localhost:7162/api/Product/getAll-product'
 
-    function GetCategory(callback) {
-        fetch(categoryApi)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(callback);
-    }
+    // function GetCategory(callback) {
+    //     fetch(categoryApi)
+    //         .then(function (response) {
+    //             return response.json();
+    //         })
+    //         .then(callback);
+    // }
 
     
-    function rendercodeCategory(category) {
-        const htmls = category.map((item) => {
-            return `
-                <option class = "category-item" value="${item.iDcategory}">${item.namecategory}</option>
-            `
-        })
+    // function rendercodeCategory(category) {
+    //     const htmls = category.map((item) => {
+    //         return `
+    //             <option class = "category-item" value="${item.iDcategory}">${item.namecategory}</option>
+    //         `
+    //     })
 
-    select.innerHTML = htmls.join(" ")
-    }
-    GetCategory(rendercodeCategory)
+    // select.innerHTML = htmls.join(" ")
+    // }
+    // GetCategory(rendercodeCategory)
     
 
 }
 LoadData();
 setTimeout(() => {
     const listData = document.querySelectorAll(".gwap-item")
-    console.log(listData);
       listData.forEach((i) => {
             i.onclick = () => {
-                console.log(i);                    
                     
                 const tr = i.closest(".gwap-item")
                 document.getElementById('masanpham').value = tr.querySelector("tr td:nth-child(2)").textContent;
-                document.querySelector('.category-item').textContent = tr.querySelector("tr td:nth-child(7)").textContent;
+                document.querySelector('.category-item').value = tr.querySelector("tr td:nth-child(7)").textContent;
                 document.getElementById('tensanpham').value = tr.querySelector("tr td:nth-child(3)").textContent;
                 document.getElementById('imgproduct').value = tr.querySelector("tr td:nth-child(4) img").textContent;
                 document.getElementById('slsp').value = tr.querySelector("tr td:nth-child(5)").textContent;
@@ -146,16 +185,7 @@ setTimeout(() => {
         })
 
 },1000)
-function XoaSanPham(masanpham) {
-    if (confirm("Bạn chắc chắn muốn xóa!")) {
-        var index = list.findIndex(x => x.masanpham == masanpham);
-        if (index >= 0) {
-            list.splice(index, 1);
-        }
-        LoadData();
-        localStorage.setItem('Product', JSON.stringify(list));
-    }
-}
+
 
 function CheckAll(parent) {
     var ids = document.getElementsByTagName('input');
@@ -166,11 +196,7 @@ function CheckAll(parent) {
     }
 }
 
-function loadFile(event) {
-    var image = document.getElementById('viewimg');
-    image.src = URL.createObjectURL(event.target.files[0]);
-    // console.log(img.src)
-}
+
 
 
 
@@ -215,7 +241,6 @@ function CapNhat() {
 
 
     if (ok == false) {
-        alert("Cập nhật thông tin thành công!");
         localStorage.setItem("Product", JSON.stringify(list));
         location.reload();
     }

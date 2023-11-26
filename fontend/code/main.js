@@ -93,5 +93,15 @@ inputPhone.onblur = () => {
 }
 
 
+const navigations = document.querySelectorAll(".pagination-item")
+
+navigations.forEach((navigation) => {
+    navigation.onclick = () => {
+        const navigationActive = document.querySelector(".pagination-item.pagination__active")
+        navigationActive.classList.remove("pagination__active")
+        navigation.classList.add("pagination__active")
+    }
+})
+
 
 

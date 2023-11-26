@@ -133,6 +133,10 @@ app.controller("ChitietCtrl", function ($scope, $http) {
         // Hiển thị thông báo hoặc chuyển hướng đến trang thanh toán, tùy thuộc vào yêu cầu của bạn
         console.log ('Mua ngay sản phẩm:', product);
     };
+    $scope.clickLogo = function() {
+        window.location.href = "/index.html?id=" +idLogin;
+        console.log(idLogin);
+    }
     
 });
 
