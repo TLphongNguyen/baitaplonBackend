@@ -1107,6 +1107,7 @@
 /* product item */
 .home-product {
     margin-bottom: 10px;
+    min-height: 730px;
 }
 
 .home-product-item {

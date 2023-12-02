@@ -88,6 +88,10 @@ $scope.previewImage = function(input) {
         })
         .then((res)=> {
             console.log(res);
+            if(res) {
+                alert("Thêm sản phẩm thành công");
+                NhapMoi()
+            }
         })
         
     };
@@ -127,64 +131,28 @@ $scope.previewImage = function(input) {
         })
         $scope.renderCategory();
     }
+    $scope.clickProduct = function(product){
+                
+        document.getElementById('masanpham').value = product.iDproduct;
+        document.querySelector('.category-item').value = product.namecategory;
+        document.getElementById('tensanpham').value = product.nameproduct;
+        document.getElementById('slsp').value = product.soLuong;
+        document.getElementById('giaban').value = product.priceproduct;
+    }
 
 })
 
 function NhapMoi() {
     document.getElementById('loaisp').value = 'choose';
-    document.getElementById('nhacungcap').value = 'choose';
     document.getElementById('masanpham').value = '';
     document.getElementById('tensanpham').value = '';
     document.getElementById('imgproduct').value = '';
     document.getElementById('slsp').value = '';
     document.getElementById('giaban').value = '';
-}
-function LoadData() {
-    // const select = document.querySelector("#loaisp")
-    // var categoryApi = ' https://localhost:7162/api/Category/get-all'
-    // // var productApi = 'https://localhost:7162/api/Product/getAll-product'
-
-    // function GetCategory(callback) {
-    //     fetch(categoryApi)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(callback);
-    // }
-
-    
-    // function rendercodeCategory(category) {
-    //     const htmls = category.map((item) => {
-    //         return `
-    //             <option class = "category-item" value="${item.iDcategory}">${item.namecategory}</option>
-    //         `
-    //     })
-
-    // select.innerHTML = htmls.join(" ")
-    // }
-    // GetCategory(rendercodeCategory)
-    
+    document.getElementById('giagiam').value = '';
 
 }
-LoadData();
-setTimeout(() => {
-    const listData = document.querySelectorAll(".gwap-item")
-      listData.forEach((i) => {
-            i.onclick = () => {
-                    
-                const tr = i.closest(".gwap-item")
-                document.getElementById('masanpham').value = tr.querySelector("tr td:nth-child(2)").textContent;
-                document.querySelector('.category-item').value = tr.querySelector("tr td:nth-child(7)").textContent;
-                document.getElementById('tensanpham').value = tr.querySelector("tr td:nth-child(3)").textContent;
-                document.getElementById('imgproduct').value = tr.querySelector("tr td:nth-child(4) img").textContent;
-                document.getElementById('slsp').value = tr.querySelector("tr td:nth-child(5)").textContent;
-                document.getElementById('giaban').value = tr.querySelector("tr td:nth-child(6)").textContent;
-    
-                
-            }
-        })
 
-},1000)
 
 
 function CheckAll(parent) {

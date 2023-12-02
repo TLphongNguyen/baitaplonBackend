@@ -35,6 +35,39 @@ namespace API.banhang.Controllers
             _NhapHangBUL.update(model);
             return model;
         }
+        [Route("getALl")]
+        [HttpGet]
+        public List<HoaDonNhapModel> GetALl()
+        {
+            return _NhapHangBUL.GetALl();
+        }
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search([FromBody] Dictionary<string, object> formData)
+        {
+            try
+            {
+                var page = int.Parse(formData["page"].ToString());
+                var pageSize = int.Parse(formData["pageSize"].ToString());
+                string name_product = "";
+                int ma_npp = int.Parse(formData["ma_npp"].ToString());
+                long total = 0;
+                var data = _NhapHangBUL.Search(page, pageSize, out total,ma_npp);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        Page = page,
+                        PageSize = pageSize
+                    }
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
     }
 }

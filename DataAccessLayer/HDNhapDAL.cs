@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class HDNhapDAL:iHdNhapDAL
+    public class HDNhapDAL : iHdNhapDAL
     {
         private IDatabaseHelper _dbHelper;
         public HDNhapDAL(IDatabaseHelper dbHelper)
@@ -69,6 +69,42 @@ namespace DataAccessLayer
                     throw new Exception(Convert.ToString(result) + msgError);
                 }
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<HoaDonNhapModel> GetALl()
+        {
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "usp_GetAllNhapHang");
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<HoaDonNhapModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<HoaDonNhapModel>  Search(int pageIndex, int pageSize, out long total,int ma_npp) { 
+
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_hdn_search",
+                    "@page_index", pageIndex,
+                    "@page_size", pageSize,
+                    "@ma_npp" , ma_npp
+                     );
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<HoaDonNhapModel>().ToList();
             }
             catch (Exception ex)
             {

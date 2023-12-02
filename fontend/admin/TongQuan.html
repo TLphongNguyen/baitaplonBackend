@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/logoCPT.png">
     <link rel="stylesheet" href="../css/style_mainQT.css">
     <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.6.0.min.js"></script>
+    <!-- <script src="/code/jquery-3.6.0.min.js"></script> -->
     <script src="/code/click.js"></script>
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/canvasjs.min.js"
+    ></script>
+   
+
     <title>Quản lý cửa hàng bán máy tính NCC</title>
 </head>
 
-<body>
+<body ng-app="AppBanHang"  ng-controller="ThongKeHDNController">
     <section class="header">
         <a href="javascript:void(0);" class="icon" onclick="openBTN()">
             <i class="fas fa-bars"></i>
@@ -55,93 +60,95 @@
                 <div class="col-12 col-s-12 content">
                     <div class="tabcontent">
                         <div class="title">
-                            <i class="fas fa-signal"></i> Hoạt động hôm nay
+                            <i class="fas fa-signal"></i> Hoạt động tuần này
                             <hr>
                         </div>
                         <div class="row">
                             <div class="col-4 col-s-12 padding-box">
                                 <div class="box" style="background-color: #9abc32;">
                                     <div class="box-left"><i class="fas fa-signal"></i></div>
-                                    <div class="box-right">Tiền bán hàng<br><span>0</span>đ</div>
+                                    <div class="box-right">Tiền bán hàng<br>
+                                        <span>{{ listTKe_week.doanhThu | number }}</span>đ
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-4 col-s-12 padding-box">
                                 <div class="box" style="background-color: #6FB3E0;">
                                     <div class="box-left"><i class="fas fa-cloud"></i></div>
                                     <div class="box-right">
-                                        Số đơn hàng: <span>0</span><br>
-                                        Số sản phẩm: <span>0</span>
+                                        Số đơn hàng: <span>{{ listTKe_week.soDonHangBan }}</span><br>
+                                        Số sản phẩm: <span>{{ listTKe_week.soSanPhamBan }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-4 col-s-12 padding-box">
                                 <div class="box" style="background-color: #D53F;">
                                     <div class="box-left"><i class="fas fa-undo-alt"></i></div>
-                                    <div class="box-right">Khách hàng trả<br><span>0</span></div>
+                                    <div class="box-right">
+                                        Đơn hàng nhập: <span>{{ listTKe_week.soDonHangNhap }}</span><br>
+                                        Mặt hàng nhập: <span>{{ listTKe_week.soSanPhamNhap }}
+                                    </div>
+                                    
+
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-4 col-s-12 padding-box">
-                                <div class="box2" style="border: 1px solid #6FB3E0;">
-                                    <div class="box2-top" style="border-bottom: 1px solid #6FB3E0;">
-                                        <i class="fas fa-signal"></i> Hoạt động
-                                    </div>
-                                    <div class="box2-bot">
-                                        <div class="box2-bot-left">Tiền bán hàng</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Số đơn hàng</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Số sản phẩm</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Khách trả hàng</div>
-                                        <div class="box2-bot-right">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-s-12 padding-box">
-                                <div class="box2" style="border: 1px solid #E8B110;">
-                                    <div class="box2-top" style="border-bottom: 1px solid #E8B110;">
-                                        <i class="fas fa-boxes"></i> Thông tin kho
-                                    </div>
-                                    <div class="box2-bot">
-                                        <div class="box2-bot-left">Tồn kho</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Hết hàng</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Sắp hết hàng</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Vượt định mức</div>
-                                        <div class="box2-bot-right">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 col-s-12 padding-box">
-                                <div class="box2" style="border: 1px solid #9ABC32;">
-                                    <div class="box2-top" style="border-bottom: 1px solid #9ABC32;">
-                                        <i class="fas fa-boxes"></i> Thông tin sản phẩm
-                                    </div>
-                                    <div class="box2-bot">
-                                        <div class="box2-bot-left">Sản phẩm</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Chưa làm giá bán</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Chưa nhập giá mua</div>
-                                        <div class="box2-bot-right">0</div>
-                                        <div class="box2-bot-left">Hàng chưa phân loại</div>
-                                        <div class="box2-bot-right">0</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
+                <div
+            style="margin-bottom: 20px"
+            class="col-11 col-s-12 col-m-12 Details"
+          >
+            <div class="col-12 col-s-12 col-m-12 overview Page">
+              <div class="col-12 col-s-12 col-m-12 overview1">
+                <div class="tabcontent"></div>
+                <div class="chooseover">
+                  <label for="txt_over"
+                    >Tổng quan về thống kê số người dùng tham gia hệ
+                    thống</label
+                  >
+                  <select
+                    id="txt_over"
+                    ng-model = "valueChart"
+                    ng-change = "changeChart()"
+                    style="outline: none; margin-top: 20px"
+                  >
+                    <option selected value="tuan">Theo tuần</option>
+                    <option value="thang">Theo tháng</option>
+                    <option value="nam">Theo năm</option>
+                  </select>
+                </div>
+                <div class="col-12 col-s-12 col-m-12 sales">
+                  <div
+                    id="chartContainerTuan"
+                    style="height: 400px; width: 60%; margin: auto"
+                  ></div>
+                </div>
+                <div class="col-12 col-s-12 col-m-12 sales_week"></div>
+                <div class="col-12 col-s-12 col-m-12 sales">
+                  <div
+                    id="chartContainerthang"
+                    style="height: 400px; width: 100%"
+                  ></div>
+                </div>
+                <div class="col-12 col-s-12 col-m-12 sales_week"></div>
+                <div class="col-12 col-s-12 col-m-12 sales">
+                  <div
+                    id="chartContainer"
+                    style="height: 400px; width: 100%"
+                  ></div>
+                </div>
+                <div class="col-12 col-s-12 col-m-12 sales_week"></div>
+              </div>
+            </div>
+          </div>
             </div>
         </div>
-        <script>
-            
-        </script>
     </section>
+    <script src = "/code/angular.min.js"></script>
+    <script src = "/code/global.js"></script>
+    <script src = "/code/chart.js"></script>
 </body>
 
 </html>

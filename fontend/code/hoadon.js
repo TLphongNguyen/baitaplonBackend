@@ -39,10 +39,10 @@ app.controller("hoadonCtrl", function($scope,$http){
         const priceProduct =  selectedProduct.priceproduct
         const priceShip = document.querySelector(".price-2").textContent
         var quantity = document.querySelector(".quantity-products").textContent
-        console.log(typeof  parseInt(priceShip));
         pricePay = ( (priceProduct * parseInt(quantity)) + parseInt(priceShip))
         $scope.soluong = parseInt(quantity)
         $scope.dongia = pricePay    
+        console.log(pricePay);
         return pricePay
     })
     // Gán thông tin sản phẩm cho $scope để hiển thị trong HTML
@@ -117,6 +117,7 @@ app.controller("hoadonCtrl", function($scope,$http){
             }
         })
     })
+    
     $scope.getDataHoaDon();
     $scope.showConfirmation = false;
     $scope.deleteHoaDon = (() => {
@@ -162,6 +163,8 @@ $scope.cancelDelete = () => {
     // Hủy xác nhận và ẩn xác nhận
     $scope.showConfirmation = false;
 };
+
+
         
 
     

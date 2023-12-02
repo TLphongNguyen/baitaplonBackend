@@ -12,5 +12,7 @@ namespace DataAccessLayer.interfaces
         HoaDonNhapModel GetDatabyID(string id);
         bool create(HoaDonNhapModel hoadon);
         bool update(HoaDonNhapModel hoadon);
+        List<HoaDonNhapModel> GetALl();
+        List<HoaDonNhapModel> Search(int pageIndex, int pageSize, out long total, int ma_npp);
     }
 }

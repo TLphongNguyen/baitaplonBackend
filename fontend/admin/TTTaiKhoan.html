@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../img/logoCPT.png">
     <link rel="stylesheet" href="../css/style_mainQT.css">
-    <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
-    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="/code/jquery-3.6.0.min.js"></script>
     <script src="/code/click.js"></script>
     <title>Quản lý cửa hàng bán máy tính NCC</title>
 </head>
 
-<body>
+<body ng-app="app"  ng-controller="AppController">
     <section class="header">
         <a href="javascript:void(0);" class="icon" onclick="openBTN()">
             <i class="fas fa-bars"></i>
@@ -69,19 +67,19 @@
                                 <label for="name">Tên nhân viên:</label>
                             </div>
                             <div class="col-10 col-s-9 padding-box margin-bot">
-                                <span id="tennv">Nguyễn Văn A</span>
+                                <span id="tennv">{{user.hoTen}}</span>
                             </div>
                             <div class="col-2 col-s-3 padding-box margin-bot">
                                 <label for="name">Email:</label>
                             </div>
                             <div class="col-10 col-s-9 padding-box margin-bot">
-                                <span id="emailnv">vana@gmail.com</span>
+                                <span id="emailnv">{{user.email}}</span>
                             </div>
                             <div class="col-2 col-s-3 padding-box margin-bot">
                                 <label for="name">Số điện thoại:</label>
                             </div>
                             <div class="col-10 col-s-9 padding-box margin-bot">
-                                <span id="sdtnv">0123456789</span>
+                                <span id="sdtnv">{{user.soDienThoai}}</span>
                             </div>
                             <div class="col-2 col-s-3 padding-box margin-bot">
                                 <label for="name">Quyền:</label>
@@ -100,9 +98,9 @@
                 </div>
             </div>
         </div>
-        <script>
-            
-        </script>
+        <script src = "/code/angular.min.js"></script>
+        <script src = "/code/global.js"></script>
+        <script src = "/code/cart.js"></script>
     </section>
 </body>
 

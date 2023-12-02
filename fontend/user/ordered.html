@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>payload</title>
-    <link rel="stylesheet" href="/base.css">
-    <link rel="stylesheet" href="/grid.css">
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="/cart.css">
-    <link rel="stylesheet" href="/css/payload.css">
-    <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/base.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/grid.css">
+        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="stylesheet" href="/css/cart.css">
+        <link rel="stylesheet" href="/css/ordered.css">
+        <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
+        <script src="https://kit.fontawesome.com/e06076012c.js" crossorigin="anonymous"></script>
+        <script src="/code/jquery-3.6.0.min.js"></script>
+        <title>Shoppe</title>
+    </head>
 </head>
-<body ng-app="AppBanHang"  ng-controller="hoadonCtrl">
+<body ng-app = "AppBanHang" ng-controller = "hoadonCtrl">
     <header class="header">
         <div class="grid wide ">
             <div class="header__navbar hide-on-mobile-tablet">
@@ -127,7 +133,7 @@
                                 <a href="">Địa chỉ của tôi</a>
                             </li>
                             <li class="header__navbar-user-item">
-                                <a href="/code/ordered.html">đơn mua</a>
+                                <a href="">đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item">
                                 <a href="/admin/login.html">Đăng xuất</a>
@@ -140,7 +146,7 @@
         </div>
     </header>
     <div class="header-bottom grid wide">
-        <div class="header-bottom__lef" >
+        <div class="header-bottom__lef">
             <div class="header-logo hide-on-tablet">
                 <a href="https://shopee.vn/" class="header-logo-link">
                     <svg viewBox="0 0 192 65" class="header-logo-img">
@@ -153,166 +159,98 @@
                     </svg>
                 </a>
             </div>
-            <span class="header-cart" style = "width: 122px;">
-                Thanh Toán
+            <span class="header-cart">
+                Đơn Mua
             </span>
         </div>
-    </div>
-    <div class="body-payload">
-
-        <div class="location-ship grid wide" >
-            <div class="vtrWey"></div>
-            <div class="location-gwap">
-                <div class="location-title">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Địa Chỉ Nhận Hàng</span>
-                </div>
-                <div class="location-info">
-                    <p class="location-name">
-                        {{user.hoTen}}
-                    </p>
-                    <p class="location-phone">
-                       {{ user.soDienThoai}}
-                    </p>
-                    <div class="location-address">
-                       {{user.diaChi}}
-                    </div>
-                    <span class="defau">
-                        Mặc định
-                    </span>
-                </div>
-    
-            </div>
+        <div class="header-bottom__right">
+            <input type="text" placeholder="Tìm sản phẩm, thương hiệu và tên shop" class="header-input">
+            <button class="header-button">
+                <div class="icon-search"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </button>
         </div>
-        <ul class="list-products__payload grid wide">
-            <li class="product__payload">
-                <div class="product__payload-header">
-                    <div class="header-left">
-                        <span class="product-h1">
-                            Sản phẩm
-                        </span>
-                    </div>
-                    <div class="header-right">
-                        <div class="header-right__item">
-                            Đơn giá
-                        </div>
-                        <div class="header-right__item">
-                            Số lượng
-                        </div>
-                        <div class="header-right__item">
-                            Thành tiền
-                        </div>
-                    </div>
-                </div>
-                <div class="gwap-shop">
-                    <div class="cart-like" style = "width: 82px;">
-                        Yêu thích+
-                    </div>
-                    <span class="name-shop">
-                        {{selectedProduct.namecategory}}
-                    </span>
-
-                </div>
-                <div class="product-info">
-                    <div class="info-left">
-                        <div class="gwap-img">
-                            <img src="{{selectedProduct.imgproduct}}" alt="" class="img-src">
-                        </div>
-                        <div class="name-product">
-                            {{selectedProduct.nameproduct}}
+    </div>
+    <div class="body-cart">
+        <div class="grid wide">
+            <ul  class="cart-list">
+                <div ng-repeat="hoaDon in listHoaDon" class="gwap-info__product">
+                    <li ng-repeat="chitiet in hoaDon.list_json_chitiethoadon" class="cart-item">
+                        <div ng-if="hoaDon.productInfo" class="cart-item">
+                            <div class="cart-shop">
+                                <div class="checkboxGwap">
     
-                        </div>
-
-                    </div>
-                    <div class="info-right">
-                        
-                        <div class="price-products p-style">
-                            ${{selectedProduct.priceproduct}}
-                        </div>
-                        <div class="quantity-products p-style">
-                            1
-                        </div>
-                        <div class="sum-price p-style">
-                            ${{selectedProduct.priceproduct}}
-                        </div>
-                    </div>
-                </div>
-                <div class="voucher-shop">
-                    <div class="div"></div>
-                    <div class="voucher-center">
-                        <i class="fa-solid fa-ticket"></i>
-                        <div class = "voucher-text">
-                            Voucher của Shop
-
-                        </div>
-
-                    </div>
-                    <div class="select-voucher">
-                        Chọn Voucher
-                    </div>
-                </div>
-                <div class="info-tran">
-                    <div class="info-tran__left">
-                        <span class="mess-shop">Lời nhắn :</span>
-                        <input type="text" placeholder="Lưu ý cho người bán" class="input-shop">
-                    </div>
-                    <div class="info-tran__right">
-                        <div class="unit-tran">   
-                            Đơn vị vận chuyển:
-                        </div>
-                        <div class="speed-tran">
-                            Nhanh
-                        </div>
-                        <div class="price-tran">
-                            đ24000
-                        </div>
-                    </div>
-                </div>
-                <div class="pay-gwap">
-                    <div class="header-pay__gwap">
-                        <div class="sum-price__pay">Phương thức thanh toán</div>
-                        <div class="KoRB7y">Thanh toán khi nhận hàng</div>
-                        <button class="btn-change">Thay đổi</button>
-                    </div>
-                </div>
-                <div class="price-gwap" aria-live="polite">
-                    <div class="gwap-form">
-                        <h2 class="sum-price__pay">Tổng thanh toán:</h2>
-                        <div class="price-group">
-                            <div class="group1">
-                                <h3 class="sum-price__product">Tổng tiền hàng</h3>
-                                <div class="price-1">₫{{selectedProduct.priceproduct}}</div>
-                                
-                            </div>
-                            <div class="group1">
-        
-                                <h3 class="sum-price__product">Phí vận chuyển</h3>
-                                <div class="price-2">
+                                    <input type="checkbox" name="" id="check-box">
+                                </div>
+                                <div class="cart-like">
+                                    Yêu thích+
+                                </div>
+                                <span class="name-shop">
+                                    {{hoaDon.productInfo.namecategory}}
                                     
-                                     24000
+                                </span>
+                                <div class="cart-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
                                 </div>
                             </div>
-                            <div class="group1">
-        
-                                <h3 class="sum-price__product">Tổng thanh toán:</h3>
-                                <div class="price-3"><span>₫</span>{{priceAll()}}</div>
-                                
-                            </div>
-
-                    </div>
-
-                    </div>
-                    <div class="price-bottom">
-                        <div class="dieukhoan">
-                            <div class="dieukhoantext">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <a href="https://help.shopee.vn/portal/article/77242" target="_blank" rel="noopener noreferrer">Điều khoản Shopee</a>
                         </div>
-                    </div>
-                    <button ng-click = "createHoaDon()" class="btn-sumip">Đặt hàng</button>
-                    
+                        <div class="cart-prodcut">
+                            <div class="product-item" >
+                                <div class="checkboxGwap">
+        
+                                    <input type="checkbox" name="" id="check-box check-tf">
+                                </div>
+                                <div class="product-gwap">
+                                    <div class="product-img">
+                                        <img src="{{hoaDon.productInfo.imgproduct}}" alt="">
+                                    </div>
+                                    <div class = "gwap-title">
+                                        <span class="product-title">
+                                            {{hoaDon.productInfo.nameproduct}}
+                                        </span>
+                                        <img src="/img/sale.png" alt="" class="img-sale">
+        
+                                    </div>
+                                </div>
+                                <div class="product-category">
+                                    <span class="category">
+                                        Phân loại hàng
+                                        <i class="fa-solid fa-caret-down"></i>
+                                    </span>
+                                    <span class="category-new">
+                                        {{hoaDon.productInfo.namecategory}}
+                                    </span>
+                                </div>
+                                
+                                <div class="gwap-number">
+                                    <div class="quantity">
+                                        Số Lượng : 
+                                      {{chitiet.soluong}}
+                                        
+                                    </div>
+                                </div>
+                                <div class="into-money">
+                                    Giá Tiền : 
+                                    <span class = "price-now">{{chitiet.dongia}}</span>
+                                    Đ
+                                </div>
+                                <div class="delete-search">
+                                   
+                                    <a class="link-pay">
+                                        <button ng-click="confirmDelete()" class="buy-now">
+                                            Hủy đơn
+                                        </button>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </li>
+
                 </div>
-            
-            </li>
-        </ul>
+            </ul>
+
+        </div>
     </div>
     <footer class="footer">
         <div class="grid wide  ">
@@ -412,7 +350,7 @@
         </div>
     </footer>
 </body>
-<script src = "angular.min.js"></script>
-<script src = "global.js"></script>
+<script src = "/code/angular.min.js"></script>
+<script src = "/code/global.js"></script>
 <script src = "/code/hoadon.js"></script>
-</html>l
+</html>

@@ -2,9 +2,8 @@ var app = angular.module('AppBanHang', []);
 app.controller("ChitietCtrl", function ($scope, $http) {
     $scope.sanpham = '';  
     $scope.user = '';
+    $scope.quantity = '';
     
-    var idLogin = localStorage.getItem('idLogin');
-    console.log(idLogin);
     var accountName = 'user_' + idLogin;	 
     $scope.LoadSanPhambyID = function () { 
         var key = 'id';
@@ -17,6 +16,36 @@ app.controller("ChitietCtrl", function ($scope, $http) {
 			// makeScript('js/main.js')
         });
     };
+    
+        
+        const quantity = document.querySelector(".quantity-number")
+
+        let quantitydefaut = 1;
+
+        $scope.btnTang= () => {
+            quantitydefaut += 1
+            quantity.value = quantitydefaut    ;
+            $scope.quantity = quantity.value;
+            console.log($scope.quantity);
+
+        
+        }
+        $scope.btnGiam = () => {
+            if(quantity.value > 1){
+                
+                quantitydefaut -= 1
+                quantity.value = quantitydefaut;
+                $scope.quantity = quantity.value;
+                console.log($scope.quantity);
+                
+                
+            }
+        }
+    $scope.changeQuantity = function () {
+        console.log(quantityProduct);
+        $scope.quantity = quantity.value;
+    }
+    var idLogin = localStorage.getItem('idLogin');
     function getCartData() {
         var gioHangCuaTaiKhoan = localStorage.getItem('giohang_' + accountName);
     
@@ -50,10 +79,11 @@ app.controller("ChitietCtrl", function ($scope, $http) {
                 priceproduct: $scope.sanpham.priceproduct,
                 imgproduct : $scope.sanpham.imgproduct,
                 namecategory : $scope.sanpham.namecategory,
-                soLuong: 1
+                soLuong: $scope.quantity,
             });
+            
         } else {
-            gioHangCuaTaiKhoan[index].soLuong++;
+            gioHangCuaTaiKhoan[index].soLuong += $scope.quantity;
         }
 
         localStorage.setItem('giohang_' + accountName, JSON.stringify(gioHangCuaTaiKhoan));
@@ -123,18 +153,17 @@ app.controller("ChitietCtrl", function ($scope, $http) {
             priceproduct: product.priceproduct,
             imgproduct : product.imgproduct,
             namecategory : product.namecategory,
-            soLuong : product.soLuong
+            soLuong : product.soLuong,
         };
         
 
         // Lưu thông tin sản phẩm vào Local Storage
         window.localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
         
-        // Hiển thị thông báo hoặc chuyển hướng đến trang thanh toán, tùy thuộc vào yêu cầu của bạn
-        console.log ('Mua ngay sản phẩm:', product);
+        console.log ( product);
     };
     $scope.clickLogo = function() {
-        window.location.href = "/index.html?id=" +idLogin;
+        window.location.href = "/user/index.html?id=" +idLogin;
         console.log(idLogin);
     }
     

@@ -57,7 +57,6 @@ app.controller("HomeCtrl", function ($scope, $http) {
     $scope.pageChange = ((valueinput)=>{
         // Thực hiện các hành động khác dựa trên giá trị valueinput
         $scope.page = valueinput;
-        console.log($scope.page);
         $scope.RenderProduct()
     })
     $scope.loadClothes = function() {
@@ -116,11 +115,11 @@ app.controller("HomeCtrl", function ($scope, $http) {
     })
     $scope.electronic();
     $scope.loadUser = (()=> {
-        var key = 'id';
-        var value = window.location.search.substring(window.location.search.indexOf(key)+key.length+1)
+        
+        var idLogin = localStorage.getItem('idLogin');
         $http({
             method : 'GET',
-            url: current_url1 + '/api/Customer/get-by-id/' +value,
+            url: current_url1 + '/api/Customer/get-by-id/' +idLogin,
 
         })
         .then((response) => {
@@ -195,5 +194,6 @@ app.controller("HomeCtrl", function ($scope, $http) {
             
         })
     })
+    
     
 });

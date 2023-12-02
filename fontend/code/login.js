@@ -26,6 +26,8 @@ app.controller('LoginCtrl', function ($scope, $http) {
                     case 1:
                         if ($scope.dataUser.idLogin) {
                             window.location.href = `/admin/TongQuan.html?id=${$scope.dataUser.idLogin}`;
+                            localStorage.setItem('idLogin', $scope.dataUser.idLogin);
+
                         } else {
                             console.log('Không có ID để chuyển hướng.');
                         }
@@ -33,7 +35,7 @@ app.controller('LoginCtrl', function ($scope, $http) {
                     case 2:
                         if ($scope.dataUser.idLogin) {
                             // Đẩy thông tin vào local storage
-                            window.location.href = `/index.html?id=${$scope.dataUser.idLogin}`;
+                            window.location.href = `/user/index.html?id=${$scope.dataUser.idLogin}`;
                             localStorage.setItem('idLogin', $scope.dataUser.idLogin);
                         } else {
                             console.log("khong co id");

@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/base.css">
     <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/main.css">
-    <link rel="stylesheet" href="/responsive.css">
-    <link rel="stylesheet" href="/grid.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/grid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
 
@@ -135,7 +135,7 @@
                                     <a href="">Địa chỉ của tôi</a>
                                 </li>
                                 <li class="header__navbar-user-item">
-                                    <a href="/code/ordered.html">đơn mua</a>
+                                    <a href="/user/ordered.html">đơn mua</a>
                                 </li>
                                 <li class="header__navbar-user-item">
                                     <a href="/admin/login.html">Đăng xuất</a>
@@ -162,46 +162,49 @@
                     </div>
                 <input type="checkbox" hidden id="mobile-search-checkbox" class = "header-search-checkbox">
 
-                    <div class="header-search">
-                        <div class="header-search-input-wrap">
-                            <input type="text" class="header-search-input" placeholder="Nhập để tìm kiếm sản phẩm">
-                            <div class="header-search-history">
-                                <h3 class="header-search-history-heading">Lịch sử tìm kiếm</h3>
-                                <ul class="header-search-history-list">
-                                    <div class="header-search-history-item">
-                                        <a href="">uchiha itachi</a>
-                                    </div>
-                                    <div class="header-search-history-item">
-                                        <a href="">uchiha obito</a>
-                                    </div>
-                                    <div class="header-search-history-item">
-                                        <a href="">uchiha sasuke</a>
-                                    </div>
-                                </ul>
-                            </div>
-                            
-
-                        </div>
-                        <div class="header-search-select">
-                            <span class="header-search-select-label">Trong shop</span>
-                            <i class="header-search-select-icon fa-solid fa-chevron-down"></i>
-                            <ul class="header-search-option">
-                                <li class="header-search-option-item header-search-option-item-active">
-                                    <span>Trong shop</span>
-                                    <i class="fa-solid fa-check"></i>
-                                </li>
-                                <li class="header-search-option-item">
-                                    <span>Ngoài shop</span>
-                                    <i class="fa-solid fa-check"></i>
-                                </li>
+                <div class="header-search">
+                    <div class="header-search-input-wrap">
+                        <input type="text" class="header-search-input" ng-model="nameSearch" placeholder="Nhập để tìm kiếm sản phẩm">
+                        <div class="header-search-history">
+                            <h3 class="header-search-history-heading">Lịch sử tìm kiếm</h3>
+                            <ul class="header-search-history-list">
+                                <div class="header-search-history-item">
+                                    <a href="">uchiha itachi</a>
+                                </div>
+                                <div class="header-search-history-item">
+                                    <a href="">uchiha obito</a>
+                                </div>
+                                <div class="header-search-history-item">
+                                    <a href="">uchiha sasuke</a>
+                                </div>
                             </ul>
                         </div>
-                        <button class="header-search-btn">
-                            <i class=" header-search-btn-icon fa-solid fa-magnifying-glass"></i>
-                        </button>
-
+                        
 
                     </div>
+                    <div class="header-search-select">
+                        <span class="header-search-select-label">Trong shop</span>
+                        <i class="header-search-select-icon fa-solid fa-chevron-down"></i>
+                        <ul class="header-search-option">
+                            <li class="header-search-option-item header-search-option-item-active">
+                                <span>Trong shop</span>
+                                <i class="fa-solid fa-check"></i>
+                            </li>
+                            <li class="header-search-option-item">
+                                <span>Ngoài shop</span>
+                                <i class="fa-solid fa-check"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="/user/searchproduct.html" class="link-search">
+                        
+                    </a>
+                    <button class="header-search-btn" ng-click="RenderProduct()">
+                        <i class=" header-search-btn-icon fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+
+                </div>
                     <div class="header-cart">
                         <div class="header-wrap">
                             <i class="header-cart-icon fa-solid fa-cart-shopping"></i>
@@ -238,7 +241,7 @@
                                     
                                     
                                 </ul>
-                                <a href="/code/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                                <a href="/user/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
                             </div>
 
                         </div>
@@ -378,7 +381,7 @@
                         <div class="home-product">
                             <div class="row sm-gutter list-product">
                                 <div  ng-repeat="x in listProduct" class="col l-2-4 m-4 c-6">
-                                    <a href = "/code/product.html?id={{x.iDproduct}}" class="home-product-item">
+                                    <a href = "/user/product.html?id={{x.iDproduct}}" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url({{x.imgproduct}})" >
                                         </div>
                                         <h4 class="home-product-item__name">{{x.nameproduct}}</h4>
@@ -484,7 +487,7 @@
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
                                     <li ng-repeat="y in clothes" class=" product-category__item col l-2-4 m-4 c-6">
-                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                        <a href = "/user/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
                                             <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
@@ -541,7 +544,7 @@
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
                                     <li ng-repeat="y in Footwear" class=" product-category__item col l-2-4 m-4 c-6">
-                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                        <a href = "/user/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
                                             <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
@@ -598,7 +601,7 @@
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
                                     <li ng-repeat="y in Houseware" class=" product-category__item col l-2-4 m-4 c-6">
-                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                        <a href = "/user/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
                                             <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
@@ -655,7 +658,7 @@
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
                                     <li ng-repeat="y in babies" class=" product-category__item col l-2-4 m-4 c-6">
-                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                        <a href = "/user/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
                                             <h4 class="home-product-item__name">{{y.nameproduct}}</h4>
@@ -712,7 +715,7 @@
                             <div class="product-category__body">
                                 <ul class="row sm-gutter product-category__list">
                                     <li ng-repeat="y in electronic" class=" product-category__item col l-2-4 m-4 c-6">
-                                        <a href = "/code/product.html?id={{y.iDproduct}}" class="home-product-item">
+                                        <a href = "/user/product.html?id={{y.iDproduct}}" class="home-product-item">
                                             <div class="home-product-item__img" style="background-image: url({{y.imgproduct}})" >
                                             </div>
                                             <h4 class="home-product-item__name">{{y.nameproduct}}</h4>

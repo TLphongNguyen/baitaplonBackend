@@ -28,5 +28,14 @@ namespace BusinessLogicLayer
         {
             return _res.update(model);
         }
+
+        public List<HoaDonNhapModel> Search(int pageIndex, int pageSize, out long total, int ma_npp)
+        {
+            return _res.Search(pageIndex, pageSize, out total, ma_npp);   
+        }
+        public List<HoaDonNhapModel> GetALl()
+        {
+            return _res.GetALl();
+        }
     }
 }

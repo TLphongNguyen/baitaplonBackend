@@ -50,7 +50,7 @@ namespace DataAccessLayer
         }
 
 
-        public List<thongkekhach> Search(int pageIndex, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao)
+        public List<HoadonModel> Search(int pageIndex, int pageSize, out long total, string ten_khach)
         {
             string msgError = "";
             total = 0;
@@ -59,14 +59,13 @@ namespace DataAccessLayer
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_thong_ke_khach",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
-                    "@ten_khach", ten_khach,
-                    "@fr_NgayTao", fr_NgayTao,
-                    "@to_NgayTao", to_NgayTao
+                    "@ten_khach", ten_khach
+                    
                      );
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
-                return dt.ConvertTo<thongkekhach>().ToList();
+                return dt.ConvertTo<HoadonModel>().ToList();
             }
             catch (Exception ex)
             {

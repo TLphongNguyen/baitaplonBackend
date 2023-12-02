@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>product</title>
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="/base.css">
-    <link rel="stylesheet" href="/grid.css">
-    <link rel="stylesheet" href="/responsive.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
-    <link rel="stylesheet" href="/code/product.css">
+    <link rel="stylesheet" href="/css/product.css">
 
     
 </head>
@@ -130,7 +130,7 @@
                                 <a href="">Địa chỉ của tôi</a>
                             </li>
                             <li class="header__navbar-user-item">
-                                <a href="/code/ordered.html">đơn mua</a>
+                                <a href="/user/ordered.html">đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item">
                                 <a href="/admin/login.html">Đăng xuất</a>
@@ -234,7 +234,7 @@
                                 
                                 
                             </ul>
-                            <a href="/code/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                            <a href="/user/cart.html" class="header-cart-view-cart btn btn--primary">Xem giỏ hàng</a>
                         </div>
 
                     </div>
@@ -355,14 +355,12 @@
                                 Số lượng
                             </div>
                             <div class="quantity">
-                                <button class="btn-giam">
+                                <button class="btn-giam" ng-click ="btnGiam()">
                                     <i class="fa-solid fa-minus"></i>
 
                                 </button>
-                                <span class="quantity-number">
-                                    1
-                                </span>
-                                <button class="btn-tang">
+                                <input type="text" ng-model = "quantity" ng-value = "1" class = "quantity-number" ng-change = "changeQuantity()">
+                                <button class="btn-tang" ng-click = "btnTang()">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
@@ -376,7 +374,7 @@
                                 <i class="fa-solid fa-cart-plus"></i>
                                 thêm vào giỏ hàng
                             </button>
-                            <a href="/code/cart.html" class="link-cart">
+                            <a href="/user/cart.html" class="link-cart">
                                 <button ng-click = "ThemVaoGioHang()" class="buy-now">
                                     Mua ngay
                                 </button>

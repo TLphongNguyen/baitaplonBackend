@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="/base.css">
-    <link rel="stylesheet" href="/grid.css">
-    <link rel="stylesheet" href="/responsive.css">
-    <link rel="stylesheet" href="/cart.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/font/fontawesome-free-6.2.0-web/css/all.min.css">
 </head>
 <body ng-app="AppBanHang"  ng-controller="ChitietCtrl">
@@ -127,7 +127,7 @@
                                 <a href="">Địa chỉ của tôi</a>
                             </li>
                             <li class="header__navbar-user-item">
-                                <a href="/code/ordered.html">đơn mua</a>
+                                <a href="/user/ordered.html">đơn mua</a>
                             </li>
                             <li class="header__navbar-user-item">
                                 <a href="/admin/login.html">Đăng xuất</a>
@@ -289,7 +289,7 @@
                                 <span ng-click="XoaKhoiGioHang(item.iDproduct)" class="delete-cart">
                                     Xóa
                                 </span>
-                                <a href="/code/payload.html" class="link-pay">
+                                <a href="/user/payload.html" class="link-pay">
                                     <button ng-click="buyNow(item)" class="buy-now">
                                         Mua ngay
                                     </button>
@@ -404,5 +404,5 @@
 </body>
 <script src = "/code/angular.min.js"></script>
 <script src = "/code/global.js"></script>
-<script src = "chitietproduct.js"></script>
+<script src = "/code/chitietproduct.js"></script>
 </html>

@@ -204,6 +204,8 @@ body {
     text-align: center;
     cursor: text;
     line-height: 32px;
+    outline: none;
+    border: none;
 }
 .product-quantity {
     font-size: 14px;
